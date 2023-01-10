@@ -1,30 +1,34 @@
-Selecting from Many Options with Switch Statements
+Adding a Default Option in Switch Statements
 
-If you have many options to choose from, use a switch statement. A switch statement tests a value and can have many case statements which define various possible values. Statements are executed from the first matched case value until a break is encountered.
+In a switch statement you may not be able to specify all possible values as case statements. Instead, you can add the default statement which will be executed if no matching case statements are found. Think of it like the final else statement in an if/else chain.
 
-Here is an example of a switch statement:
+A default statement should be the last case.
 
-switch (lowercaseLetter) {
-case "a":
-console.log("A");
+switch (num) {
+case value1:
+statement1;
 break;
-case "b":
-console.log("B");
+case value2:
+statement2;
+break;
+...
+default:
+defaultStatement;
 break;
 }
 
-case values are tested with strict equality (===). The break tells JavaScript to stop executing statements. If the break is omitted, the next statement will be executed.
-
-Write a switch statement which tests val and sets answer for the following conditions:
-1 - alpha
-2 - beta
-3 - gamma
-4 - delta
+Write a switch statement to set answer for the following conditions:
+a - apple
+b - bird
+c - cat
+default - stuff
 Tests
 
-Waiting: caseInSwitch(1) should have a value of the string alpha
-Waiting: caseInSwitch(2) should have a value of the string beta
-Waiting: caseInSwitch(3) should have a value of the string gamma
-Waiting: caseInSwitch(4) should have a value of the string delta
+Waiting: switchOfStuff("a") should return the string apple
+Waiting: switchOfStuff("b") should return the string bird
+Waiting: switchOfStuff("c") should return the string cat
+Waiting: switchOfStuff("d") should return the string stuff
+Waiting: switchOfStuff(4) should return the string stuff
 Waiting: You should not use any if or else statements
+Waiting: You should use a default statement
 Waiting: You should have at least 3 break statements

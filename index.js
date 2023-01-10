@@ -1,27 +1,26 @@
-function caseInSwitch(val) {
+function switchOfStuff(val) {
   let answer = "";
   // Only change code below this line
 
-switch (val) {
-  case 1:
-    return "alpha";
-    break;
-  case 2:
-    return "beta";
-    break;
+  switch(val) {
+    case "a":
+      return "apple"
+      break;
+    case "b":
+      return "bird"
+      break;
 
-case 3:
-    return "gamma";
-    break;
+    case "c":
+      return "cat"
+      break;
 
-case 4:
-    return "delta";
-    break;
-}
-
+    default:
+      return "stuff"
+      break;
+  }
 
   // Only change code above this line
   return answer;
 }
 
-console.log(caseInSwitch(2));
+console.log(switchOfStuff(4));
