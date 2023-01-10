@@ -1,36 +1,38 @@
-Multiple Identical Options in Switch Statements
+Replacing If Else Chains with Switch
 
-If the break statement is omitted from a switch statement's case, the following case statement(s) are executed until a break is encountered. If you have multiple inputs with the same output, you can represent them in a switch statement like this:
+If you have many options to choose from, a switch statement can be easier to write than many chained if/else if statements. The following:
 
-let result = "";
-switch (val) {
-case 1:
-case 2:
-case 3:
-result = "1, 2, or 3";
-break;
-case 4:
-result = "4 alone";
+if (val === 1) {
+answer = "a";
+} else if (val === 2) {
+answer = "b";
+} else {
+answer = "c";
 }
 
-Cases for 1, 2, and 3 will all produce the same result.
+can be replaced with:
 
-Write a switch statement to set answer for the following ranges:
-1-3 - Low
-4-6 - Mid
-7-9 - High
+switch (val) {
+case 1:
+answer = "a";
+break;
+case 2:
+answer = "b";
+break;
+default:
+answer = "c";
+}
 
-Note: You will need to have a case statement for each number in the range.
+Change the chained if/else if statements into a switch statement.
 Tests
 
-Waiting: sequentialSizes(1) should return the string Low
-Waiting: sequentialSizes(2) should return the string Low
-Waiting: sequentialSizes(3) should return the string Low
-Waiting: sequentialSizes(4) should return the string Mid
-Waiting: sequentialSizes(5) should return the string Mid
-Waiting: sequentialSizes(6) should return the string Mid
-Waiting: sequentialSizes(7) should return the string High
-Waiting: sequentialSizes(8) should return the string High
-Waiting: sequentialSizes(9) should return the string High
-Waiting: You should not use any if or else statements
-Waiting: You should have nine case statements
+Waiting: You should not use any else statements anywhere in the editor
+Waiting: You should not use any if statements anywhere in the editor
+Waiting: You should have at least four break statements
+Waiting: chainToSwitch("bob") should be the string Marley
+Waiting: chainToSwitch(42) should be the string The Answer
+Waiting: chainToSwitch(1) should be the string There is no #1
+Waiting: chainToSwitch(99) should be the string Missed me by this much!
+Waiting: chainToSwitch(7) should be the string Ate Nine
+Waiting: chainToSwitch("John") should be "" (empty string)
+Waiting: chainToSwitch(156) should be "" (empty string)
