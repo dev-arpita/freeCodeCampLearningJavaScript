@@ -1,21 +1,24 @@
-function switchOfStuff(val) {
+function sequentialSizes(val) {
   let answer = "";
   // Only change code below this line
 
-  switch(val) {
-    case "a":
-      return "apple"
-      break;
-    case "b":
-      return "bird"
-      break;
-
-    case "c":
-      return "cat"
+  switch( val ) {
+    case 1:
+    case 2:
+    case 3:
+      return "Low"
       break;
 
-    default:
-      return "stuff"
+    case 4:
+    case 5:
+    case 6:
+      return "Mid"
+      break;
+
+    case 7:
+    case 8:
+    case 9:
+      return "High"
       break;
   }
 
@@ -23,4 +26,4 @@ function switchOfStuff(val) {
   return answer;
 }
 
-console.log(switchOfStuff(4));
+sequentialSizes(1);

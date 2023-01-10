@@ -1,34 +1,36 @@
-Adding a Default Option in Switch Statements
+Multiple Identical Options in Switch Statements
 
-In a switch statement you may not be able to specify all possible values as case statements. Instead, you can add the default statement which will be executed if no matching case statements are found. Think of it like the final else statement in an if/else chain.
+If the break statement is omitted from a switch statement's case, the following case statement(s) are executed until a break is encountered. If you have multiple inputs with the same output, you can represent them in a switch statement like this:
 
-A default statement should be the last case.
-
-switch (num) {
-case value1:
-statement1;
+let result = "";
+switch (val) {
+case 1:
+case 2:
+case 3:
+result = "1, 2, or 3";
 break;
-case value2:
-statement2;
-break;
-...
-default:
-defaultStatement;
-break;
+case 4:
+result = "4 alone";
 }
 
-Write a switch statement to set answer for the following conditions:
-a - apple
-b - bird
-c - cat
-default - stuff
+Cases for 1, 2, and 3 will all produce the same result.
+
+Write a switch statement to set answer for the following ranges:
+1-3 - Low
+4-6 - Mid
+7-9 - High
+
+Note: You will need to have a case statement for each number in the range.
 Tests
 
-Waiting: switchOfStuff("a") should return the string apple
-Waiting: switchOfStuff("b") should return the string bird
-Waiting: switchOfStuff("c") should return the string cat
-Waiting: switchOfStuff("d") should return the string stuff
-Waiting: switchOfStuff(4) should return the string stuff
+Waiting: sequentialSizes(1) should return the string Low
+Waiting: sequentialSizes(2) should return the string Low
+Waiting: sequentialSizes(3) should return the string Low
+Waiting: sequentialSizes(4) should return the string Mid
+Waiting: sequentialSizes(5) should return the string Mid
+Waiting: sequentialSizes(6) should return the string Mid
+Waiting: sequentialSizes(7) should return the string High
+Waiting: sequentialSizes(8) should return the string High
+Waiting: sequentialSizes(9) should return the string High
 Waiting: You should not use any if or else statements
-Waiting: You should use a default statement
-Waiting: You should have at least 3 break statements
+Waiting: You should have nine case statements
