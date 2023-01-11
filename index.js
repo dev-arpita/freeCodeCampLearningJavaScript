@@ -1,42 +1,38 @@
-function chainToSwitch(val) {
-  let answer = "";
+let count = 0;
+
+function cc(card) {
   // Only change code below this line
 
-  // if (val === "bob") {
-  //   answer = "Marley";
-  // } else if (val === 42) {
-  //   answer = "The Answer";
-  // } else if (val === 1) {
-  //   answer = "There is no #1";
-  // } else if (val === 99) {
-  //   answer = "Missed me by this much!";
-  // } else if (val === 7) {
-  //   answer = "Ate Nine";
-  // }
+  switch(card){
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+   count ++
+      break;
 
-switch (val) {
-  case "bob":
-    answer = "Marley";
-    break;
-  case 42:
-    answer = "The Answer";
-    break;
-
-   case 1:
-    answer = "There is no #1";
-    break;
-
-  case 99:
-    answer = "Missed me by this much!";
-    break;
-
-  case 7:
-    answer = "Ate Nine";
-    break;
+    case 10:
+    case 'J':
+    case 'Q':
+    case 'K':
+    case 'A':
+     count --
+      break;
   }
-
+if(count > 0){
+  return count + " Bet"
+}
+else{
+  return count + " Hold"
+}
   // Only change code above this line
-  return answer;
 }
 
-chainToSwitch(7);
+function countCard(card) {
+  if (card <= 6)
+    count++;
+  else if (card >="10")
+    count--;
+  return count + (count > 0 ? ' Bet' : ' Hold');
+}
