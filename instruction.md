@@ -1,28 +1,29 @@
-Counting Cards
+**Accessing Object Properties with Variables**
 
-In the casino game Blackjack, a player can determine whether they have an advantage on the next hand over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called Card Counting.
+Another use of bracket notation on objects is to access a property which is stored as the value of a variable. This can be very useful for iterating through an object's properties or when accessing a lookup table.
 
-Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high. When the count is zero or negative, the player should bet low.
-Count Change	Cards
-+1	2, 3, 4, 5, 6
-0	7, 8, 9
--1	10, 'J', 'Q', 'K', 'A'
+Here is an example of using a variable to access a property:
 
-You will write a card counting function. It will receive a card parameter, which can be a number or a string, and increment or decrement the global count variable according to the card's value (see table). The function will then return a string with the current count and the string Bet if the count is positive, or Hold if the count is zero or negative. The current count and the player's decision (Bet or Hold) should be separated by a single space.
+const dogs = {
+Fido: "Mutt",
+Hunter: "Doberman",
+Snoopie: "Beagle"
+};
 
-Example Outputs: -3 Hold or 5 Bet
+const myDog = "Hunter";
+const myBreed = dogs[myDog];
+console.log(myBreed);
 
-Hint
-Do NOT reset count to 0 when value is 7, 8, or 9.
-Do NOT return an array.
-Do NOT include quotes (single or double) in the output.
+The string Doberman would be displayed in the console.
+
+Note that we do not use quotes around the variable name when using it to access the property because we are using the value of the variable, not the name.
+
+Set the playerNumber variable to 16. Then, use the variable to look up the player's name and assign it to player.
 Tests
 
-Waiting: Your function should return a value for count and the text (Bet or Hold) with one space character between them.
-Waiting: Cards Sequence 2, 3, 4, 5, 6 should return the string 5 Bet
-Waiting: Cards Sequence 7, 8, 9 should return the string 0 Hold
-Waiting: Cards Sequence 10, J, Q, K, A should return the string -5 Hold
-Waiting: Cards Sequence 3, 7, Q, 8, A should return the string -1 Hold
-Waiting: Cards Sequence 2, J, 9, 2, 7 should return the string 1 Bet
-Waiting: Cards Sequence 2, 2, 10 should return the string 1 Bet
-Waiting: Cards Sequence 3, 2, A, 10, K should return the string -1 Hold
+Waiting: playerNumber should be a number
+Waiting: The variable player should be a string
+Waiting: The value of player should be the string Montana
+Waiting: You should use bracket notation to access testObj
+Waiting: You should not assign the value Montana to the variable player directly.
+Waiting: You should be using the variable playerNumber in your bracket notation

@@ -1,38 +1,14 @@
-let count = 0;
+// Setup
+const testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas"
+};
 
-function cc(card) {
-  // Only change code below this line
+// Only change code below this line
+const playerNumber = 16;  // Change this line
+const player = testObj[playerNumber];   // Change this line
 
-  switch(card){
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-   count ++
-      break;
-
-    case 10:
-    case 'J':
-    case 'Q':
-    case 'K':
-    case 'A':
-     count --
-      break;
-  }
-if(count > 0){
-  return count + " Bet"
-}
-else{
-  return count + " Hold"
-}
-  // Only change code above this line
-}
-
-function countCard(card) {
-  if (card <= 6)
-    count++;
-  else if (card >="10")
-    count--;
-  return count + (count > 0 ? ' Bet' : ' Hold');
-}
+console.log(testObj)
+console.log(playerNumber)
+console.log(player)
