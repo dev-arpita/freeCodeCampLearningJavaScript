@@ -1,29 +1,32 @@
-**Accessing Object Properties with Variables**
+## # Delete Properties from a JavaScript Object
 
-Another use of bracket notation on objects is to access a property which is stored as the value of a variable. This can be very useful for iterating through an object's properties or when accessing a lookup table.
+We can also delete properties from objects like this:
 
-Here is an example of using a variable to access a property:
+delete ourDog.bark;
 
-const dogs = {
-Fido: "Mutt",
-Hunter: "Doberman",
-Snoopie: "Beagle"
+Example:
+
+const ourDog = {
+"name": "Camper",
+"legs": 4,
+"tails": 1,
+"friends": ["everything!"],
+"bark": "bow-wow"
 };
 
-const myDog = "Hunter";
-const myBreed = dogs[myDog];
-console.log(myBreed);
+delete ourDog.bark;
 
-The string Doberman would be displayed in the console.
+After the last line shown above, ourDog looks like:
 
-Note that we do not use quotes around the variable name when using it to access the property because we are using the value of the variable, not the name.
+{
+"name": "Camper",
+"legs": 4,
+"tails": 1,
+"friends": ["everything!"]
+}
 
-Set the playerNumber variable to 16. Then, use the variable to look up the player's name and assign it to player.
+Delete the tails property from myDog. You may use either dot or bracket notation.
 Tests
 
-Waiting: playerNumber should be a number
-Waiting: The variable player should be a string
-Waiting: The value of player should be the string Montana
-Waiting: You should use bracket notation to access testObj
-Waiting: You should not assign the value Montana to the variable player directly.
-Waiting: You should be using the variable playerNumber in your bracket notation
+Waiting: You should delete the property tails from myDog.
+Waiting: You should not modify the myDog setup.
