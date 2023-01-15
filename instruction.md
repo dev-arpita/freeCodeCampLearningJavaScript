@@ -1,36 +1,29 @@
-Manipulating Complex Objects
+Accessing Nested Objects
 
-Sometimes you may want to store data in a flexible Data Structure. A JavaScript object is one way to handle flexible data. They allow for arbitrary combinations of strings, numbers, booleans, arrays, functions, and objects.
+The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
 
-Here's an example of a complex data structure:
+Here is a nested object:
 
-const ourMusic = [
-{
-"artist": "Daft Punk",
-"title": "Homework",
-"release_year": 1997,
-"formats": [
-"CD",
-"Cassette",
-"LP"
-],
-"gold": true
+const ourStorage = {
+"desk": {
+"drawer": "stapler"
+},
+"cabinet": {
+"top drawer": {
+"folder1": "a file",
+"folder2": "secrets"
+},
+"bottom drawer": "soda"
 }
-];
+};
 
-This is an array which contains one object inside. The object has various pieces of metadata about an album. It also has a nested formats array. If you want to add more album records, you can do this by adding records to the top level array. Objects hold data in a property, which has a key-value format. In the example above, "artist": "Daft Punk" is a property that has a key of artist and a value of Daft Punk.
+ourStorage.cabinet["top drawer"].folder2;
+ourStorage.desk.drawer;
 
-Note: You will need to place a comma after every object in the array, unless it is the last object in the array.
+ourStorage.cabinet["top drawer"].folder2 would be the string secrets, and ourStorage.desk.drawer would be the string stapler.
 
-Add a new album to the myMusic array. Add artist and title strings, release_year number, and a formats array of strings.
+Access the myStorage object and assign the contents of the glove box property to the gloveBoxContents variable. Use dot notation for all properties where possible, otherwise use bracket notation.
 Tests
 
-Waiting: myMusic should be an array
-Waiting: myMusic should have at least two elements
-Waiting: The elements in the myMusic array should be objects
-Waiting: Your object in myMusic should have at least 4 properties
-Waiting: Your object in myMusic should contain the property artist which is a string
-Waiting: Your object in myMusic should contain the property title which is a string
-Waiting: Your object in myMusic should contain the property release_year which is a number
-Waiting: Your object in myMusic should contain a formats property which is an array
-Waiting: formats should be an array of strings w
+Waiting: gloveBoxContents should equal the string maps.
+Waiting: Your code should use dot and bracket notation to access myStorage.
