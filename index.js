@@ -15,5 +15,5 @@ const lookup = {
   // Only change code above this line
   return result;
 }
-console.log(phoneticLookup("bravo"))
-// console.log(phoneticLookup("charlie"));
+phoneticLookup("bravo")
+
