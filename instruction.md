@@ -1,25 +1,36 @@
-Testing Objects for Properties
+Manipulating Complex Objects
 
-Sometimes it is useful to check if the property of a given object exists or not. We can use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name. .hasOwnProperty() returns true or false if the property is found or not.
+Sometimes you may want to store data in a flexible Data Structure. A JavaScript object is one way to handle flexible data. They allow for arbitrary combinations of strings, numbers, booleans, arrays, functions, and objects.
 
-Example
+Here's an example of a complex data structure:
 
-const myObj = {
-top: "hat",
-bottom: "pants"
-};
+const ourMusic = [
+{
+"artist": "Daft Punk",
+"title": "Homework",
+"release_year": 1997,
+"formats": [
+"CD",
+"Cassette",
+"LP"
+],
+"gold": true
+}
+];
 
-myObj.hasOwnProperty("top");
-myObj.hasOwnProperty("middle");
+This is an array which contains one object inside. The object has various pieces of metadata about an album. It also has a nested formats array. If you want to add more album records, you can do this by adding records to the top level array. Objects hold data in a property, which has a key-value format. In the example above, "artist": "Daft Punk" is a property that has a key of artist and a value of Daft Punk.
 
-The first hasOwnProperty returns true, while the second returns false.
+Note: You will need to place a comma after every object in the array, unless it is the last object in the array.
 
-Modify the function checkObj to test if an object passed to the function (obj) contains a specific property (checkProp). If the property is found, return that property's value. If not, return "Not Found".
+Add a new album to the myMusic array. Add artist and title strings, release_year number, and a formats array of strings.
 Tests
 
-Passed: checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "gift") should return the string pony.
-Passed: checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "pet") should return the string kitten.
-Passed: checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "house") should return the string Not Found.
-Passed: checkObj({city: "Seattle"}, "city") should return the string Seattle.
-Passed: checkObj({city: "Seattle"}, "district") should return the string Not Found.
-Passed: checkObj({pet: "kitten", bed: "sleigh"}, "gift") should return the string Not Found.
+Waiting: myMusic should be an array
+Waiting: myMusic should have at least two elements
+Waiting: The elements in the myMusic array should be objects
+Waiting: Your object in myMusic should have at least 4 properties
+Waiting: Your object in myMusic should contain the property artist which is a string
+Waiting: Your object in myMusic should contain the property title which is a string
+Waiting: Your object in myMusic should contain the property release_year which is a number
+Waiting: Your object in myMusic should contain a formats property which is an array
+Waiting: formats should be an array of strings w
