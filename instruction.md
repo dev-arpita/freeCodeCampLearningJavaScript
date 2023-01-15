@@ -1,32 +1,36 @@
-## # Delete Properties from a JavaScript Object
+**Using Objects for Lookups**
 
-We can also delete properties from objects like this:
+Objects can be thought of as a key/value storage, like a dictionary. If you have tabular data, you can use an object to lookup values rather than a switch statement or an if/else chain. This is most useful when you know that your input data is limited to a certain range.
 
-delete ourDog.bark;
+Here is an example of an article object:
 
-Example:
-
-const ourDog = {
-"name": "Camper",
-"legs": 4,
-"tails": 1,
-"friends": ["everything!"],
-"bark": "bow-wow"
+const article = {
+"title": "How to create objects in JavaScript",
+"link": "https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/",
+"author": "Kaashan Hussain",
+"language": "JavaScript",
+"tags": "TECHNOLOGY",
+"createdAt": "NOVEMBER 28, 2018"
 };
 
-delete ourDog.bark;
+const articleAuthor = article["author"];
+const articleLink = article["link"];
 
-After the last line shown above, ourDog looks like:
+const value = "title";
+const valueLookup = article[value];
 
-{
-"name": "Camper",
-"legs": 4,
-"tails": 1,
-"friends": ["everything!"]
-}
+articleAuthor is the string Kaashan Hussain, articleLink is the string https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/, and valueLookup is the string How to create objects in JavaScript.
 
-Delete the tails property from myDog. You may use either dot or bracket notation.
+Convert the switch statement into an object called lookup. Use it to look up val and assign the associated string to the result variable.
+
 Tests
 
-Waiting: You should delete the property tails from myDog.
-Waiting: You should not modify the myDog setup.
+Waiting: phoneticLookup("alpha") should equal the string Adams
+Waiting: phoneticLookup("bravo") should equal the string Boston
+Waiting: phoneticLookup("charlie") should equal the string Chicago
+Waiting: phoneticLookup("delta") should equal the string Denver
+Waiting: phoneticLookup("echo") should equal the string Easy
+Waiting: phoneticLookup("foxtrot") should equal the string Frank
+Waiting: phoneticLookup("") should equal undefined
+Waiting: You should not modify the return statement
+Waiting: You should not use case, switch, or if statements
