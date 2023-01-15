@@ -1,36 +1,25 @@
-**Using Objects for Lookups**
+Testing Objects for Properties
 
-Objects can be thought of as a key/value storage, like a dictionary. If you have tabular data, you can use an object to lookup values rather than a switch statement or an if/else chain. This is most useful when you know that your input data is limited to a certain range.
+Sometimes it is useful to check if the property of a given object exists or not. We can use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name. .hasOwnProperty() returns true or false if the property is found or not.
 
-Here is an example of an article object:
+Example
 
-const article = {
-"title": "How to create objects in JavaScript",
-"link": "https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/",
-"author": "Kaashan Hussain",
-"language": "JavaScript",
-"tags": "TECHNOLOGY",
-"createdAt": "NOVEMBER 28, 2018"
+const myObj = {
+top: "hat",
+bottom: "pants"
 };
 
-const articleAuthor = article["author"];
-const articleLink = article["link"];
+myObj.hasOwnProperty("top");
+myObj.hasOwnProperty("middle");
 
-const value = "title";
-const valueLookup = article[value];
+The first hasOwnProperty returns true, while the second returns false.
 
-articleAuthor is the string Kaashan Hussain, articleLink is the string https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/, and valueLookup is the string How to create objects in JavaScript.
-
-Convert the switch statement into an object called lookup. Use it to look up val and assign the associated string to the result variable.
-
+Modify the function checkObj to test if an object passed to the function (obj) contains a specific property (checkProp). If the property is found, return that property's value. If not, return "Not Found".
 Tests
 
-Waiting: phoneticLookup("alpha") should equal the string Adams
-Waiting: phoneticLookup("bravo") should equal the string Boston
-Waiting: phoneticLookup("charlie") should equal the string Chicago
-Waiting: phoneticLookup("delta") should equal the string Denver
-Waiting: phoneticLookup("echo") should equal the string Easy
-Waiting: phoneticLookup("foxtrot") should equal the string Frank
-Waiting: phoneticLookup("") should equal undefined
-Waiting: You should not modify the return statement
-Waiting: You should not use case, switch, or if statements
+Passed: checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "gift") should return the string pony.
+Passed: checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "pet") should return the string kitten.
+Passed: checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "house") should return the string Not Found.
+Passed: checkObj({city: "Seattle"}, "city") should return the string Seattle.
+Passed: checkObj({city: "Seattle"}, "district") should return the string Not Found.
+Passed: checkObj({pet: "kitten", bed: "sleigh"}, "gift") should return the string Not Found.
