@@ -1,27 +1,13 @@
-**Iterate with JavaScript For Loops**
+# Iterate Through an Array with a For Loop
 
-You can run the same code multiple times by using a loop.
+A common task in JavaScript is to iterate through the contents of an array. One way to do that is with a for loop. This code will output each element of the array arr to the console:
 
-The most common type of JavaScript loop is called a for loop because it runs for a specific number of times.
+const arr = [10, 9, 8, 7, 6];
 
-For loops are declared with three optional expressions separated by semicolons:
-
-for (a; b; c), where a is the initialization statement, b is the condition statement, and c is the final expression.
-
-The initialization statement is executed one time only before the loop starts. It is typically used to define and setup your loop variable.
-
-The condition statement is evaluated at the beginning of every loop iteration and will continue as long as it evaluates to true. When the condition is false at the start of the iteration, the loop will stop executing. This means if the condition starts as false, your loop will never execute.
-
-The final expression is executed at the end of each loop iteration, prior to the next condition check and is usually used to increment or decrement your loop counter.
-
-In the following example we initialize with i = 0 and iterate while our condition i < 5 is true. We'll increment i by 1 in each loop iteration with i++ as our final expression.
-
-const ourArray = [];
-
-for (let i = 0; i < 5; i++) {
-ourArray.push(i);
+for (let i = 0; i < arr.length; i++) {
+console.log(arr[i]);
 }
 
-ourArray will now have the value [0, 1, 2, 3, 4].
+Remember that arrays have zero-based indexing, which means the last index of the array is length - 1. Our condition for this loop is i < arr.length, which stops the loop when i is equal to length. In this case the last iteration is i === 4 i.e. when i becomes equal to arr.length - 1 and outputs 6 to the console. Then i increases to 5, and the loop terminates because i < arr.length is false.
 
-Use a for loop to push the values 1 through 5 onto myArray.
+Declare and initialize a variable total to 0. Use a for loop to add the value of each element of the myArr array to total.

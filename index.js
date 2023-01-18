@@ -1,9 +1,11 @@
 // Setup
-const myArray = [];
+const myArr = [2, 3, 4, 5, 6];
 
-for(let i = 1; i <= 5; i++) {
-  myArray.push(i)
+let total = 0;
+
+for( let i = 0; i < myArr.length; i++) {
+  console.log(total += myArr[i])
 }
 
+
 // Only change code below this line
-console.log(myArray)
