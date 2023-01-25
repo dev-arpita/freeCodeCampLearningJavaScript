@@ -1,11 +1,16 @@
-# Generate Random Whole Numbers within a Range
+# Use the parseInt Function
 
-Instead of generating a random whole number between zero and a given number like we did before, we can generate a random whole number that falls within a range of two specific numbers.
+The parseInt() function parses a string and returns an integer. Here's an example:
 
-To do this, we'll define a minimum number min and a maximum number max.
+const a = parseInt("007");
 
-Here's the formula we'll use. Take a moment to read it and try to understand what this code is doing:
+The above function converts the string 007 to the integer 7. If the first character in the string can't be converted into a number, then it returns NaN.
 
-Math.floor(Math.random() \* (max - min + 1)) + min
+Use parseInt() in the convertToInteger function so it converts the input string str into an integer, and returns it.
 
-Create a function called randomRange that takes a range myMin and myMax and returns a random whole number that's greater than or equal to myMin, and is less than or equal to myMax, inclusive.
+/_TESTS_/
+convertToInteger should use the parseInt() function
+Waiting: convertToInteger("56") should return a number
+Waiting: convertToInteger("56") should return 56
+Waiting: convertToInteger("77") should return 77
+Waiting: convertToInteger("JamesBond") should return NaN
