@@ -1,40 +1,33 @@
-# Use Multiple Conditional (Ternary) Operators
+# Use Recursion to Create a Countdown
 
-In the previous challenge, you used a single conditional operator. You can also chain them together to check for multiple conditions.
+In a previous challenge, you learned how to use recursion to replace a for loop. Now, let's look at a more complex function that returns an array of consecutive integers starting with 1 through the number passed to the function.
 
-The following function uses if, else if, and else statements to check multiple conditions:
+As mentioned in the previous challenge, there will be a base case. The base case tells the recursive function when it no longer needs to call itself. It is a simple case where the return value is already known. There will also be a recursive call which executes the original function with different arguments. If the function is written correctly, eventually the base case will be reached.
 
-function findGreaterOrEqual(a, b) {
-if (a === b) {
-return "a and b are equal";
+For example, say you want to write a recursive function that returns an array containing the numbers 1 through n. This function will need to accept an argument, n, representing the final number. Then it will need to call itself with progressively smaller values of n until it reaches 1. You could write the function as follows:
+
+function countup(n) {
+if (n < 1) {
+return [];
+} else {
+const countArray = countup(n - 1);
+countArray.push(n);
+return countArray;
 }
-else if (a > b) {
-return "a is greater";
 }
-else {
-return "b is greater";
-}
-}
+console.log(countup(5));
 
-The above function can be re-written using multiple conditional operators:
+The value [1, 2, 3, 4, 5] will be displayed in the console.
 
-function findGreaterOrEqual(a, b) {
-return (a === b) ? "a and b are equal"
-: (a > b) ? "a is greater"
-: "b is greater";
-}
+At first, this seems counterintuitive since the value of n decreases, but the values in the final array are increasing. This happens because the push happens last, after the recursive call has returned. At the point where n is pushed into the array, countup(n - 1) has already been evaluated and returned [1, 2, ..., n - 1].
 
-It is considered best practice to format multiple conditional operators such that each condition is on a separate line, as shown above. Using multiple conditional operators without proper indentation may make your code hard to read. For example:
-
-function findGreaterOrEqual(a, b) {
-return (a === b) ? "a and b are equal" : (a > b) ? "a is greater" : "b is greater";
-}
-
-In the checkSign function, use multiple conditional operators - following the recommended format used in findGreaterOrEqual - to check if a number is positive, negative or zero. The function should return positive, negative or zero.
+We have defined a function called countdown with one parameter (n). The function should use recursion to return an array containing the integers n through 1 based on the n parameter. If the function is called with a number less than 1, the function should return an empty array. For example, calling this function with n = 5 should return the array [5, 4, 3, 2, 1]. Your function must use recursion by calling itself and must not use loops of any kind.
 
 /_Tests_/
 
-Waiting: checkSign should use multiple conditional operators
-Waiting: checkSign(10) should return the string positive. Note that capitalization matters
-Waiting: checkSign(-12) should return the string negative. Note that capitalization matters
-Waiting: checkSign(0) should return the string zero. Note that capitalization matters
+Waiting: countdown(-1) should return an empty array.
+Waiting: countdown(10) should return [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+Waiting: countdown(5) should return [5, 4, 3, 2, 1]
+Waiting: Your code should not rely on any kind of loops (for, while or higher order functions such as forEach, map, filter, and reduce).
+Waiting: You should use recursion to solve this problem.
+Waiting: Global variables should not be used to cache the array.
