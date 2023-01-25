@@ -1,16 +1,31 @@
-# Use the parseInt Function
+# Use the Conditional (Ternary) Operator
 
-The parseInt() function parses a string and returns an integer. Here's an example:
+The conditional operator, also called the ternary operator, can be used as a one line if-else expression.
 
-const a = parseInt("007");
+The syntax is a ? b : c, where a is the condition, b is the code to run when the condition returns true, and c is the code to run when the condition returns false.
 
-The above function converts the string 007 to the integer 7. If the first character in the string can't be converted into a number, then it returns NaN.
+The following function uses an if/else statement to check a condition:
 
-Use parseInt() in the convertToInteger function so it converts the input string str into an integer, and returns it.
+function findGreater(a, b) {
+if(a > b) {
+return "a is greater";
+}
+else {
+return "b is greater or equal";
+}
+}
 
-/_TESTS_/
-convertToInteger should use the parseInt() function
-Waiting: convertToInteger("56") should return a number
-Waiting: convertToInteger("56") should return 56
-Waiting: convertToInteger("77") should return 77
-Waiting: convertToInteger("JamesBond") should return NaN
+This can be re-written using the conditional operator:
+
+function findGreater(a, b) {
+return a > b ? "a is greater" : "b is greater or equal";
+}
+
+Use the conditional operator in the checkEqual function to check if two numbers are equal or not. The function should return either the string Equal or the string Not Equal.
+
+/_Tests_/
+
+Waiting: checkEqual should use the conditional operator
+Waiting: checkEqual(1, 2) should return the string Not Equal
+Waiting: checkEqual(1, 1) should return the string Equal
+Waiting: checkEqual(1, -1) should return the string Not Equal

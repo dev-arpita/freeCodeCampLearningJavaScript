@@ -1,5 +1,5 @@
-function convertToInteger(str) {
-  return parseInt(str)
+function checkEqual(a, b) {
+  return (a === b) ? "Equal" : "Not Equal";
 }
 
-console.log(convertToInteger("56"));
+console.log(checkEqual(1, 1));
