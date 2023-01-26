@@ -1,72 +1,27 @@
-# Compare Scopes of the var and let Keywords
+# Mutate an Array Declared with const
 
-If you are unfamiliar with let, check out this challenge about the difference between let and var.
+If you are unfamiliar with const, check out this challenge about the const keyword.
 
-When you declare a variable with the var keyword, it is declared globally, or locally if declared inside a function.
+The const declaration has many use cases in modern JavaScript.
 
-The let keyword behaves similarly, but with some extra features. When you declare a variable with the let keyword inside a block, statement, or expression, its scope is limited to that block, statement, or expression.
+Some developers prefer to assign all their variables using const by default, unless they know they will need to reassign the value. Only in that case, they use let.
 
-For example:
+However, it is important to understand that objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.
 
-var numArray = [];
-for (var i = 0; i < 3; i++) {
-numArray.push(i);
-}
-console.log(numArray);
-console.log(i);
+const s = [5, 6, 7];
+s = [1, 2, 3];
+s[2] = 45;
+console.log(s);
 
-Here the console will display the values [0, 1, 2] and 3.
+s = [1, 2, 3] will result in an error. After commenting out that line, the console.log will display the value [5, 6, 45].
 
-With the var keyword, i is declared globally. So when i++ is executed, it updates the global variable. This code is similar to the following:
+As you can see, you can mutate the object [5, 6, 7] itself and the variable s will still point to the altered array [5, 6, 45]. Like all arrays, the array elements in s are mutable, but because const was used, you cannot use the variable identifier s to point to a different array using the assignment operator.
 
-var numArray = [];
-var i;
-for (i = 0; i < 3; i++) {
-numArray.push(i);
-}
-console.log(numArray);
-console.log(i);
-
-Here the console will display the values [0, 1, 2] and 3.
-
-This behavior will cause problems if you were to create a function and store it for later use inside a for loop that uses the i variable. This is because the stored function will always refer to the value of the updated global i variable.
-
-var printNumTwo;
-for (var i = 0; i < 3; i++) {
-if (i === 2) {
-printNumTwo = function() {
-return i;
-};
-}
-}
-console.log(printNumTwo());
-
-Here the console will display the value 3.
-
-As you can see, printNumTwo() prints 3 and not 2. This is because the value assigned to i was updated and the printNumTwo() returns the global i and not the value i had when the function was created in the for loop. The let keyword does not follow this behavior:
-
-let printNumTwo;
-for (let i = 0; i < 3; i++) {
-if (i === 2) {
-printNumTwo = function() {
-return i;
-};
-}
-}
-console.log(printNumTwo());
-console.log(i);
-
-Here the console will display the value 2, and an error that i is not defined.
-
-i is not defined because it was not declared in the global scope. It is only declared within the for loop statement. printNumTwo() returned the correct value because three different i variables with unique values (0, 1, and 2) were created by the let keyword within the loop statement.
-
-Fix the code so that i declared in the if statement is a separate variable than i declared in the first line of the function. Be certain not to use the var keyword anywhere in your code.
-
-This exercise is designed to illustrate the difference between how var and let keywords assign scope to the declared variable. When programming a function similar to the one used in this exercise, it is often better to use different variable names to avoid confusion.
-ess than or equal to the ending number. Your function must use recursion by calling itself and not use loops of any kind. It should also work for cases where both startNum and endNum are the same.
+An array is declared as const s = [5, 7, 2]. Change the array to [2, 5, 7] using various element assignments.
 
 /_Tests_/
 
-Waiting: var should not exist in code.
-Waiting: The variable i declared in the if statement should equal the string block scope.
-Waiting: checkScope() should return the string function scope
+Waiting: You should not replace const keyword.
+Waiting: s should be a constant variable (by using const).
+Waiting: You should not change the original array declaration.
+Waiting: s should be equal to [2, 5, 7].
