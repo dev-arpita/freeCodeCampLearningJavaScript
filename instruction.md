@@ -1,33 +1,72 @@
-# Use Recursion to Create a Countdown
+# Compare Scopes of the var and let Keywords
 
-In a previous challenge, you learned how to use recursion to replace a for loop. Now, let's look at a more complex function that returns an array of consecutive integers starting with 1 through the number passed to the function.
+If you are unfamiliar with let, check out this challenge about the difference between let and var.
 
-As mentioned in the previous challenge, there will be a base case. The base case tells the recursive function when it no longer needs to call itself. It is a simple case where the return value is already known. There will also be a recursive call which executes the original function with different arguments. If the function is written correctly, eventually the base case will be reached.
+When you declare a variable with the var keyword, it is declared globally, or locally if declared inside a function.
 
-For example, say you want to write a recursive function that returns an array containing the numbers 1 through n. This function will need to accept an argument, n, representing the final number. Then it will need to call itself with progressively smaller values of n until it reaches 1. You could write the function as follows:
+The let keyword behaves similarly, but with some extra features. When you declare a variable with the let keyword inside a block, statement, or expression, its scope is limited to that block, statement, or expression.
 
-function countup(n) {
-if (n < 1) {
-return [];
-} else {
-const countArray = countup(n - 1);
-countArray.push(n);
-return countArray;
+For example:
+
+var numArray = [];
+for (var i = 0; i < 3; i++) {
+numArray.push(i);
+}
+console.log(numArray);
+console.log(i);
+
+Here the console will display the values [0, 1, 2] and 3.
+
+With the var keyword, i is declared globally. So when i++ is executed, it updates the global variable. This code is similar to the following:
+
+var numArray = [];
+var i;
+for (i = 0; i < 3; i++) {
+numArray.push(i);
+}
+console.log(numArray);
+console.log(i);
+
+Here the console will display the values [0, 1, 2] and 3.
+
+This behavior will cause problems if you were to create a function and store it for later use inside a for loop that uses the i variable. This is because the stored function will always refer to the value of the updated global i variable.
+
+var printNumTwo;
+for (var i = 0; i < 3; i++) {
+if (i === 2) {
+printNumTwo = function() {
+return i;
+};
 }
 }
-console.log(countup(5));
+console.log(printNumTwo());
 
-The value [1, 2, 3, 4, 5] will be displayed in the console.
+Here the console will display the value 3.
 
-At first, this seems counterintuitive since the value of n decreases, but the values in the final array are increasing. This happens because the push happens last, after the recursive call has returned. At the point where n is pushed into the array, countup(n - 1) has already been evaluated and returned [1, 2, ..., n - 1].
+As you can see, printNumTwo() prints 3 and not 2. This is because the value assigned to i was updated and the printNumTwo() returns the global i and not the value i had when the function was created in the for loop. The let keyword does not follow this behavior:
 
-We have defined a function called countdown with one parameter (n). The function should use recursion to return an array containing the integers n through 1 based on the n parameter. If the function is called with a number less than 1, the function should return an empty array. For example, calling this function with n = 5 should return the array [5, 4, 3, 2, 1]. Your function must use recursion by calling itself and must not use loops of any kind.
+let printNumTwo;
+for (let i = 0; i < 3; i++) {
+if (i === 2) {
+printNumTwo = function() {
+return i;
+};
+}
+}
+console.log(printNumTwo());
+console.log(i);
+
+Here the console will display the value 2, and an error that i is not defined.
+
+i is not defined because it was not declared in the global scope. It is only declared within the for loop statement. printNumTwo() returned the correct value because three different i variables with unique values (0, 1, and 2) were created by the let keyword within the loop statement.
+
+Fix the code so that i declared in the if statement is a separate variable than i declared in the first line of the function. Be certain not to use the var keyword anywhere in your code.
+
+This exercise is designed to illustrate the difference between how var and let keywords assign scope to the declared variable. When programming a function similar to the one used in this exercise, it is often better to use different variable names to avoid confusion.
+ess than or equal to the ending number. Your function must use recursion by calling itself and not use loops of any kind. It should also work for cases where both startNum and endNum are the same.
 
 /_Tests_/
 
-Waiting: countdown(-1) should return an empty array.
-Waiting: countdown(10) should return [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-Waiting: countdown(5) should return [5, 4, 3, 2, 1]
-Waiting: Your code should not rely on any kind of loops (for, while or higher order functions such as forEach, map, filter, and reduce).
-Waiting: You should use recursion to solve this problem.
-Waiting: Global variables should not be used to cache the array.
+Waiting: var should not exist in code.
+Waiting: The variable i declared in the if statement should equal the string block scope.
+Waiting: checkScope() should return the string function scope
