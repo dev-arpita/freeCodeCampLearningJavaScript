@@ -1,12 +1,12 @@
-function rangeOfNumbers(startNum, endNum) {
-  if (endNum < startNum)
-  return [];
-    else {
-    const numArr = rangeOfNumbers(startNum, endNum - 1)
-      numArr.push(endNum)
-    return numArr
+function checkScope() {
+  let i = 'function scope';
+  if (true) {
+    let i = 'block scope';
+    console.log('Block scope i is: ', i);
   }
-};
-console.log(rangeOfNumbers(1, 10))
+  console.log('Function scope i is: ', i);
+  return i;
+}
 
 
+console.log(checkScope())
