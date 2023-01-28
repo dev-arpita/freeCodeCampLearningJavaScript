@@ -1,29 +1,22 @@
-# Write Arrow Functions with Parameters
+# Set Default Parameters for Your Functions
 
-Just like a regular function, you can pass arguments into an arrow function.
+In order to help us create more flexible functions, ES6 introduces default parameters for functions.
 
-const doubler = (item) => item \* 2;
-doubler(4);
+Check out this code:
 
-doubler(4) would return the value 8.
+const greeting = (name = "Anonymous") => "Hello " + name;
 
-If an arrow function has a single parameter, the parentheses enclosing the parameter may be omitted.
+console.log(greeting("John"));
+console.log(greeting());
 
-const doubler = item => item \* 2;
+The console will display the strings Hello John and Hello Anonymous.
 
-It is possible to pass more than one argument into an arrow function.
+The default parameter kicks in when the argument is not specified (it is undefined). As you can see in the example above, the parameter name will receive its default value Anonymous when you do not provide a value for the parameter. You can add default values for as many parameters as you want.
 
-const multiplier = (item, multi) => item \* multi;
-multiplier(4, 2);
+Modify the function increment by adding default parameters so that it will add 1 to number if value is not specified.
 
-multiplier(4, 2) would return the value 8.
+## Tests
 
-Rewrite the myConcat function which appends contents of arr2 to arr1 so that the function uses arrow function syntax.
-
-/**Tests**/
-
-Waiting: You should replace the var keyword.
-Waiting: myConcat should be a constant variable (by using const).
-Waiting: myConcat should be an arrow function with two parameters
-Waiting: myConcat() should return [1, 2, 3, 4, 5].
-Waiting: The function keyword should not be used.
+Waiting: The result of increment(5, 2) should be 7.
+Waiting: The result of increment(5) should be 6.
+Waiting: A default parameter value of 1 should be used for value.
