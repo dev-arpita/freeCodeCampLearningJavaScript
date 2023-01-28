@@ -1,33 +1,29 @@
-# Use Arrow Functions to Write Concise Anonymous Functions
+# Write Arrow Functions with Parameters
 
-In JavaScript, we often don't need to name our functions, especially when passing a function as an argument to another function. Instead, we create inline functions. We don't need to name these functions because we do not reuse them anywhere else.
+Just like a regular function, you can pass arguments into an arrow function.
 
-To achieve this, we often use the following syntax:
+const doubler = (item) => item \* 2;
+doubler(4);
 
-const myFunc = function() {
-const myVar = "value";
-return myVar;
-}
+doubler(4) would return the value 8.
 
-ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use arrow function syntax:
+If an arrow function has a single parameter, the parentheses enclosing the parameter may be omitted.
 
-const myFunc = () => {
-const myVar = "value";
-return myVar;
-}
+const doubler = item => item \* 2;
 
-When there is no function body, and only a return value, arrow function syntax allows you to omit the keyword return as well as the brackets surrounding the code. This helps simplify smaller functions into one-line statements:
+It is possible to pass more than one argument into an arrow function.
 
-const myFunc = () => "value";
+const multiplier = (item, multi) => item \* multi;
+multiplier(4, 2);
 
-This code will still return the string value by default.
+multiplier(4, 2) would return the value 8.
 
-Rewrite the function assigned to the variable magic which returns a new Date() to use arrow function syntax. Also, make sure nothing is defined using the keyword var.
+Rewrite the myConcat function which appends contents of arr2 to arr1 so that the function uses arrow function syntax.
 
-/_Tests_/
+/**Tests**/
 
 Waiting: You should replace the var keyword.
-Waiting: magic should be a constant variable (by using const).
-Waiting: magic should be a function.
-Waiting: magic() should return the correct date.
+Waiting: myConcat should be a constant variable (by using const).
+Waiting: myConcat should be an arrow function with two parameters
+Waiting: myConcat() should return [1, 2, 3, 4, 5].
 Waiting: The function keyword should not be used.
