@@ -1,22 +1,29 @@
 # Use Destructuring Assignment to Assign Variables from Objects
 
-Destructuring allows you to assign a new variable name when extracting values. You can do this by putting the new name after a colon when assigning the value.
+You can use the same principles from the previous two lessons to destructure values from nested objects.
 
-Using the same object from the last example:
+Using an object similar to previous examples:
 
-const user = { name: 'John Doe', age: 34 };
+const user = {
+johnDoe: {
+age: 34,
+email: 'johnDoe@freeCodeCamp.com'
+}
+};
 
-Here's how you can give new variable names in the assignment:
+Here's how to extract the values of object properties and assign them to variables with the same name:
 
-const { name: userName, age: userAge } = user;
+const { johnDoe: { age, email }} = user;
 
-You may read it as "get the value of user.name and assign it to a new variable named userName" and so on. The value of userName would be the string John Doe, and the value of userAge would be the number 34.
+And here's how you can assign an object properties' values to variables with different names:
 
-Replace the two assignments with an equivalent destructuring assignment. It should still assign the variables highToday and highTomorrow the values of today and tomorrow from the HIGH_TEMPERATURES object.
+const { johnDoe: { age: userAge, email: userEmail }} = user;
+
+Replace the two assignments with an equivalent destructuring assignment. It should still assign the variables lowToday and highToday the values of today.low and today.high from the LOCAL_FORECAST object.
 
 ## Tests
 
 Waiting: You should remove the ES5 assignment syntax.
+Waiting: You should use destructuring to create the lowToday variable.
 Waiting: You should use destructuring to create the highToday variable.
-Waiting: You should use destructuring to create the highTomorrow variable.
-Waiting: highToday should be equal to 77 and highTomorrow should be equal to 80.
+Waiting: lowToday should be equal to 64 and highToday should be equal to 77.
