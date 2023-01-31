@@ -1,29 +1,27 @@
-# Use Destructuring Assignment to Assign Variables from Objects
+# Use Destructuring Assignment to Assign Variables from Arrays
 
-You can use the same principles from the previous two lessons to destructure values from nested objects.
+ES6 makes destructuring arrays as easy as destructuring objects.
 
-Using an object similar to previous examples:
+One key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot pick or choose which elements you want to assign to variables.
 
-const user = {
-johnDoe: {
-age: 34,
-email: 'johnDoe@freeCodeCamp.com'
-}
-};
+Destructuring an array lets us do exactly that:
 
-Here's how to extract the values of object properties and assign them to variables with the same name:
+const [a, b] = [1, 2, 3, 4, 5, 6];
+console.log(a, b);
 
-const { johnDoe: { age, email }} = user;
+The console will display the values of a and b as 1, 2.
 
-And here's how you can assign an object properties' values to variables with different names:
+The variable a is assigned the first value of the array, and b is assigned the second value of the array. We can also access the value at any index in an array with destructuring by using commas to reach the desired index:
 
-const { johnDoe: { age: userAge, email: userEmail }} = user;
+const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, c);
 
-Replace the two assignments with an equivalent destructuring assignment. It should still assign the variables lowToday and highToday the values of today.low and today.high from the LOCAL_FORECAST object.
+The console will display the values of a, b, and c as 1, 2, 5.
+
+Use destructuring assignment to swap the values of a and b so that a receives the value stored in b, and b receives the value stored in a.
 
 ## Tests
 
-Waiting: You should remove the ES5 assignment syntax.
-Waiting: You should use destructuring to create the lowToday variable.
-Waiting: You should use destructuring to create the highToday variable.
-Waiting: lowToday should be equal to 64 and highToday should be equal to 77.
+Waiting: The value of a should be 6, after swapping.
+Waiting: The value of b should be 8, after swapping.
+Waiting: You should use array destructuring to swap a and b.
