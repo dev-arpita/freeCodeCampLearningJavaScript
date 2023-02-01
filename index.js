@@ -1,14 +1,16 @@
-const stats = {
-  max: 56.78,
-  standard_deviation: 4.34,
-  median: 34.54,
-  mode: 23.87,
-  min: -0.75,
-  average: 35.85
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["no-extra-semi", "no-dup-keys"]
 };
+function makeList(arr) {
+  // Only change code below this line
+  const failureItems = arr.map(items => {
+       return`<li class="text-warning">${items}</li>`
+  });
+  // Only change code above this line
+  return failureItems;
+}
 
-// Only change code below this line
-const half = ({max, min}) => (max + min) / 2.0;
-// Only change code above this line
-
-console.log(half(stats))
+const failuresList = makeList(result.failure);
+  console.log(failuresList);
