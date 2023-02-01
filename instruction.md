@@ -1,22 +1,27 @@
-# Destructuring via rest elements
+# Use Destructuring Assignment to Pass an Object as a Function's Parameters
 
-In some situations involving array destructuring, we might want to collect the rest of the elements into a separate array.
+In some cases, you can destructure the object in a function argument itself.
 
-The result is similar to Array.prototype.slice(), as shown below:
+Consider the code below:
 
-const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
-console.log(a, b);
-console.log(arr);
+const profileUpdate = (profileData) => {
+const { name, age, nationality, location } = profileData;
 
-The console would display the values 1, 2 and [3, 4, 5, 7].
+}
 
-Variables a and b take the first and second values from the array. After that, because of the rest syntax presence, arr gets the rest of the values in the form of an array. The rest element only works correctly as the last variable in the list. As in, you cannot use the rest syntax to catch a subarray that leaves out the last element of the original array.
+This effectively destructures the object sent into the function. This can also be done in-place:
 
-Use a destructuring assignment with the rest syntax to emulate the behavior of Array.prototype.slice(). removeFirstTwo() should return a sub-array of the original array list with the first two elements omitted.
+const profileUpdate = ({ name, age, nationality, location }) => {
+
+}
+
+When profileData is passed to the above function, the values are destructured from the function parameter for use within the function.
+
+Use destructuring assignment within the argument to the function half to send only max and min inside the function.
 
 ## Tests
 
-Waiting: removeFirstTwo([1, 2, 3, 4, 5]) should be [3, 4, 5]
-Waiting: removeFirstTwo() should not modify list
-Waiting: Array.slice() should not be used.
-Waiting: Destructuring on list should be used.
+Waiting: stats should be an object.
+Waiting: half(stats) should be 28.015
+Waiting: Destructuring should be used.
+Waiting: Destructured parameter should be used.
