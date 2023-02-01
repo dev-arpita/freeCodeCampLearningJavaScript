@@ -1,21 +1,27 @@
-# Write Concise Object Literal Declarations Using Object Property Shorthand
+# Write Concise Declarative Functions with ES6
 
-ES6 adds some nice support for easily defining object literals.
+When defining functions within objects in ES5, we have to use the keyword function as follows:
 
-Consider the following code:
+const person = {
+name: "Taylor",
+sayHello: function() {
+return `Hello! My name is ${this.name}.`;
+}
+};
 
-const getMousePosition = (x, y) => ({
-x: x,
-y: y
-});
+With ES6, you can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
 
-getMousePosition is a simple function that returns an object containing two properties. ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted tox: x (or something equivalent) under the hood. Here is the same function from above rewritten to use this new syntax:
+const person = {
+name: "Taylor",
+sayHello() {
+return `Hello! My name is ${this.name}.`;
+}
+};
 
-const getMousePosition = (x, y) => ({ x, y });
-
-Use object property shorthand with object literals to create and return an object with name, age and gender properties.
+Refactor the function setGear inside the object bicycle to use the shorthand syntax described above.
 
 ## Tests
 
-Waiting: createPerson("Zodiac Hasbro", 56, "male") should return {name: "Zodiac Hasbro", age: 56, gender: "male"}.
-Waiting: Your code should not use key:value.
+Waiting: Traditional function expression should not be used.
+Waiting: setGear should be a declarative function.
+Waiting: bicycle.setGear(48) should change the gear value to 48.
