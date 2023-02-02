@@ -1,48 +1,55 @@
-# Use class Syntax to Define a Constructor Function
+# Use getters and setters to Control Access to an Object
 
-ES6 provides a new syntax to create objects, using the class keyword.
+You can obtain values from an object and set the value of a property within an object.
 
-In ES5, an object can be created by defining a constructor function and using the new keyword to instantiate the object.
+These are classically called getters and setters.
 
-In ES6, a class declaration has a constructor method that is invoked with the new keyword. If the constructor method is not explicitly defined, then it is implicitly defined with no arguments.
+Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
 
-// Explicit constructor
-class SpaceShuttle {
-constructor(targetPlanet) {
-this.targetPlanet = targetPlanet;
+Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
+
+class Book {
+constructor(author) {
+this.\_author = author;
 }
-takeOff() {
-console.log("To " + this.targetPlanet + "!");
+// getter
+get writer() {
+return this.\_author;
+}
+// setter
+set writer(updatedAuthor) {
+this.\_author = updatedAuthor;
 }
 }
+const novel = new Book('anonymous');
+console.log(novel.writer);
+novel.writer = 'newAuthor';
+console.log(novel.writer);
 
-// Implicit constructor
-class Rocket {
-launch() {
-console.log("To the moon!");
-}
-}
+The console would display the strings anonymous and newAuthor.
 
-const zeus = new SpaceShuttle('Jupiter');
-// prints To Jupiter! in console
-zeus.takeOff();
+Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details.
 
-const atlas = new Rocket();
-// prints To the moon! in console
-atlas.launch();
+Note: It is convention to precede the name of a private variable with an underscore (\_). However, the practice itself does not make a variable private.
 
-It should be noted that the class keyword declares a new function, to which a constructor is added. This constructor is invoked when new is called to create a new object.
+Use the class keyword to create a Thermostat class. The constructor accepts a Fahrenheit temperature.
 
-Note: UpperCamelCase should be used by convention for ES6 class names, as in SpaceShuttle used above.
+In the class, create a getter to obtain the temperature in Celsius and a setter to set the temperature in Celsius.
 
-The constructor method is a special method for creating and initializing an object created with a class. You will learn more about it in the Object Oriented Programming section of the JavaScript Algorithms And Data Structures Certification.
+Remember that C = (5/9 _ (F - 32)) and F = (C _ 9.0 / 5 + 32), where F is the value of temperature in Fahrenheit, and C is the value of the same temperature in Celsius.
 
-Use the class keyword and write a constructor to create the Vegetable class.
+Note: When you implement this, you will track the temperature inside the class in one scale, either Fahrenheit or Celsius.
 
-The Vegetable class allows you to create a vegetable object with a property name that gets passed to the constructor.
+This is the power of a getter and a setter. You are creating an API for another user, who can get the correct result regardless of which one you track.
+
+In other words, you are abstracting implementation details from the user.
 
 ## Tests
 
-Waiting: Traditional function expression should not be used.
-Waiting: setGear should be a declarative function.
-Waiting: bicycle.setGear(48) should change the gear value to 48.
+Waiting: Thermostat should be a class with a defined constructor method.
+Waiting: class keyword should be used.
+Waiting: Thermostat should be able to be instantiated.
+Waiting: When instantiated with a Fahrenheit value, Thermostat should set the correct temperature.
+Waiting: A getter should be defined.
+Waiting: A setter should be defined.
+Waiting: Calling the setter with a Celsius value should set the temperature.
