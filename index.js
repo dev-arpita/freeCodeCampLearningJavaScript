@@ -1,16 +1,9 @@
-class Thermostat{
-  constructor(fahrenheit){
-    this._celsius = 5/9 * (fahrenheit -32)
-  }
-  get temperature() {
-    return this._celsius
-  }
-  set temperature(celsius) {
-    return this._celsius = celsius
-  }
+const uppercaseString = (string) => {
+  return string.toUpperCase();
 }
-const thermos = new Thermostat(76);
-let temp = thermos.temperature;
-thermos.temperature = 26;
-temp = thermos.temperature;
 
+const lowercaseString = (string) => {
+  return string.toLowerCase()
+}
+
+export{uppercaseString, lowercaseString}
