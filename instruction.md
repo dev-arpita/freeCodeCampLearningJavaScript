@@ -1,55 +1,15 @@
-# Use getters and setters to Control Access to an Object
+# Create a Module Script
 
-You can obtain values from an object and set the value of a property within an object.
+JavaScript started with a small role to play on an otherwise mostly HTML web. Today, it’s huge, and some websites are built almost entirely with JavaScript. In order to make JavaScript more modular, clean, and maintainable; ES6 introduced a way to easily share code among JavaScript files. This involves exporting parts of a file for use in one or more other files, and importing the parts you need, where you need them. In order to take advantage of this functionality, you need to create a script in your HTML document with a type of module. Here’s an example:
 
-These are classically called getters and setters.
+<script type="module" src="filename.js"></script>
 
-Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
+A script that uses this module type can now use the import and export features you will learn about in the upcoming challenges.
 
-Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
-
-class Book {
-constructor(author) {
-this.\_author = author;
-}
-// getter
-get writer() {
-return this.\_author;
-}
-// setter
-set writer(updatedAuthor) {
-this.\_author = updatedAuthor;
-}
-}
-const novel = new Book('anonymous');
-console.log(novel.writer);
-novel.writer = 'newAuthor';
-console.log(novel.writer);
-
-The console would display the strings anonymous and newAuthor.
-
-Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details.
-
-Note: It is convention to precede the name of a private variable with an underscore (\_). However, the practice itself does not make a variable private.
-
-Use the class keyword to create a Thermostat class. The constructor accepts a Fahrenheit temperature.
-
-In the class, create a getter to obtain the temperature in Celsius and a setter to set the temperature in Celsius.
-
-Remember that C = (5/9 _ (F - 32)) and F = (C _ 9.0 / 5 + 32), where F is the value of temperature in Fahrenheit, and C is the value of the same temperature in Celsius.
-
-Note: When you implement this, you will track the temperature inside the class in one scale, either Fahrenheit or Celsius.
-
-This is the power of a getter and a setter. You are creating an API for another user, who can get the correct result regardless of which one you track.
-
-In other words, you are abstracting implementation details from the user.
+Add a script to the HTML document of type module and give it the source file of index.js
 
 ## Tests
 
-Waiting: Thermostat should be a class with a defined constructor method.
-Waiting: class keyword should be used.
-Waiting: Thermostat should be able to be instantiated.
-Waiting: When instantiated with a Fahrenheit value, Thermostat should set the correct temperature.
-Waiting: A getter should be defined.
-Waiting: A setter should be defined.
-Waiting: Calling the setter with a Celsius value should set the temperature.
+Waiting: You should create a script tag.
+Waiting: Your script tag should have the type attribute with a value of module.
+Waiting: Your script tag should have a src of index.js.
