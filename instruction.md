@@ -1,20 +1,17 @@
-# Complete a Promise with resolve and reject
+# Handle a Fulfilled Promise with then
 
-A promise has three states: pending, fulfilled, and rejected. The promise you created in the last challenge is forever stuck in the pending state because you did not add a way to complete the promise. The resolve and reject parameters given to the promise argument are used to do this. resolve is used when you want your promise to succeed, and reject is used when you want it to fail. These are methods that take an argument, as seen below.
+Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. Here’s an example:
 
-const myPromise = new Promise((resolve, reject) => {
-if(condition here) {
-resolve("Promise was fulfilled");
-} else {
-reject("Promise was rejected");
-}
+myPromise.then(result => {
+
 });
 
-The example above uses strings for the argument of these functions, but it can really be anything. Often, it might be an object, that you would use data from, to put on your website or elsewhere.
+result comes from the argument given to the resolve method.
 
-Make the promise handle success and failure. If responseFromServer is true, call the resolve method to successfully complete the promise. Pass resolve a string with the value We got the data. If responseFromServer is false, use the reject method instead and pass it the string: Data not received.
+Add the then method to your promise. Use result as the parameter of its callback function and log result to the console.
 
 ## Tests
 
-Waiting: resolve should be called with the expected string when the if condition is true.
-Waiting: reject should be called with the expected string when the if condition is false.
+Waiting: You should call the then method on the promise.
+Waiting: Your then method should have a callback function with result as its parameter.
+Waiting: You should log result to the console.
