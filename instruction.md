@@ -1,17 +1,17 @@
-# Handle a Fulfilled Promise with then
+# Handle a Rejected Promise with catch
 
-Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. Here’s an example:
+catch is the method used when your promise has been rejected. It is executed immediately after a promise's reject method is called. Here’s the syntax:
 
-myPromise.then(result => {
+myPromise.catch(error => {
 
 });
 
-result comes from the argument given to the resolve method.
+error is the argument passed in to the reject method.
 
-Add the then method to your promise. Use result as the parameter of its callback function and log result to the console.
+Add the catch method to your promise. Use error as the parameter of its callback function and log error to the console.
 
 ## Tests
 
-Waiting: You should call the then method on the promise.
-Waiting: Your then method should have a callback function with result as its parameter.
-Waiting: You should log result to the console.
+Waiting: You should call the catch method on the promise.
+Waiting: Your catch method should have a callback function with error as its parameter.
+Waiting: You should log error to the console.
