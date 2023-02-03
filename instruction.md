@@ -1,26 +1,17 @@
-# Use export to Share a Code Block
+# Use \* to Import Everything from a File
 
-Imagine a file called math_functions.js that contains several functions related to mathematical operations. One of them is stored in a variable, add, that takes in two numbers and returns their sum. You want to use this function in several different JavaScript files. In order to share it with these other files, you first need to export it.
+Suppose you have a file and you wish to import all of its contents into the current file. This can be done with the import \* as syntax. Here's an example where the contents of a file named math_functions.js are imported into a file in the same directory:
 
-export const add = (x, y) => {
-return x + y;
-}
+import \* as myMathModule from "./math_functions.js";
 
-The above is a common way to export a single function, but you can achieve the same thing like this:
+The above import statement will create an object called myMathModule. This is just a variable name, you can name it anything. The object will contain all of the exports from math_functions.js in it, so you can access the functions like you would any other object property. Here's how you can use the add and subtract functions that were imported:
 
-const add = (x, y) => {
-return x + y;
-}
+myMathModule.add(2,3);
+myMathModule.subtract(5,3);
 
-export { add };
-
-When you export a variable or function, you can import it in another file and use it without having to rewrite the code. You can export multiple things by repeating the first example for each thing you want to export, or by placing them all in the export statement of the second example, like this:
-
-export { add, subtract };
-
-There are two string-related functions in the editor. Export both of them using the method of your choice.
+The code in this file requires the contents of the file: string_functions.js, that is in the same directory as the current file. Use the import \* as syntax to import everything from the file into an object called stringFunctions.
 
 ## Tests
 
-Waiting: You should properly export uppercaseString.
-Waiting: You should properly export lowercaseString.
+Waiting: You should properly import uppercaseString.
+Waiting: You should properly import lowercaseString.

@@ -1,9 +1,6 @@
-const uppercaseString = (string) => {
-  return string.toUpperCase();
-}
+import * as stringFunctions from "./string_functions.js"
+// Only change code above this line
 
-const lowercaseString = (string) => {
-  return string.toLowerCase()
-}
+stringFunctions.uppercaseString("hello");
+stringFunctions.lowercaseString("WORLD!");
 
-export{uppercaseString, lowercaseString}
