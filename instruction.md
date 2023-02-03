@@ -1,17 +1,25 @@
-# Use \* to Import Everything from a File
+# Create an Export Fallback with export default
 
-Suppose you have a file and you wish to import all of its contents into the current file. This can be done with the import \* as syntax. Here's an example where the contents of a file named math_functions.js are imported into a file in the same directory:
+In the export lesson, you learned about the syntax referred to as a named export. This allowed you to make multiple functions and variables available for use in other files.
 
-import \* as myMathModule from "./math_functions.js";
+There is another export syntax you need to know, known as export default. Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
 
-The above import statement will create an object called myMathModule. This is just a variable name, you can name it anything. The object will contain all of the exports from math_functions.js in it, so you can access the functions like you would any other object property. Here's how you can use the add and subtract functions that were imported:
+Below are examples using export default:
 
-myMathModule.add(2,3);
-myMathModule.subtract(5,3);
+export default function add(x, y) {
+return x + y;
+}
 
-The code in this file requires the contents of the file: string_functions.js, that is in the same directory as the current file. Use the import \* as syntax to import everything from the file into an object called stringFunctions.
+export default function(x, y) {
+return x + y;
+}
+
+The first is a named function, and the second is an anonymous function.
+
+Since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. Additionally, you cannot use export default with var, let, or const
+
+The following function should be the fallback value for the module. Please add the necessary code to do so.
 
 ## Tests
 
-Waiting: You should properly import uppercaseString.
-Waiting: You should properly import lowercaseString.
+Waiting: Your code should use an export fallback.
