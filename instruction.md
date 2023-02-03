@@ -1,13 +1,14 @@
-# Import a Default Export
+# Create a JavaScript Promise
 
-In the last challenge, you learned about export default and its uses. To import a default export, you need to use a different import syntax. In the following example, add is the default export of the math_functions.js file. Here is how to import it:
+A promise in JavaScript is exactly what it sounds like - you use it to make a promise to do something, usually asynchronously. When the task completes, you either fulfill your promise or fail to do so. Promise is a constructor function, so you need to use the new keyword to create one. It takes a function, as its argument, with two parameters - resolve and reject. These are methods used to determine the outcome of the promise. The syntax looks like this:
 
-import add from "./math_functions.js";
+const myPromise = new Promise((resolve, reject) => {
 
-The syntax differs in one key place. The imported value, add, is not surrounded by curly braces ({}). add here is simply a variable name for whatever the default export of the math_functions.js file is. You can use any name here when importing a default.
+});
 
-In the following code, import the default export from the math_functions.js file, found in the same directory as this file. Give the import the name subtract.
+Create a new promise called makeServerRequest. Pass in a function with resolve and reject parameters to the constructor.
 
 ## Tests
 
-Waiting: You should properly import subtract from math_functions.js.
+Waiting: You should assign a promise to a declared variable named makeServerRequest.
+Waiting: Your promise should receive a function with resolve and reject as parameters.
