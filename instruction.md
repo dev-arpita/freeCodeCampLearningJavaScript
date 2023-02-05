@@ -1,27 +1,28 @@
-# Extract Matches
+# Find More Than the First Match
 
-So far, you have only been checking if a pattern exists or not within a string. You can also extract the actual matches you found with the .match() method.
+So far, you have only been able to extract or search a pattern once.
 
-To use the .match() method, apply the method on a string and pass in the regex inside the parentheses.
+let testStr = "Repeat, Repeat, Repeat";
+let ourRegex = /Repeat/;
+testStr.match(ourRegex);
 
-Here's an example:
+Here match would return ["Repeat"].
 
-"Hello, World!".match(/Hello/);
-let ourStr = "Regular expressions";
-let ourRegex = /expressions/;
-ourStr.match(ourRegex);
+To search or extract a pattern more than once, you can use the global search flag: g.
 
-Here the first match would return ["Hello"] and the second would return ["expressions"].
+let repeatRegex = /Repeat/g;
+testStr.match(repeatRegex);
 
-Note that the .match syntax is the "opposite" of the .test method you have been using thus far:
+And here match returns the value ["Repeat", "Repeat", "Repeat"]
 
-'string'.match(/regex/);
-/regex/.test('string');
+Using the regex starRegex, find and extract both Twinkle words from the string twinkleStar.
 
-Apply the .match() method to extract the string coding.
+Note
+You can have multiple flags on your regex like /search/gi
 
 ## Tests
 
-Waiting: The result should have the string coding
-Waiting: Your regex codingRegex should search for the string coding
-Waiting: You should use the .match() method.
+Waiting: Your regex starRegex should use the global flag g
+Waiting: Your regex starRegex should use the case insensitive flag i
+Waiting: Your match should match both occurrences of the word Twinkle
+Waiting: Your match result should have two elements in it.
