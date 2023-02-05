@@ -1,22 +1,27 @@
-# Ignore Case While Matching
+# Extract Matches
 
-Up until now, you've looked at regexes to do literal matches of strings. But sometimes, you might want to also match case differences.
+So far, you have only been checking if a pattern exists or not within a string. You can also extract the actual matches you found with the .match() method.
 
-Case (or sometimes letter case) is the difference between uppercase letters and lowercase letters. Examples of uppercase are A, B, and C. Examples of lowercase are a, b, and c.
+To use the .match() method, apply the method on a string and pass in the regex inside the parentheses.
 
-You can match both cases using what is called a flag. There are other flags but here you'll focus on the flag that ignores case - the i flag. You can use it by appending it to the regex. An example of using this flag is /ignorecase/i. This regex can match the strings ignorecase, igNoreCase, and IgnoreCase.
+Here's an example:
 
-Write a regex fccRegex to match freeCodeCamp, no matter its case. Your regex should not match any abbreviations or variations with spaces.
+"Hello, World!".match(/Hello/);
+let ourStr = "Regular expressions";
+let ourRegex = /expressions/;
+ourStr.match(ourRegex);
+
+Here the first match would return ["Hello"] and the second would return ["expressions"].
+
+Note that the .match syntax is the "opposite" of the .test method you have been using thus far:
+
+'string'.match(/regex/);
+/regex/.test('string');
+
+Apply the .match() method to extract the string coding.
 
 ## Tests
 
-Waiting: Your regex should match the string freeCodeCamp
-Waiting: Your regex should match the string FreeCodeCamp
-Waiting: Your regex should match the string FreecodeCamp
-Waiting: Your regex should match the string FreeCodecamp
-Waiting: Your regex should not match the string Free Code Camp
-Waiting: Your regex should match the string FreeCOdeCamp
-Waiting: Your regex should not match the string FCC
-Waiting: Your regex should match the string FrEeCoDeCamp
-Waiting: Your regex should match the string FrEeCodECamp
-Waiting: Your regex should match the string FReeCodeCAmp
+Waiting: The result should have the string coding
+Waiting: Your regex codingRegex should search for the string coding
+Waiting: You should use the .match() method.
