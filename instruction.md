@@ -1,21 +1,22 @@
-# Match a Literal String with Different Possibilities
+# Ignore Case While Matching
 
-Using regexes like /coding/, you can look for the pattern coding in another string.
+Up until now, you've looked at regexes to do literal matches of strings. But sometimes, you might want to also match case differences.
 
-This is powerful to search single strings, but it's limited to only one pattern. You can search for multiple patterns using the alternation or OR operator: |.
+Case (or sometimes letter case) is the difference between uppercase letters and lowercase letters. Examples of uppercase are A, B, and C. Examples of lowercase are a, b, and c.
 
-This operator matches patterns either before or after it. For example, if you wanted to match the strings yes or no, the regex you want is /yes|no/.
+You can match both cases using what is called a flag. There are other flags but here you'll focus on the flag that ignores case - the i flag. You can use it by appending it to the regex. An example of using this flag is /ignorecase/i. This regex can match the strings ignorecase, igNoreCase, and IgnoreCase.
 
-You can also search for more than just two patterns. You can do this by adding more patterns with more OR operators separating them, like /yes|no|maybe/.
-
-Complete the regex petRegex to match the pets dog, cat, bird, or fish.
+Write a regex fccRegex to match freeCodeCamp, no matter its case. Your regex should not match any abbreviations or variations with spaces.
 
 ## Tests
 
-Waiting: Your regex petRegex should return true for the string John has a pet dog.
-Waiting: Your regex petRegex should return false for the string Emma has a pet rock.
-Waiting: Your regex petRegex should return true for the string Emma has a pet bird.
-Waiting: Your regex petRegex should return true for the string Liz has a pet cat.
-Waiting: Your regex petRegex should return false for the string Kara has a pet dolphin.
-Waiting: Your regex petRegex should return true for the string Alice has a pet fish.
-Waiting: Your regex petRegex should return false for the string Jimmy has a pet computer.
+Waiting: Your regex should match the string freeCodeCamp
+Waiting: Your regex should match the string FreeCodeCamp
+Waiting: Your regex should match the string FreecodeCamp
+Waiting: Your regex should match the string FreeCodecamp
+Waiting: Your regex should not match the string Free Code Camp
+Waiting: Your regex should match the string FreeCOdeCamp
+Waiting: Your regex should not match the string FCC
+Waiting: Your regex should match the string FrEeCoDeCamp
+Waiting: Your regex should match the string FrEeCodECamp
+Waiting: Your regex should match the string FReeCodeCAmp
