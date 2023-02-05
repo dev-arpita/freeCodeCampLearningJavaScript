@@ -1,27 +1,19 @@
-# Match Letters of the Alphabet
+# Match Numbers and Letters of the Alphabet
 
-You saw how you can use character sets to specify a group of characters to match, but that's a lot of typing when you need to match a large range of characters (for example, every letter in the alphabet). Fortunately, there is a built-in feature that makes this short and simple.
+Using the hyphen (-) to match a range of characters is not limited to letters. It also works to match a range of numbers.
 
-Inside a character set, you can define a range of characters to match using a hyphen character: -.
+For example, /[0-5]/ matches any number between 0 and 5, including the 0 and 5.
 
-For example, to match lowercase letters a through e you would use [a-e].
+Also, it is possible to combine a range of letters and numbers in a single character set.
 
-let catStr = "cat";
-let batStr = "bat";
-let matStr = "mat";
-let bgRegex = /[a-e]at/;
-catStr.match(bgRegex);
-batStr.match(bgRegex);
-matStr.match(bgRegex);
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/ig;
+jennyStr.match(myRegex);
 
-In order, the three match calls would return the values ["cat"], ["bat"], and null.
-
-Match all the letters in the string quoteSample.
-
-Note: Be sure to match both uppercase and lowercase letters.
+Create a single regex that matches a range of letters between h and s, and a range of numbers between 2 and 6. Remember to include the appropriate flags in the regex.
 
 ## Tests
 
-Waiting: Your regex alphabetRegex should match 35 items.
-Waiting: Your regex alphabetRegex should use the global flag.
-Waiting: Your regex alphabetRegex should use the case insensitive flag.
+Waiting: Your regex myRegex should match 17 items.
+Waiting: Your regex myRegex should use the global flag.
+Waiting: Your regex myRegex should use the case insensitive flag.
