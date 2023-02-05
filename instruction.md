@@ -1,15 +1,17 @@
-# Match Single Characters Not Specified
+# Match Characters that Occur One or More Times
 
-So far, you have created a set of characters that you want to match, but you could also create a set of characters that you do not want to match. These types of character sets are called negated character sets.
+Sometimes, you need to match a character (or group of characters) that appears one or more times in a row. This means it occurs at least once, and may be repeated.
 
-To create a negated character set, you place a caret character (^) after the opening bracket and before the characters you do not want to match.
+You can use the + character to check if that is the case. Remember, the character or pattern has to be present consecutively. That is, the character has to repeat one after the other.
 
-For example, /[^aeiou]/gi matches all characters that are not a vowel. Note that characters like ., !, [, @, / and white space are matched - the negated vowel character set only excludes the vowel characters.
+For example, /a+/g would find one match in abc and return ["a"]. Because of the +, it would also find a single match in aabc and return ["aa"].
 
-Create a single regex that matches all characters that are not a number or a vowel. Remember to include the appropriate flags in the regex.
+If it were instead checking the string abab, it would find two matches and return ["a", "a"] because the a characters are not in a row - there is a b between them. Finally, since there is no a in the string bcd, it wouldn't find a match.
+
+You want to find matches when the letter s occurs one or more times in Mississippi. Write a regex that uses the + sign.
 
 ## Tests
 
-Waiting: Your regex myRegex should match 9 items.
-Waiting: Your regex myRegex should use the global flag.
-Waiting: Your regex myRegex should use the case insensitive flag.
+Waiting: Your regex myRegex should use the + sign to match one or more s characters.
+Waiting: Your regex myRegex should match 2 items.
+Waiting: The result variable should be an array with two matches of ss
