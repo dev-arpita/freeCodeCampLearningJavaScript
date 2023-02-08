@@ -1,26 +1,19 @@
-# Match Characters that Occur Zero or More Times
+# Find Characters with Lazy Matching
 
-The last challenge used the plus + sign to look for characters that occur one or more times. There's also an option that matches characters that occur zero or more times.
+In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern.
 
-The character to do this is the asterisk or star: \*.
+You can apply the regex /t[a-z]\*i/ to the string "titanic". This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
 
-let soccerWord = "gooooooooal!";
-let gPhrase = "gut feeling";
-let oPhrase = "over the moon";
-let goRegex = /go\*/;
-soccerWord.match(goRegex);
-gPhrase.match(goRegex);
-oPhrase.match(goRegex);
+Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest sub-string possible to fit the pattern.
 
-In order, the three match calls would return the values ["goooooooo"], ["g"], and null.
+However, you can use the ? character to change it to lazy matching. "titanic" matched against the adjusted regex of /t[a-z]\*?i/ returns ["ti"].
 
-For this challenge, chewieQuote has been initialized as the string Aaaaaaaaaaaaaaaarrrgh! behind the scenes. Create a regex chewieRegex that uses the \* character to match an uppercase A character immediately followed by zero or more lowercase a characters in chewieQuote. Your regex does not need flags or character classes, and it should not match any of the other quotes.
+Note: Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
+
+Fix the regex /<.\*>/ to return the HTML tag <h1> and not the text "<h1>Winter is coming</h1>". Remember the wildcard . in a regular expression matches any character.
 
 ## Tests
 
-Waiting: Your regex chewieRegex should use the \* character to match zero or more a characters.
-Waiting: Your regex should match the string A in chewieQuote.
-Waiting: Your regex should match the string Aaaaaaaaaaaaaaaa in chewieQuote.
-Waiting: Your regex chewieRegex should match 16 characters in chewieQuote.
-Waiting: Your regex should not match any characters in the string He made a fair move. Screaming about it can't help you.
-Waiting: Your regex should not match any characters in the string Let him have it. It's not wise to upset a Wookiee.
+Waiting: The result variable should be an array with <h1> in it
+Waiting: myRegex should use lazy matching
+Waiting: myRegex should not include the string h1
