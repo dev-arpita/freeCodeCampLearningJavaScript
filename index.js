@@ -1,4 +1,5 @@
-let text = "<h1>Winter is coming</h1>";
-let myRegex = /<h[a-z]*?1>/; // Change this line
-let result = text.match(myRegex);
-console.log("output:",result)
+
+let findRegex = ("P2P1P5P4CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCP3")
+let reCriminals = /C+/g; // Change this line
+let result = findRegex.match(reCriminals)
+console.log(result)

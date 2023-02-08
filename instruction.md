@@ -1,19 +1,31 @@
-# Find Characters with Lazy Matching
+# Find One or More Criminals in a Hunt
 
-In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern.
+Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away, but you don't know how many. However, you do know that they stay close together when they are around other people. You are responsible for finding all of the criminals at once.
 
-You can apply the regex /t[a-z]\*i/ to the string "titanic". This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
+Here's an example to review how to do this:
 
-Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest sub-string possible to fit the pattern.
+The regex /z+/ matches the letter z when it appears one or more times in a row. It would find matches in all of the following strings:
 
-However, you can use the ? character to change it to lazy matching. "titanic" matched against the adjusted regex of /t[a-z]\*?i/ returns ["ti"].
+"z"
+"zzzzzz"
+"ABCzzzz"
+"zzzzABC"
+"abczzzzzzzzzzzzzzzzzzzzzabc"
 
-Note: Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
+But it does not find matches in the following strings since there are no letter z characters:
 
-Fix the regex /<.\*>/ to return the HTML tag <h1> and not the text "<h1>Winter is coming</h1>". Remember the wildcard . in a regular expression matches any character.
+""
+"ABC"
+"abcabc"
+
+Write a greedy regex that finds one or more criminals within a group of other people. A criminal is represented by the capital letter C.
 
 ## Tests
 
-Waiting: The result variable should be an array with <h1> in it
-Waiting: myRegex should use lazy matching
-Waiting: myRegex should not include the string h1
+Waiting: Your regex should match one criminal (C) in the string C
+Waiting: Your regex should match two criminals (CC) in the string CC
+Waiting: Your regex should match three criminals (CCC) in the string P1P5P4CCCcP2P6P3.
+Waiting: Your regex should match five criminals (CCCCC) in the string P6P2P7P4P5CCCCCP3P1
+Waiting: Your regex should not match any criminals in the empty string ""
+Waiting: Your regex should not match any criminals in the string P1P2P3
+Waiting: Your regex should match fifty criminals (CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC) in the string P2P1P5P4CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCP3.
