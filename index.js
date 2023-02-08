@@ -1,5 +1,4 @@
-
-let findRegex = ("P2P1P5P4CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCP3")
-let reCriminals = /C+/g; // Change this line
-let result = findRegex.match(reCriminals)
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // Change this line
+let result = calRegex.test(rickyAndCal);
 console.log(result)

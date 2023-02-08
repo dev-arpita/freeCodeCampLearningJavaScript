@@ -1,31 +1,22 @@
-# Find One or More Criminals in a Hunt
+# Match Beginning String Patterns
 
-Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away, but you don't know how many. However, you do know that they stay close together when they are around other people. You are responsible for finding all of the criminals at once.
+Prior challenges showed that regular expressions can be used to look for a number of matches. They are also used to search for patterns in specific positions in strings.
 
-Here's an example to review how to do this:
+In an earlier challenge, you used the caret character (^) inside a character set to create a negated character set in the form [^thingsthatwillnotbematched]. Outside of a character set, the caret is used to search for patterns at the beginning of strings.
 
-The regex /z+/ matches the letter z when it appears one or more times in a row. It would find matches in all of the following strings:
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst);
 
-"z"
-"zzzzzz"
-"ABCzzzz"
-"zzzzABC"
-"abczzzzzzzzzzzzzzzzzzzzzabc"
+The first test call would return true, while the second would return false.
 
-But it does not find matches in the following strings since there are no letter z characters:
-
-""
-"ABC"
-"abcabc"
-
-Write a greedy regex that finds one or more criminals within a group of other people. A criminal is represented by the capital letter C.
+Use the caret character in a regex to find Cal only in the beginning of the string rickyAndCal.
 
 ## Tests
 
-Waiting: Your regex should match one criminal (C) in the string C
-Waiting: Your regex should match two criminals (CC) in the string CC
-Waiting: Your regex should match three criminals (CCC) in the string P1P5P4CCCcP2P6P3.
-Waiting: Your regex should match five criminals (CCCCC) in the string P6P2P7P4P5CCCCCP3P1
-Waiting: Your regex should not match any criminals in the empty string ""
-Waiting: Your regex should not match any criminals in the string P1P2P3
-Waiting: Your regex should match fifty criminals (CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC) in the string P2P1P5P4CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCP3.
+Waiting: Your regex should search for the string Cal with a capital letter.
+Waiting: Your regex should not use any flags.
+Waiting: Your regex should match the string Cal at the beginning of the string.
+Waiting: Your regex should not match the string Cal in the middle of a string.
