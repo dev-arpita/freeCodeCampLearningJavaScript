@@ -1,21 +1,29 @@
-# Match Ending String Patterns
+# Match All Letters and Numbers
 
-In the last challenge, you learned to use the caret character to search for patterns at the beginning of strings. There is also a way to search for patterns at the end of strings.
+Using character classes, you were able to search for all letters of the alphabet with [a-z]. This kind of character class is common enough that there is a shortcut for it, although it includes a few extra characters as well.
 
-You can search the end of strings using the dollar sign character $ at the end of the regex.
+The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_]. This character class matches upper and lowercase letters plus numbers. Note, this character class also includes the underscore character (\_).
 
-let theEnding = "This is a never ending story";
-let storyRegex = /story$/;
-storyRegex.test(theEnding);
-let noEnding = "Sometimes a story will have to end";
-storyRegex.test(noEnding);
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers);
+shortHand.test(numbers);
+longHand.test(varNames);
+shortHand.test(varNames);
 
-The first test call would return true, while the second would return false.
+All four of these test calls would return true.
 
-Use the anchor character ($) to match the string caboose at the end of the string caboose.
+These shortcut character classes are also known as shorthand character classes.
+
+Use the shorthand character class \w to count the number of alphanumeric characters in various quotes and strings.
 
 ## Tests
 
-Waiting: You should search for caboose with the dollar sign $ anchor in your regex.
-Waiting: Your regex should not use any flags.
-Waiting: You should match caboose at the end of the string The last car on a train is the caboose
+Waiting: Your regex should use the global flag.
+Waiting: Your regex should use the shorthand character \w to match all characters which are alphanumeric.
+Waiting: Your regex should find 31 alphanumeric characters in the string The five boxing wizards jump quickly.
+Waiting: Your regex should find 32 alphanumeric characters in the string Pack my box with five dozen liquor jugs.
+Waiting: Your regex should find 30 alphanumeric characters in the string How vexingly quick daft zebras jump!
+Waiting: Your regex should find 36 alphanumeric characters in the string 123 456 7890 ABC def GHI jkl MNO pqr STU vwx YZ.
