@@ -1,29 +1,28 @@
-# Specify Only the Lower Number of Matches
+# Specify Exact Number of Matches
 
-You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want to specify the lower number of patterns with no upper limit.
+You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want a specific number of matches.
 
-To only specify the lower number of patterns, keep the first number followed by a comma.
+To specify a certain number of patterns, just have that one number between the curly brackets.
 
-For example, to match only the string hah with the letter a appearing at least 3 times, your regex would be /ha{3,}h/.
+For example, to match only the word hah with the letter a 3 times, your regex would be /ha{3}h/.
 
 let A4 = "haaaah";
-let A2 = "haah";
+let A3 = "haaah";
 let A100 = "h" + "a".repeat(100) + "h";
-let multipleA = /ha{3,}h/;
-multipleA.test(A4);
-multipleA.test(A2);
-multipleA.test(A100);
+let multipleHA = /ha{3}h/;
+multipleHA.test(A4);
+multipleHA.test(A3);
+multipleHA.test(A100);
 
-In order, the three test calls would return true, false, and true.
+In order, the three test calls would return false, true, and false.
 
-Change the regex haRegex to match the word Hazzah only when it has four or more letter z's.
+Change the regex timRegex to match the word Timber only when it has four letter m's.
 
 ## Tests
 
 Waiting: Your regex should use curly brackets.
-Waiting: Your regex should not match the string Hazzah
-Waiting: Your regex should not match the string Hazzzah
-Waiting: Your regex should match the string Hazzzzah
-Waiting: Your regex should match the string Hazzzzzah
-Waiting: Your regex should match the string Hazzzzzzah
-Waiting: Your regex should match the string Hazzah with 30 z's in it.
+Waiting: Your regex should not match the string Timber
+Waiting: Your regex should not match the string Timmber
+Waiting: Your regex should not match the string Timmmber
+Waiting: Your regex should match the string Timmmmber
+Waiting: Your regex should not match the string Timber with 30 m's in it.
