@@ -1,21 +1,21 @@
-# Match Whitespace
+# Match Non-Whitespace Characters
 
-The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
+You learned about searching for whitespace using \s, with a lowercase s. You can also search for everything except whitespace.
 
-You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
+Search for non-whitespace using \S, which is an uppercase s. This pattern will not match whitespace, carriage return, tab, form feed, and new line characters. You can think of it being similar to the character class [^ \r\t\f\n\v].
 
 let whiteSpace = "Whitespace. Whitespace everywhere!"
-let spaceRegex = /\s/g;
-whiteSpace.match(spaceRegex);
+let nonSpaceRegex = /\S/g;
+whiteSpace.match(nonSpaceRegex).length;
 
-This match call would return [" ", " "].
+The value returned by the .length method would be 32.
 
-Change the regex countWhiteSpace to look for multiple whitespace characters in a string.
+Change the regex countNonWhiteSpace to look for multiple non-whitespace characters in a string.
 
 ## Tests
 
 Waiting: Your regex should use the global flag.
-Waiting: Your regex should use the shorthand character \s to match all whitespace characters.
-Waiting: Your regex should find eight spaces in the string Men are from Mars and women are from Venus.
-Waiting: Your regex should find three spaces in the string Space: the final frontier.
-Waiting: Your regex should find no spaces in the string MindYourPersonalSpace
+Waiting: Your regex should use the shorthand character \S to match all non-whitespace characters.
+Waiting: Your regex should find 35 non-spaces in the string Men are from Mars and women are from Venus.
+Waiting: Your regex should find 23 non-spaces in the string Space: the final frontier.
+Waiting: Your regex should find 21 non-spaces in the string MindYourPersonalSpace
