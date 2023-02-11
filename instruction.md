@@ -1,65 +1,21 @@
-# Restrict Possible Usernames
+# Match Whitespace
 
-Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
 
-You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
 
-    1)Usernames can only use alpha-numeric characters.
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex);
 
-    2)The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+This match call would return [" ", " "].
 
-    3)Username letters can be lowercase and uppercase.
-
-    4)Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
-
-Change the regex userCheck to fit the constraints listed above.
+Change the regex countWhiteSpace to look for multiple whitespace characters in a string.
 
 ## Tests
 
-Waiting: Your regex should match the string JACK
-Waiting: Your regex should not match the string J
-Waiting: Your regex should match the string Jo
-Waiting: Your regex should match the string Oceans11
-Waiting: Your regex should match the string RegexGuru
-Waiting: Your regex should not match the string 007
-Waiting: Your regex should not match the string 9
-Waiting: Your regex should not match the string A1
-Waiting: Your regex should not match the string BadUs3rnam3
-Waiting: Your regex should match the string Z97
-Waiting: Your regex should not match the string c57bT3
-Waiting: Your regex should match the string AB1
-Waiting: Your regex should not match the string J%4
-
-Solution 1
-
-let username = "JackOfAllTrades";
-let userCheck = /^[a-z][a-z]+\d\*$|^[a-z]\d\d+$/i;
-let result = userCheck.test(username);
-console.log(result)
-
-Code Explanation
-
-    ^ - start of input
-    [a-z] - first character is a letter
-    [a-z]+ - following characters are letters
-    \d*$ - input ends with 0 or more digits
-    | - or
-    ^[a-z] - first character is a letter
-    \d\d+ - following characters are 2 or more digits
-    $ - end of input
-
-Solution 2
-let username = "JackOfAllTrades";
-const userCheck = /^[a-z]([0-9]{2,}|[a-z]+\d*)$/i;
-let result = userCheck.test(username);
-
-Code Explanation
-
-    ^ - start of input
-    [a-z] - first character is a letter
-    [0-9]{2,} - ends with two or more numbers
-    | - or
-    [a-z]+ - has one or more letters next
-    \d* - and ends with zero or more numbers
-    $ - end of input
-    i - ignore case of input
+Waiting: Your regex should use the global flag.
+Waiting: Your regex should use the shorthand character \s to match all whitespace characters.
+Waiting: Your regex should find eight spaces in the string Men are from Mars and women are from Venus.
+Waiting: Your regex should find three spaces in the string Space: the final frontier.
+Waiting: Your regex should find no spaces in the string MindYourPersonalSpace
