@@ -1,20 +1,65 @@
-# Match All Non-Numbers
+# Restrict Possible Usernames
 
-The last challenge showed how to search for digits using the shortcut \d with a lowercase d. You can also search for non-digits using a similar shortcut that uses an uppercase D instead.
+Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
 
-The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9], which looks for a single character that is not a number between zero and nine.
+You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
 
-Use the shorthand character class for non-digits \D to count how many non-digits are in movie titles.
+    1)Usernames can only use alpha-numeric characters.
+
+    2)The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+
+    3)Username letters can be lowercase and uppercase.
+
+    4)Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+
+Change the regex userCheck to fit the constraints listed above.
 
 ## Tests
 
-Tests
+Waiting: Your regex should match the string JACK
+Waiting: Your regex should not match the string J
+Waiting: Your regex should match the string Jo
+Waiting: Your regex should match the string Oceans11
+Waiting: Your regex should match the string RegexGuru
+Waiting: Your regex should not match the string 007
+Waiting: Your regex should not match the string 9
+Waiting: Your regex should not match the string A1
+Waiting: Your regex should not match the string BadUs3rnam3
+Waiting: Your regex should match the string Z97
+Waiting: Your regex should not match the string c57bT3
+Waiting: Your regex should match the string AB1
+Waiting: Your regex should not match the string J%4
 
-Waiting: Your regex should use the shortcut character to match non-digit characters
-Waiting: Your regex should use the global flag.
-Waiting: Your regex should find no non-digits in the string 9.
-Waiting: Your regex should find 6 non-digits in the string Catch 22.
-Waiting: Your regex should find 11 non-digits in the string 101 Dalmatians.
-Waiting: Your regex should find 15 non-digits in the string One, Two, Three.
-Waiting: Your regex should find 12 non-digits in the string 21 Jump Street.
-Waiting: Your regex should find 17 non-digits in the string 2001: A Space Odyssey.
+Solution 1
+
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d\*$|^[a-z]\d\d+$/i;
+let result = userCheck.test(username);
+console.log(result)
+
+Code Explanation
+
+    ^ - start of input
+    [a-z] - first character is a letter
+    [a-z]+ - following characters are letters
+    \d*$ - input ends with 0 or more digits
+    | - or
+    ^[a-z] - first character is a letter
+    \d\d+ - following characters are 2 or more digits
+    $ - end of input
+
+Solution 2
+let username = "JackOfAllTrades";
+const userCheck = /^[a-z]([0-9]{2,}|[a-z]+\d*)$/i;
+let result = userCheck.test(username);
+
+Code Explanation
+
+    ^ - start of input
+    [a-z] - first character is a letter
+    [0-9]{2,} - ends with two or more numbers
+    | - or
+    [a-z]+ - has one or more letters next
+    \d* - and ends with zero or more numbers
+    $ - end of input
+    i - ignore case of input
