@@ -1,29 +1,24 @@
-# Match All Letters and Numbers
+# Match Everything But Letters and Numbers
 
-Using character classes, you were able to search for all letters of the alphabet with [a-z]. This kind of character class is common enough that there is a shortcut for it, although it includes a few extra characters as well.
+You've learned that you can use a shortcut to match alphanumerics [A-Za-z0-9_] using \w. A natural pattern you might want to search for is the opposite of alphanumerics.
 
-The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_]. This character class matches upper and lowercase letters plus numbers. Note, this character class also includes the underscore character (\_).
+You can search for the opposite of the \w with \W. Note, the opposite pattern uses a capital letter. This shortcut is the same as [^a-za-z0-9_].
 
-let longHand = /[A-Za-z0-9_]+/;
-let shortHand = /\w+/;
-let numbers = "42";
-let varNames = "important_var";
-longHand.test(numbers);
-shortHand.test(numbers);
-longHand.test(varNames);
-shortHand.test(varNames);
+let shortHand = /\W/;
+let numbers = "42%";
+let sentence = "Coding!";
+numbers.match(shortHand);
+sentence.match(shortHand);
 
-All four of these test calls would return true.
+The first match call would return the value ["%"] and the second would return ["!"].
 
-These shortcut character classes are also known as shorthand character classes.
-
-Use the shorthand character class \w to count the number of alphanumeric characters in various quotes and strings.
+Use the shorthand character class \W to count the number of non-alphanumeric characters in various quotes and strings.
 
 ## Tests
 
 Waiting: Your regex should use the global flag.
-Waiting: Your regex should use the shorthand character \w to match all characters which are alphanumeric.
-Waiting: Your regex should find 31 alphanumeric characters in the string The five boxing wizards jump quickly.
-Waiting: Your regex should find 32 alphanumeric characters in the string Pack my box with five dozen liquor jugs.
-Waiting: Your regex should find 30 alphanumeric characters in the string How vexingly quick daft zebras jump!
-Waiting: Your regex should find 36 alphanumeric characters in the string 123 456 7890 ABC def GHI jkl MNO pqr STU vwx YZ.
+Waiting: Your regex should find 6 non-alphanumeric characters in the string The five boxing wizards jump quickly..
+Waiting: Your regex should use the shorthand character to match characters which are non-alphanumeric.
+Waiting: Your regex should find 8 non-alphanumeric characters in the string Pack my box with five dozen liquor jugs.
+Waiting: Your regex should find 6 non-alphanumeric characters in the string How vexingly quick daft zebras jump!
+Waiting: Your regex should find 12 non-alphanumeric characters in the string 123 456 7890 ABC def GHI jkl MNO pqr STU vwx YZ.
