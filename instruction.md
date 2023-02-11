@@ -1,18 +1,20 @@
-# Match All Numbers
+# Match All Non-Numbers
 
-You've learned shortcuts for common string patterns like alphanumerics. Another common pattern is looking for just digits or numbers.
+The last challenge showed how to search for digits using the shortcut \d with a lowercase d. You can also search for non-digits using a similar shortcut that uses an uppercase D instead.
 
-The shortcut to look for digit characters is \d, with a lowercase d. This is equal to the character class [0-9], which looks for a single character of any number between zero and nine.
+The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9], which looks for a single character that is not a number between zero and nine.
 
-Use the shorthand character class \d to count how many digits are in movie titles. Written out numbers ("six" instead of 6) do not count.
+Use the shorthand character class for non-digits \D to count how many non-digits are in movie titles.
 
 ## Tests
 
-Waiting: Your regex should use the shortcut character to match digit characters
+Tests
+
+Waiting: Your regex should use the shortcut character to match non-digit characters
 Waiting: Your regex should use the global flag.
-Waiting: Your regex should find 1 digit in the string 9.
-Waiting: Your regex should find 2 digits in the string Catch 22.
-Waiting: Your regex should find 3 digits in the string 101 Dalmatians.
-Waiting: Your regex should find no digits in the string One, Two, Three.
-Waiting: Your regex should find 2 digits in the string 21 Jump Street.
-Waiting: Your regex should find 4 digits in the string 2001: A Space Odyssey.
+Waiting: Your regex should find no non-digits in the string 9.
+Waiting: Your regex should find 6 non-digits in the string Catch 22.
+Waiting: Your regex should find 11 non-digits in the string 101 Dalmatians.
+Waiting: Your regex should find 15 non-digits in the string One, Two, Three.
+Waiting: Your regex should find 12 non-digits in the string 21 Jump Street.
+Waiting: Your regex should find 17 non-digits in the string 2001: A Space Odyssey.
