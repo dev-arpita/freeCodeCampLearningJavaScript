@@ -1,3 +1,4 @@
-let sample = "Whitespace is important in separating words";
-let countNonWhiteSpace = /\S/g; // Change this line
-let result = sample.match(countNonWhiteSpace);
+let ohStr = "Ohhhhhhh no";
+let ohRegex = /Oh{3,6} no/; // Change this line
+let result = ohRegex.test(ohStr);
+console.log(result)

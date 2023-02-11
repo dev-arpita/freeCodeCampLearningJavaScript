@@ -1,21 +1,27 @@
-# Match Non-Whitespace Characters
+# Specify Upper and Lower Number of Matches
 
-You learned about searching for whitespace using \s, with a lowercase s. You can also search for everything except whitespace.
+Recall that you use the plus sign + to look for one or more characters and the asterisk \* to look for zero or more characters. These are convenient but sometimes you want to match a certain range of patterns.
 
-Search for non-whitespace using \S, which is an uppercase s. This pattern will not match whitespace, carriage return, tab, form feed, and new line characters. You can think of it being similar to the character class [^ \r\t\f\n\v].
+You can specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets ({ and }). You put two numbers between the curly brackets - for the lower and upper number of patterns.
 
-let whiteSpace = "Whitespace. Whitespace everywhere!"
-let nonSpaceRegex = /\S/g;
-whiteSpace.match(nonSpaceRegex).length;
+For example, to match only the letter a appearing between 3 and 5 times in the string ah, your regex would be /a{3,5}h/.
 
-The value returned by the .length method would be 32.
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+multipleA.test(A4);
+multipleA.test(A2);
 
-Change the regex countNonWhiteSpace to look for multiple non-whitespace characters in a string.
+The first test call would return true, while the second would return false.
+
+Change the regex ohRegex to match the entire phrase Oh no only when it has 3 to 6 letter h's.
 
 ## Tests
 
-Waiting: Your regex should use the global flag.
-Waiting: Your regex should use the shorthand character \S to match all non-whitespace characters.
-Waiting: Your regex should find 35 non-spaces in the string Men are from Mars and women are from Venus.
-Waiting: Your regex should find 23 non-spaces in the string Space: the final frontier.
-Waiting: Your regex should find 21 non-spaces in the string MindYourPersonalSpace
+Waiting: Your regex should use curly brackets.
+Waiting: Your regex should not match the string Ohh no
+Waiting: Your regex should match the string Ohhh no
+Waiting: Your regex should match the string Ohhhh no
+Waiting: Your regex should match the string Ohhhhh no
+Waiting: Your regex should match the string Ohhhhhh no
+Waiting: Your regex should not match the string Ohhhhhhh no
