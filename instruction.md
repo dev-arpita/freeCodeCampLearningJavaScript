@@ -1,45 +1,28 @@
-# Positive and Negative Lookahead
+# Check For Mixed Grouping of Characters
 
-Lookaheads are patterns that tell JavaScript to look-ahead in your string to check for patterns further along. This can be useful when you want to search for multiple patterns over the same string.
+Sometimes we want to check for groups of characters using a Regular Expression and to achieve that we use parentheses ().
 
-There are two kinds of lookaheads: positive lookahead and negative lookahead.
+If you want to find either Penguin or Pumpkin in a string, you can use the following Regular Expression: /P(engu|umpk)in/g
 
-A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it. A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
+Then check whether the desired string groups are in the test string by using the test() method.
 
-On the other hand, a negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.
+let testStr = "Pumpkin";
+let testRegex = /P(engu|umpk)in/;
+testRegex.test(testStr);
 
-Lookaheads are a bit confusing but some examples will help.
+The test method here would return true.
 
-let quit = "qu";
-let noquit = "qt";
-let quRegex= /q(?=u)/;
-let qRegex = /q(?!u)/;
-quit.match(quRegex);
-noquit.match(qRegex);
+Fix the regex so that it checks for the names of Franklin Roosevelt or Eleanor Roosevelt in a case sensitive manner and it should make concessions for middle names.
 
-Both of these match calls would return ["q"].
-
-A more practical use of lookaheads is to check two or more patterns in one string. Here is a (naively) simple password checker that looks for between 3 and 6 characters and at least one number:
-
-let password = "abc123";
-let checkPass = /(?=\w{3,6})(?=\D\*\d)/;
-checkPass.test(password);
-
-Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long, and have two consecutive digits.
+Then fix the code so that the regex that you have created is checked against myString and either true or false is returned depending on whether the regex matches.
 
 ## Tests
 
-Waiting: Your regex should use two positive lookaheads.
-Waiting: Your regex should not match the string astronaut
-Waiting: Your regex should not match the string banan1
-Waiting: Your regex should match the string bana12
-Waiting: Your regex should match the string abc123
-Waiting: Your regex should not match the string 12345
-Waiting: Your regex should match the string 8pass99
-Waiting: Your regex should not match the string 1a2bcde
-Waiting: Your regex should match the string astr1on11aut
-
-SOLUTION GUIDE:
-let sampleWord = "astronaut";
-let pwRegex = /(?=\w{6})(?=\w\*\d{2})/;
-let result = pwRegex.test(sampleWord);
+Waiting: Your regex myRegex should return true for the string Franklin D. Roosevelt
+Waiting: Your regex myRegex should return true for the string Eleanor Roosevelt
+Waiting: Your regex myRegex should return false for the string Franklin Rosevelt
+Waiting: Your regex myRegex should return false for the string Frank Roosevelt
+Waiting: Your regex myRegex should return false for the string FranklinRoosevelt
+Waiting: Your regex myRegex should return false for the string EleanorRoosevelt
+Waiting: You should use .test() to test the regex.
+Waiting: Your result should return true.
