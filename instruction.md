@@ -1,28 +1,38 @@
-# Check For Mixed Grouping of Characters
+# Reuse Patterns Using Capture Groups
 
-Sometimes we want to check for groups of characters using a Regular Expression and to achieve that we use parentheses ().
+Say you want to match a word that occurs multiple times like below.
 
-If you want to find either Penguin or Pumpkin in a string, you can use the following Regular Expression: /P(engu|umpk)in/g
+let repeatStr = "row row row your boat";
 
-Then check whether the desired string groups are in the test string by using the test() method.
+You could use /row row row/, but what if you don't know the specific word repeated? Capture groups can be used to find repeated substrings.
 
-let testStr = "Pumpkin";
-let testRegex = /P(engu|umpk)in/;
-testRegex.test(testStr);
+Capture groups are constructed by enclosing the regex pattern to be captured in parentheses. In this case, the goal is to capture a word consisting of alphanumeric characters so the capture group will be \w+ enclosed by parentheses: /(\w+)/.
 
-The test method here would return true.
+The substring matched by the group is saved to a temporary "variable", which can be accessed within the same regex using a backslash and the number of the capture group (e.g. \1). Capture groups are automatically numbered by the position of their opening parentheses (left to right), starting at 1.
 
-Fix the regex so that it checks for the names of Franklin Roosevelt or Eleanor Roosevelt in a case sensitive manner and it should make concessions for middle names.
+The example below matches a word that occurs thrice separated by spaces:
 
-Then fix the code so that the regex that you have created is checked against myString and either true or false is returned depending on whether the regex matches.
+let repeatRegex = /(\w+) \1 \1/;
+repeatRegex.test(repeatStr); // Returns true
+repeatStr.match(repeatRegex); // Returns ["row row row", "row"]
+
+Using the .match() method on a string will return an array with the matched substring, along with its captured groups.
+
+Use capture groups in reRegex to match a string that consists of only the same number repeated exactly three times separated by single spaces.
 
 ## Tests
 
-Waiting: Your regex myRegex should return true for the string Franklin D. Roosevelt
-Waiting: Your regex myRegex should return true for the string Eleanor Roosevelt
-Waiting: Your regex myRegex should return false for the string Franklin Rosevelt
-Waiting: Your regex myRegex should return false for the string Frank Roosevelt
-Waiting: Your regex myRegex should return false for the string FranklinRoosevelt
-Waiting: Your regex myRegex should return false for the string EleanorRoosevelt
-Waiting: You should use .test() to test the regex.
-Waiting: Your result should return true.
+Waiting: Your regex should use the shorthand character class for digits.
+Waiting: Your regex should reuse a capture group twice.
+Waiting: Your regex should match the string 42 42 42.
+Waiting: Your regex should match the string 100 100 100.
+Waiting: Your regex should not match the string 42 42 42 42.
+Waiting: Your regex should not match the string 42 42.
+Waiting: Your regex should not match the string 101 102 103.
+Waiting: Your regex should not match the string 1 2 3.
+Waiting: Your regex should match the string 10 10 10.
+
+Solutions:
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+) \1 \1(?!.)/; // Change this line
+let result = reRegex.test(repeatNum);
