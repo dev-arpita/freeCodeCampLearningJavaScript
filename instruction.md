@@ -1,24 +1,40 @@
-# Check for All or None
+# Positive and Negative Lookahead
 
-Sometimes the patterns you want to search for may have parts of it that may or may not exist. However, it may be important to check for them nonetheless.
+Lookaheads are patterns that tell JavaScript to look-ahead in your string to check for patterns further along. This can be useful when you want to search for multiple patterns over the same string.
 
-You can specify the possible existence of an element with a question mark, ?. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional.
+There are two kinds of lookaheads: positive lookahead and negative lookahead.
 
-For example, there are slight differences in American and British English and you can use the question mark to match both spellings.
+A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it. A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
 
-let american = "color";
-let british = "colour";
-let rainbowRegex= /colou?r/;
-rainbowRegex.test(american);
-rainbowRegex.test(british);
+On the other hand, a negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.
 
-Both uses of the test method would return true.
+Lookaheads are a bit confusing but some examples will help.
 
-Change the regex favRegex to match both the American English (favorite) and the British English (favourite) version of the word.
+let quit = "qu";
+let noquit = "qt";
+let quRegex= /q(?=u)/;
+let qRegex = /q(?!u)/;
+quit.match(quRegex);
+noquit.match(qRegex);
+
+Both of these match calls would return ["q"].
+
+A more practical use of lookaheads is to check two or more patterns in one string. Here is a (naively) simple password checker that looks for between 3 and 6 characters and at least one number:
+
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D\*\d)/;
+checkPass.test(password);
+
+Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long, and have two consecutive digits.
 
 ## Tests
 
-Waiting: Your regex should use the optional symbol, ?.
-Waiting: Your regex should match the string "favorite"
-Waiting: Your regex should match the string "favourite"
-Waiting: Your regex should not match the string "fav"
+Waiting: Your regex should use two positive lookaheads.
+Waiting: Your regex should not match the string astronaut
+Waiting: Your regex should not match the string banan1
+Waiting: Your regex should match the string bana12
+Waiting: Your regex should match the string abc123
+Waiting: Your regex should not match the string 12345
+Waiting: Your regex should match the string 8pass99
+Waiting: Your regex should not match the string 1a2bcde
+Waiting: Your regex should match the string astr1on11aut
