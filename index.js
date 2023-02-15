@@ -1,4 +1,4 @@
-let favWord = "favorite";
-let favRegex = /favou?rite/; // Change this line
-let result = favRegex.test(favWord);
+let sampleWord = "1115";
+let pwRegex = /(?=\w{6})(?=\D*\d\d)/; // Change this line
+let result = pwRegex.test(sampleWord);
 console.log(result)
