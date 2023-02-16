@@ -1,38 +1,29 @@
-# Reuse Patterns Using Capture Groups
+# Use Capture Groups to Search and Replace
 
-Say you want to match a word that occurs multiple times like below.
+Searching is useful. However, you can make searching even more powerful when it also changes (or replaces) the text you match.
 
-let repeatStr = "row row row your boat";
+You can search and replace text in a string using .replace() on a string. The inputs for .replace() is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.
 
-You could use /row row row/, but what if you don't know the specific word repeated? Capture groups can be used to find repeated substrings.
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue");
 
-Capture groups are constructed by enclosing the regex pattern to be captured in parentheses. In this case, the goal is to capture a word consisting of alphanumeric characters so the capture group will be \w+ enclosed by parentheses: /(\w+)/.
+The replace call would return the string The sky is blue..
 
-The substring matched by the group is saved to a temporary "variable", which can be accessed within the same regex using a backslash and the number of the capture group (e.g. \1). Capture groups are automatically numbered by the position of their opening parentheses (left to right), starting at 1.
+You can also access capture groups in the replacement string with dollar signs ($).
 
-The example below matches a word that occurs thrice separated by spaces:
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
 
-let repeatRegex = /(\w+) \1 \1/;
-repeatRegex.test(repeatStr); // Returns true
-repeatStr.match(repeatRegex); // Returns ["row row row", "row"]
+The replace call would return the string Camp Code.
 
-Using the .match() method on a string will return an array with the matched substring, along with its captured groups.
-
-Use capture groups in reRegex to match a string that consists of only the same number repeated exactly three times separated by single spaces.
+Write a regex fixRegex using three capture groups that will search for each word in the string one two three. Then update the replaceText variable to replace one two three with the string three two one and assign the result to the result variable. Make sure you are utilizing capture groups in the replacement string using the dollar sign ($) syntax.
 
 ## Tests
 
-Waiting: Your regex should use the shorthand character class for digits.
-Waiting: Your regex should reuse a capture group twice.
-Waiting: Your regex should match the string 42 42 42.
-Waiting: Your regex should match the string 100 100 100.
-Waiting: Your regex should not match the string 42 42 42 42.
-Waiting: Your regex should not match the string 42 42.
-Waiting: Your regex should not match the string 101 102 103.
-Waiting: Your regex should not match the string 1 2 3.
-Waiting: Your regex should match the string 10 10 10.
+Waiting: You should use .replace() to search and replace.
+Waiting: Your regex should change the string one two three to the string three two one
+Waiting: You should not change the last line.
+Waiting: fixRegex should use at least three capture groups.
+Waiting: replaceText should use parenthesized submatch string(s) (i.e. the nth parenthesized submatch string, $n, corresponds to the nth capture group).
 
-Solutions:
-let repeatNum = "42 42 42";
-let reRegex = /^(\d+) \1 \1(?!.)/; // Change this line
-let result = reRegex.test(repeatNum);
+
