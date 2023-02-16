@@ -1,29 +1,7 @@
-# Use Capture Groups to Search and Replace
+# Use Caution When Reinitializing Variables Inside a Loop
 
-Searching is useful. However, you can make searching even more powerful when it also changes (or replaces) the text you match.
+Sometimes it's necessary to save information, increment counters, or re-set variables within a loop. A potential issue is when variables either should be reinitialized, and aren't, or vice versa. This is particularly dangerous if you accidentally reset the variable being used for the terminal condition, causing an infinite loop.
 
-You can search and replace text in a string using .replace() on a string. The inputs for .replace() is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.
+Printing variable values with each cycle of your loop by using console.log() can uncover buggy behavior related to resetting, or failing to reset a variable.
 
-let wrongText = "The sky is silver.";
-let silverRegex = /silver/;
-wrongText.replace(silverRegex, "blue");
-
-The replace call would return the string The sky is blue..
-
-You can also access capture groups in the replacement string with dollar signs ($).
-
-"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
-
-The replace call would return the string Camp Code.
-
-Write a regex fixRegex using three capture groups that will search for each word in the string one two three. Then update the replaceText variable to replace one two three with the string three two one and assign the result to the result variable. Make sure you are utilizing capture groups in the replacement string using the dollar sign ($) syntax.
-
-## Tests
-
-Waiting: You should use .replace() to search and replace.
-Waiting: Your regex should change the string one two three to the string three two one
-Waiting: You should not change the last line.
-Waiting: fixRegex should use at least three capture groups.
-Waiting: replaceText should use parenthesized submatch string(s) (i.e. the nth parenthesized submatch string, $n, corresponds to the nth capture group).
-
-
+The following function is supposed to create a two-dimensional array with m rows and n columns of zeroes. Unfortunately, it's not producing the expected output because the row variable isn't being reinitialized (set back to an empty array) in the outer loop. Fix the code so it returns a correct 3x2 array of zeroes, which looks like [[0, 0], [0, 0], [0, 0]].
