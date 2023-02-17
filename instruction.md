@@ -1,28 +1,24 @@
-# Access an Array's Contents Using Bracket Notation
+# Add Items to an Array with push() and unshift()
 
-The fundamental feature of any data structure is, of course, the ability to not only store data, but to be able to retrieve that data on command. So, now that we've learned how to create an array, let's begin to think about how we can access that array's information.
+An array's length, like the data types it can contain, is not fixed. Arrays can be defined with a length of any number of elements, and elements can be added or removed over time; in other words, arrays are mutable. In this challenge, we will look at two methods with which we can programmatically modify an array: Array.push() and Array.unshift().
 
-When we define a simple array as seen below, there are 3 items in it:
+Both methods take one or more elements as parameters and add those elements to the array the method is being called on; the push() method adds elements to the end of an array, and unshift() adds elements to the beginning. Consider the following:
 
-let ourArray = ["a", "b", "c"];
+let twentyThree = 'XXIII';
+let romanNumerals = ['XXI', 'XXII'];
 
-In an array, each array item has an index. This index doubles as the position of that item in the array, and how you reference it. However, it is important to note, that JavaScript arrays are zero-indexed, meaning that the first element of an array is actually at the zeroth position, not the first. In order to retrieve an element from an array we can enclose an index in brackets and append it to the end of an array, or more commonly, to a variable which references an array object. This is known as bracket notation. For example, if we want to retrieve the a from ourArray and assign it to a variable, we can do so with the following code:
+romanNumerals.unshift('XIX', 'XX');
 
-let ourVariable = ourArray[0];
+romanNumerals would have the value ['XIX', 'XX', 'XXI', 'XXII'].
 
-Now ourVariable has the value of a.
+romanNumerals.push(twentyThree);
 
-In addition to accessing the value associated with an index, you can also set an index to a value using the same notation:
+romanNumerals would have the value ['XIX', 'XX', 'XXI', 'XXII', 'XXIII']. Notice that we can also pass variables, which allows us even greater flexibility in dynamically modifying our array's data.
 
-ourArray[1] = "not b anymore";
-
-Using bracket notation, we have now reset the item at index 1 from the string b, to not b anymore. Now ourArray is ["a", "not b anymore", "c"].
-
-In order to complete this challenge, set the 2nd position (index 1) of myArray to anything you want, besides the letter b.
+We have defined a function, mixedNumbers, which we are passing an array as an argument. Modify the function by using push() and unshift() to add 'I', 2, 'three' to the beginning of the array and 7, 'VIII', 9 to the end so that the returned array contains representations of the numbers 1-9 in order.
 
 ## Tests:-
 
-Waiting: myArray[0] should be equal to the letter a
-Waiting: myArray[1] should not be equal to the letter b
-Waiting: myArray[2] should be equal to the letter c
-Waiting: myArray[3] should be equal to the letter d
+Waiting: mixedNumbers(["IV", 5, "six"]) should now return ["I", 2, "three", "IV", 5, "six", 7, "VIII", 9]
+Waiting: The mixedNumbers function should utilize the push() method
+Waiting: The mixedNumbers function should utilize the unshift() method
