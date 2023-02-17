@@ -1,29 +1,28 @@
-# Remove Items from an Array with pop() and shift()
+# Remove Items Using splice()
 
-Both push() and unshift() have corresponding methods that are nearly functional opposites: pop() and shift(). As you may have guessed by now, instead of adding, pop() removes an element from the end of an array, while shift() removes an element from the beginning. The key difference between pop() and shift() and their cousins push() and unshift(), is that neither method takes parameters, and each only allows an array to be modified by a single element at a time.
+Ok, so we've learned how to remove elements from the beginning and end of arrays using shift() and pop(), but what if we want to remove an element from somewhere in the middle? Or remove more than one element at once? Well, that's where splice() comes in. splice() allows us to do just that: remove any number of consecutive elements from anywhere in an array.
 
-Let's take a look:
+splice() can take up to 3 parameters, but for now, we'll focus on just the first 2. The first two parameters of splice() are integers which represent indexes, or positions, of items in the array that splice() is being called upon. And remember, arrays are zero-indexed, so to indicate the first element of an array, we would use 0. splice()'s first parameter represents the index on the array from which to begin removing elements, while the second parameter indicates the number of elements to delete. For example:
 
-let greetings = ['whats up?', 'hello', 'see ya!'];
+let array = ['today', 'was', 'not', 'so', 'great'];
 
-greetings.pop();
+array.splice(2, 2);
 
-greetings would have the value ['whats up?', 'hello'].
+Here we remove 2 elements, beginning with the third element (at index 2). array would have the value ['today', 'was', 'great'].
 
-greetings.shift();
+splice() not only modifies the array it's being called on, but it also returns a new array containing the value of the removed elements:
 
-greetings would have the value ['hello'].
+let array = ['I', 'am', 'feeling', 'really', 'happy'];
 
-We can also return the value of the removed element with either method like this:
+let newArray = array.splice(3, 2);
 
-let popped = greetings.pop();
+newArray has the value ['really', 'happy'].
 
-greetings would have the value [], and popped would have the value hello.
-
-We have defined a function, popShift, which takes an array as an argument and returns a new array. Modify the function, using pop() and shift(), to remove the first and last elements of the argument array, and assign the removed elements to their corresponding variables, so that the returned array contains their values.
+We've initialized an array arr. Use splice() to remove elements from arr, so that it only contains elements that sum to the value of 10.
 
 ## Tests:-
 
-Waiting: popShift(["challenge", "is", "not", "complete"]) should return ["challenge", "complete"]
-Waiting: The popShift function should utilize the pop() method
-Waiting: The popShift function should utilize the shift() method
+Waiting: You should not change the original line of const arr = [2, 4, 5, 1, 7, 5, 2, 1];.
+Waiting: arr should only contain elements that sum to 10.
+Waiting: Your code should utilize the splice() method on arr.
+Waiting: The splice should only remove elements from arr and not add any additional elements to arr.
