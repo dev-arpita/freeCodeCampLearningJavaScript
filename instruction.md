@@ -1,20 +1,24 @@
-# Copy an Array with the Spread Operator
+# Check For The Presence of an Element With indexOf()
 
-While slice() allows us to be selective about what elements of an array to copy, among several other useful tasks, ES6's new spread operator allows us to easily copy all of an array's elements, in order, with a simple and highly readable syntax. The spread syntax simply looks like this: ...
+Since arrays can be changed, or mutated, at any time, there's no guarantee about where a particular piece of data will be on a given array, or if that element even still exists. Luckily, JavaScript provides us with another built-in method, indexOf(), that allows us to quickly and easily check for the presence of an element on an array. indexOf() takes an element as a parameter, and when called, it returns the position, or index, of that element, or -1 if the element does not exist on the array.
 
-In practice, we can use the spread operator to copy an array like so:
+For example:
 
-let thisArray = [true, true, undefined, false, null];
-let thatArray = [...thisArray];
+let fruits = ['apples', 'pears', 'oranges', 'peaches', 'pears'];
 
-thatArray equals [true, true, undefined, false, null]. thisArray remains unchanged and thatArray contains the same elements as thisArray.
+fruits.indexOf('dates');
+fruits.indexOf('oranges');
+fruits.indexOf('pears');
 
-We have defined a function, copyMachine which takes arr (an array) and num (a number) as arguments. The function is supposed to return a new array made up of num copies of arr. We have done most of the work for you, but it doesn't work quite right yet. Modify the function using spread syntax so that it works correctly (hint: another method we have already covered might come in handy here!).
+indexOf('dates') returns -1, indexOf('oranges') returns 2, and indexOf('pears') returns 1 (the first index at which each element exists).
+
+indexOf() can be incredibly useful for quickly checking for the presence of an element on an array. We have defined a function, quickCheck, that takes an array and an element as arguments. Modify the function using indexOf() so that it returns true if the passed element exists on the array, and false if it does not.
 
 ## Tests:-
 
-Waiting: copyMachine([true, false, true], 2) should return [[true, false, true], [true, false, true]]
-Waiting: copyMachine([1, 2, 3], 5) should return [[1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]]
-Waiting: copyMachine([true, true, null], 1) should return [[true, true, null]]
-Waiting: copyMachine(["it works"], 3) should return [["it works"], ["it works"], ["it works"]]
-Waiting: The copyMachine function should utilize the spread operator with array arr
+Waiting: The quickCheck function should return a boolean (true or false), not a string ("true" or "false")
+Waiting: quickCheck(["squash", "onions", "shallots"], "mushrooms") should return false
+Waiting: quickCheck(["onions", "squash", "shallots"], "onions") should return true
+Waiting: quickCheck([3, 5, 9, 125, 45, 2], 125) should return true
+Waiting: quickCheck([true, false, false], undefined) should return false
+Waiting: The quickCheck function should utilize the indexOf() method

@@ -1,12 +1,10 @@
-function copyMachine(arr, num) {
-  let newArr = [];
-  while (num >= 1) {
-    // Only change code below this line
-    newArr.push([...arr])
-    // Only change code above this line
-    num--;
-  }
-  return newArr;
+function quickCheck(arr, elem) {
+  // Only change code below this line
+
+  return ((arr.indexOf(elem) != -1) ? true : false);
+
+  // Only change code above this line
 }
 
-console.log(copyMachine([true, false, true], 2));
+console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+console.log(quickCheck([3, 5, 9, 125, 45, 2], 125))
