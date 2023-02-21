@@ -1,10 +1,20 @@
-function quickCheck(arr, elem) {
+function filteredArray(arr, elem) {
+  let newArr = [];
+  console.log(elem)
+  // console.log(arr)
+
   // Only change code below this line
+for(let i = 0; i < arr.length; i++) {
+  // console.log("arr[i]", arr[i])
+  // console.log(arr[i].indexOf(elem))
 
-  return ((arr.indexOf(elem) != -1) ? true : false);
-
+  if(arr[i].indexOf(elem) == -1) {
+   newArr.push(arr[i])
+  }
+}
   // Only change code above this line
+  return newArr;
 }
 
-console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
-console.log(quickCheck([3, 5, 9, 125, 45, 2], 125))
+console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+console.log(filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18) )
