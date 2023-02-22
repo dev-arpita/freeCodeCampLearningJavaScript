@@ -1,29 +1,46 @@
-# Iterate Through All an Array's Items Using For Loops
+# Create complex multi-dimensional arrays
 
-Sometimes when working with arrays, it is very handy to be able to iterate through each item to find one or more elements that we might need, or to manipulate an array based on which data items meet a certain set of criteria. JavaScript offers several built in methods that each iterate over arrays in slightly different ways to achieve different results (such as every(), forEach(), map(), etc.), however the technique which is most flexible and offers us the greatest amount of control is a simple for loop.
+Awesome! You have just learned a ton about arrays! This has been a fairly high level overview, and there is plenty more to learn about working with arrays, much of which you will see in later sections. But before moving on to looking at Objects, let's take one more look, and see how arrays can become a bit more complex than what we have seen in previous challenges.
 
-Consider the following:
+One of the most powerful features when thinking of arrays as data structures, is that arrays can contain, or even be completely made up of other arrays. We have seen arrays that contain arrays in previous challenges, but fairly simple ones. However, arrays can contain an infinite depth of arrays that can contain other arrays, each with their own arbitrary levels of depth, and so on. In this way, an array can very quickly become a very complex data structure, known as a multi-dimensional, or nested array. Consider the following example:
 
-function greaterThanTen(arr) {
-let newArr = [];
-for (let i = 0; i < arr.length; i++) {
-if (arr[i] > 10) {
-newArr.push(arr[i]);
-}
-}
-return newArr;
-}
+let nestedArray = [
+['deep'],
+[
+['deeper'], ['deeper']
+],
+[
+[
+['deepest'], ['deepest']
+],
+[
+[
+['deepest-est?']
+]
+]
+]
+];
 
-greaterThanTen([2, 12, 8, 14, 80, 0, 1]);
+The deep array is nested 2 levels deep. The deeper arrays are 3 levels deep. The deepest arrays are 4 levels, and the deepest-est? is 5.
 
-Using a for loop, this function iterates through and accesses each element of the array, and subjects it to a simple test that we have created. In this way, we have easily and programmatically determined which data items are greater than 10, and returned a new array, [12, 14, 80], containing those items.
+While this example may seem convoluted, this level of complexity is not unheard of, or even unusual, when dealing with large amounts of data. However, we can still very easily access the deepest levels of an array this complex with bracket notation:
 
-We have defined a function, filteredArray, which takes arr, a nested array, and elem as arguments, and returns a new array. elem represents an element that may or may not be present on one or more of the arrays nested within arr. Modify the function, using a for loop, to return a filtered version of the passed array such that any array nested within arr containing elem has been removed.
+console.log(nestedArray[2][1][0][0][0]);
+
+This logs the string deepest-est?. And now that we know where that piece of data is, we can reset it if we need to:
+
+nestedArray[2][1][0][0][0] = 'deeper still';
+
+console.log(nestedArray[2][1][0][0][0]);
+
+Now it logs deeper still.
+
+We have defined a variable, myNestedArray, set equal to an array. Modify myNestedArray, using any combination of strings, numbers, and booleans for data elements, so that it has exactly five levels of depth (remember, the outer-most array is level 1). Somewhere on the third level, include the string deep, on the fourth level, include the string deeper, and on the fifth level, include the string deepest.
 
 ## Tests:-
 
-Waiting: filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18) should return [[10, 8, 3], [14, 6, 23]]
-Waiting: filteredArray([["trumpets", 2], ["flutes", 4], ["saxophones", 2]], 2) should return [["flutes", 4]]
-Waiting: filteredArray([["amy", "beth", "sam"], ["dave", "sean", "peter"]], "peter") should return [["amy", "beth", "sam"]]
-Waiting: filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3) should return []
-Waiting: The filteredArray function should utilize a for loop
+Waiting: myNestedArray should contain only numbers, booleans, and strings as data elements
+Waiting: myNestedArray should have exactly 5 levels of depth
+Waiting: myNestedArray should contain exactly one occurrence of the string deep on an array nested 3 levels deep
+Waiting: myNestedArray should contain exactly one occurrence of the string deeper on an array nested 4 levels deep
+Waiting: myNestedArray should contain exactly one occurrence of the string deepest on an array nested 5 levels deep
