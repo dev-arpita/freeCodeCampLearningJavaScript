@@ -1,17 +1,29 @@
-let foods = {
-  apples: 25,
-  oranges: 32,
-  plums: 28,
-  bananas: 13,
-  grapes: 35,
-  strawberries: 27
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
 };
 
-// Only change code below this line
-  delete foods.oranges
-  delete foods.strawberries
-  delete foods.plums
+function isEveryoneHere(userObj) {
+  // Only change code below this line
+  const userName = ["Alan", "Jeff", "Sarah", "Ryan"]
 
-// Only change code above this line
+  return userName.every( name => userObj.hasOwnProperty(name))
 
-console.log(foods);
+  // Only change code above this line
+}
+
+console.log(isEveryoneHere(users));

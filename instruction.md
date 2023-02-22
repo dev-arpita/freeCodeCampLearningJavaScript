@@ -1,16 +1,33 @@
-# Use the delete Keyword to Remove Object Properties
+# Check if an Object has a Property
 
-Now you know what objects are and their basic features and advantages. In short, they are key-value stores which provide a flexible, intuitive way to structure data, and, they provide very fast lookup time. Throughout the rest of these challenges, we will describe several common operations you can perform on objects so you can become comfortable applying these useful data structures in your programs.
+Now we can add, modify, and remove keys from objects. But what if we just wanted to know if an object has a specific property? JavaScript provides us with two different ways to do this. One uses the hasOwnProperty() method and the other uses the in keyword. If we have an object users with a property of Alan, we could check for its presence in either of the following ways:
 
-In earlier challenges, we have both added to and modified an object's key-value pairs. Here we will see how we can remove a key-value pair from an object.
+users.hasOwnProperty('Alan');
+'Alan' in users;
 
-Let's revisit our foods object example one last time. If we wanted to remove the apples key, we can remove it by using the delete keyword like this:
+Both of these would return true.
 
-delete foods.apples;
-
-Use the delete keyword to remove the oranges, plums, and strawberries keys from the foods object.
+Finish writing the function so that it returns true if the object passed to it contains all four names, Alan, Jeff, Sarah and Ryan and returns false otherwise.
 
 ## Tests:-
 
-Waiting: The foods object should only have three keys: apples, grapes, and bananas.
-Waiting: The oranges, plums, and strawberries keys should be removed using delete.
+Waiting: The users object should not be accessed directly
+Waiting: The users object should only contain the keys Alan, Jeff, Sarah, and Ryan
+Waiting: The function isEveryoneHere should return true if Alan, Jeff, Sarah, and Ryan are properties on the object passed to it.
+
+## Solution 1
+
+function isEveryoneHere(userObj) {
+return userObj.hasOwnProperty("Alan") &&
+userObj.hasOwnProperty("Jeff") &&
+userObj.hasOwnProperty("Sarah") &&
+userObj.hasOwnProperty("Ryan");
+}
+
+## Solution 2
+
+function isEveryoneHere(userObj) {
+return ["Alan", "Jeff", "Sarah", "Ryan"].every(name =>
+userObj.hasOwnProperty(name)
+);
+}
