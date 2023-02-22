@@ -1,30 +1,18 @@
-# Modify an Object Nested Within an Object
+# Access Property Names with Bracket Notation
 
-Now let's take a look at a slightly more complex object. Object properties can be nested to an arbitrary depth, and their values can be any type of data supported by JavaScript, including arrays and even other objects. Consider the following:
+In the first object challenge we mentioned the use of bracket notation as a way to access property values using the evaluation of a variable. For instance, imagine that our foods object is being used in a program for a supermarket cash register. We have some function that sets the selectedFood and we want to check our foods object for the presence of that food. This might look like:
 
-let nestedObject = {
-id: 28802695164,
-date: 'December 31, 2016',
-data: {
-totalUsers: 99,
-online: 80,
-onlineStatus: {
-active: 67,
-away: 13,
-busy: 8
-}
-}
-};
+let selectedFood = getCurrentFood(scannedItem);
+let inventory = foods[selectedFood];
 
-nestedObject has three properties: id (value is a number), date (value is a string), and data (value is an object with its nested structure). While structures can quickly become complex, we can still use the same notations to access the information we need. To assign the value 10 to the busy property of the nested onlineStatus object, we use dot notation to reference the property:
+This code will evaluate the value stored in the selectedFood variable and return the value of that key in the foods object, or undefined if it is not present. Bracket notation is very useful because sometimes object properties are not known before runtime or we need to access them in a more dynamic way.
 
-nestedObject.data.onlineStatus.busy = 10;
-
-Here we've defined an object userActivity, which includes another object nested within it. Set the value of the online key to 45.
+We've defined a function, checkInventory, which receives a scanned item as an argument. Return the current value of the scannedItem key in the foods object. You can assume that only valid keys will be provided as an argument to checkInventory.
 
 ## Tests:-
 
-Waiting: userActivity should have id, date and data properties.
-Waiting: userActivity should have a data key set to an object with keys totalUsers and online.
-Waiting: The online property nested in the data key of userActivity should be set to 45
-Waiting: The online property should be set using dot or bracket notation.
+Waiting: checkInventory should be a function.
+Waiting: The foods object should have only the following key-value pairs: apples: 25, oranges: 32, plums: 28, bananas: 13, grapes: 35, strawberries: 27.
+Waiting: checkInventory("apples") should return 25.
+Waiting: checkInventory("bananas") should return 13.
+Waiting: checkInventory("strawberries") should return 27.
