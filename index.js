@@ -1,27 +1,29 @@
-let users = {
-  Alan: {
-    age: 27,
-    online: false
-  },
-  Jeff: {
-    age: 32,
-    online: true
-  },
-  Sarah: {
-    age: 48,
-    online: false
-  },
-  Ryan: {
-    age: 19,
-    online: true
+const user = {
+  name: 'Kenneth',
+  age: 28,
+  data: {
+    username: 'kennethCodesAllDay',
+    joinDate: 'March 26, 2016',
+    organization: 'freeCodeCamp',
+    friends: [
+      'Sam',
+      'Kira',
+      'Tomo'
+    ],
+    location: {
+      city: 'San Francisco',
+      state: 'CA',
+      country: 'USA'
+    }
   }
 };
 
-function getArrayOfUsers(obj) {
+function addFriend(userObj, friend) {
   // Only change code below this line
-  return Object.keys(obj)
-
+  const myData = userObj.data.friends
+  myData.push(friend)
+  return myData
   // Only change code above this line
 }
 
-console.log(getArrayOfUsers(users));
+console.log(addFriend(user, 'Pete'));
