@@ -1,12 +1,19 @@
-# Reverse a String
+# Factorialize a Number
 
-Reverse the provided string and return the reversed string.
+Return the factorial of the provided integer.
 
-For example, "hello" should become "olleh".
+If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
+
+Factorials are often represented with the shorthand notation n!
+
+For example: 5! = 1 _ 2 _ 3 _ 4 _ 5 = 120
+
+Only integers greater than or equal to zero will be supplied to the function.
 
 ## Tests:-
 
-Waiting: reverseString("hello") should return a string.
-Waiting: reverseString("hello") should return the string olleh.
-Waiting: reverseString("Howdy") should return the string ydwoH.
-Waiting: reverseString("Greetings from Earth") should return the string htraE morf sgniteerG.
+Waiting: factorialize(5) should return a number.
+Waiting: factorialize(5) should return 120.
+Waiting: factorialize(10) should return 3628800.
+Waiting: factorialize(20) should return 2432902008176640000.
+Waiting: factorialize(0) should return 1.
