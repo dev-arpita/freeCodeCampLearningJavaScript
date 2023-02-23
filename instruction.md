@@ -1,19 +1,14 @@
-# Factorialize a Number
+# Find the Longest Word in a String
 
-Return the factorial of the provided integer.
+Return the length of the longest word in the provided sentence.
 
-If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
-
-Factorials are often represented with the shorthand notation n!
-
-For example: 5! = 1 _ 2 _ 3 _ 4 _ 5 = 120
-
-Only integers greater than or equal to zero will be supplied to the function.
+Your response should be a number.
 
 ## Tests:-
 
-Waiting: factorialize(5) should return a number.
-Waiting: factorialize(5) should return 120.
-Waiting: factorialize(10) should return 3628800.
-Waiting: factorialize(20) should return 2432902008176640000.
-Waiting: factorialize(0) should return 1.
+Waiting: findLongestWordLength("The quick brown fox jumped over the lazy dog") should return a number.
+Waiting: findLongestWordLength("The quick brown fox jumped over the lazy dog") should return 6.
+Waiting: findLongestWordLength("May the force be with you") should return 5.
+Waiting: findLongestWordLength("Google do a barrel roll") should return 6.
+Waiting: findLongestWordLength("What is the average airspeed velocity of an unladen swallow") should return 8.
+Waiting: findLongestWordLength("What if we try a super-long word such as otorhinolaryngology") should return 19.
