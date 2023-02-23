@@ -1,11 +1,14 @@
-# Modify an Array Stored in an Object
+# Convert Celsius to Fahrenheit
 
-Now you've seen all the basic operations for JavaScript objects. You can add, modify, and remove key-value pairs, check if keys exist, and iterate over all the keys in an object. As you continue learning JavaScript you will see even more versatile applications of objects. Additionally, the Data Structures lessons located in the Coding Interview Prep section of the curriculum also cover the ES6 Map and Set objects, both of which are similar to ordinary objects but provide some additional features. Now that you've learned the basics of arrays and objects, you're fully prepared to begin tackling more complex problems using JavaScript!
+The formula to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
 
-Take a look at the object we've provided in the code editor. The user object contains three keys. The data key contains five keys, one of which contains an array of friends. From this, you can see how flexible objects are as data structures. We've started writing a function addFriend. Finish writing it so that it takes a user object and adds the name of the friend argument to the array stored in user.data.friends and returns that array.
+You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the formula mentioned above to help convert the Celsius temperature to Fahrenheit.
 
 ## Tests:-
 
-Waiting: The user object should have name, age, and data keys.
-Waiting: The addFriend function should accept a user object and a friend string as arguments and add the friend to the array of friends in the user object.
-Waiting: addFriend(user, "Pete") should return ["Sam", "Kira", "Tomo", "Pete"].
+Waiting: convertCtoF(0) should return a number
+Waiting: convertCtoF(-30) should return a value of -22
+Waiting: convertCtoF(-10) should return a value of 14
+Waiting: convertCtoF(0) should return a value of 32
+Waiting: convertCtoF(20) should return a value of 68
+Waiting: convertCtoF(30) should return a value of 86
