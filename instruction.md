@@ -1,19 +1,37 @@
-# Check if an Object has a Property
+# Iterate Through the Keys of an Object with a for...in Statement
 
-Now we can add, modify, and remove keys from objects. But what if we just wanted to know if an object has a specific property? JavaScript provides us with two different ways to do this. One uses the hasOwnProperty() method and the other uses the in keyword. If we have an object users with a property of Alan, we could check for its presence in either of the following ways:
+Sometimes you may need to iterate through all the keys within an object. This requires a specific syntax in JavaScript called a for...in statement. For our users object, this could look like:
 
-users.hasOwnProperty('Alan');
-'Alan' in users;
+for (let user in users) {
+console.log(user);
+}
 
-Both of these would return true.
+This would log Alan, Jeff, and Sarah - each value on its own line.
 
-Finish writing the function so that it returns true if the object passed to it contains all four names, Alan, Jeff, Sarah and Ryan and returns false otherwise.
+In this statement, we defined a variable user, and as you can see, this variable was reset during each iteration to each of the object's keys as the statement looped through the object, resulting in each user's name being printed to the console.
+
+NOTE: Objects do not maintain an ordering to stored keys like arrays do; thus a key's position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.
+
+We've defined a function countOnline which accepts one argument (a users object). Use a for...in statement within this function to loop through the users object passed into the function and return the number of users whose online property is set to true. An example of a users object which could be passed to countOnline is shown below. Each user will have an online property with either a true or false value.
+
+{
+Alan: {
+online: false
+},
+Jeff: {
+online: true
+},
+Sarah: {
+online: false
+}
+}
 
 ## Tests:-
 
-Waiting: The users object should not be accessed directly
-Waiting: The users object should only contain the keys Alan, Jeff, Sarah, and Ryan
-Waiting: The function isEveryoneHere should return true if Alan, Jeff, Sarah, and Ryan are properties on the object passed to it.
+Waiting: The function countOnline should use a for in statement to iterate through the object keys of the object passed to it.
+Waiting: The function countOnline should return 1 when the object { Alan: { online: false }, Jeff: { online: true }, Sarah: { online: false } } is passed to it
+Waiting: The function countOnline should return 2 when the object { Alan: { online: true }, Jeff: { online: false }, Sarah: { online: true } } is passed to it
+Waiting: The function countOnline should return 0 when the object { Alan: { online: false }, Jeff: { online: false }, Sarah: { online: false } } is passed to it
 
 ## Solution 1
 
