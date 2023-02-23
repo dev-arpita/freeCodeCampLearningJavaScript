@@ -1,14 +1,12 @@
-# Convert Celsius to Fahrenheit
+# Reverse a String
 
-The formula to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
+Reverse the provided string and return the reversed string.
 
-You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the formula mentioned above to help convert the Celsius temperature to Fahrenheit.
+For example, "hello" should become "olleh".
 
 ## Tests:-
 
-Waiting: convertCtoF(0) should return a number
-Waiting: convertCtoF(-30) should return a value of -22
-Waiting: convertCtoF(-10) should return a value of 14
-Waiting: convertCtoF(0) should return a value of 32
-Waiting: convertCtoF(20) should return a value of 68
-Waiting: convertCtoF(30) should return a value of 86
+Waiting: reverseString("hello") should return a string.
+Waiting: reverseString("hello") should return the string olleh.
+Waiting: reverseString("Howdy") should return the string ydwoH.
+Waiting: reverseString("Greetings from Earth") should return the string htraE morf sgniteerG.
