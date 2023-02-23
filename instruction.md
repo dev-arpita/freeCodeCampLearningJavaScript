@@ -28,7 +28,23 @@ online: false
 
 ## Tests:-
 
-Waiting: The function countOnline should use a for in statement to iterate through the object keys of the object passed to it.
-Waiting: The function countOnline should return 1 when the object { Alan: { online: false }, Jeff: { online: true }, Sarah: { online: false } } is passed to it
-Waiting: The function countOnline should return 2 when the object { Alan: { online: true }, Jeff: { online: false }, Sarah: { online: true } } is passed to it
-Waiting: The function countOnline should return 0 when the object { Alan: { online: false }, Jeff: { online: false }, Sarah: { online: false } } is passed to it
+Waiting: The users object should not be accessed directly
+Waiting: The users object should only contain the keys Alan, Jeff, Sarah, and Ryan
+Waiting: The function isEveryoneHere should return true if Alan, Jeff, Sarah, and Ryan are properties on the object passed to it.
+
+## Solution 1
+
+function isEveryoneHere(userObj) {
+return userObj.hasOwnProperty("Alan") &&
+userObj.hasOwnProperty("Jeff") &&
+userObj.hasOwnProperty("Sarah") &&
+userObj.hasOwnProperty("Ryan");
+}
+
+## Solution 2
+
+function isEveryoneHere(userObj) {
+return ["Alan", "Jeff", "Sarah", "Ryan"].every(name =>
+userObj.hasOwnProperty(name)
+);
+}
