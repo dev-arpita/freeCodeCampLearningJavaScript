@@ -1,14 +1,10 @@
-# Truncate a String
+# Finders Keepers
 
-Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+Create a function that looks through an array arr and returns the first element in it that passes a 'truth test'. This means that given an element x, the 'truth test' is passed if func(x) is true. If no element passes the test, return undefined.
 
 ## Tests:-
 
-Waiting: truncateString("A-tisket a-tasket A green and yellow basket", 8) should return the string A-tisket....
-Waiting: truncateString("Peter Piper picked a peck of pickled peppers", 11) should return the string Peter Piper....
-Waiting: truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length) should return the string A-tisket a-tasket A green and yellow basket.
-Waiting: truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2) should return the string A-tisket a-tasket A green and yellow basket.
-Waiting: truncateString("A-", 1) should return the string A....
-Waiting: truncateString("Absolutely Longer", 2) should return the string Ab....
+Waiting: findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; }) should return 8.
+Waiting: findElement([1, 3, 5, 9], function(num) { return num % 2 === 0; }) should return undefined.
 
 ## Solutions:
