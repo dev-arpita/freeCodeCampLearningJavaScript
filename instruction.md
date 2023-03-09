@@ -1,20 +1,14 @@
-# Boo who
+# Title Case a Sentence
 
-Check if a value is classified as a boolean primitive. Return true or false.
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
 
-Boolean primitives are true and false.
+For the purpose of this exercise, you should also capitalize connecting words like the and of.
 
 ## Tests:-
 
-Waiting: booWho(true) should return true.
-Waiting: booWho(false) should return true.
-Waiting: booWho([1, 2, 3]) should return false.
-Waiting: booWho([].slice) should return false.
-Waiting: booWho({ "a": 1 }) should return false.
-Waiting: booWho(1) should return false.
-Waiting: booWho(NaN) should return false.
-Waiting: booWho("a") should return false.
-Waiting: booWho("true") should return false.
-Waiting: booWho("false") should return false.
+Waiting: titleCase("I'm a little tea pot") should return a string.
+Waiting: titleCase("I'm a little tea pot") should return the string I'm A Little Tea Pot.
+Waiting: titleCase("sHoRt AnD sToUt") should return the string Short And Stout.
+Waiting: titleCase("HERE IS MY HANDLE HERE IS MY SPOUT") should return the string Here Is My Handle Here Is My Spout.
 
 ## Solutions:
