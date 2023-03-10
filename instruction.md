@@ -1,20 +1,17 @@
-# Slice and Splice
+# Falsy Bouncer
 
-You are given two arrays and an index.
+Remove all falsy values from an array. Return a new array; do not mutate the original array.
 
-Copy each element of the first array into the second array, in order.
+Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
 
-Begin inserting elements at index n of the second array.
-
-Return the resulting array. The input arrays should remain the same after the function runs.
+Hint: Try converting each value to a Boolean
 
 ## Tests
 
-Waiting: frankenSplice([1, 2, 3], [4, 5], 1) should return [4, 1, 2, 3, 5].
-Waiting: frankenSplice([1, 2], ["a", "b"], 1) should return ["a", 1, 2, "b"].
-Waiting: frankenSplice(["claw", "tentacle"], ["head", "shoulders", "knees", "toes"], 2) should return ["head", "shoulders", "claw", "tentacle", "knees", "toes"].
-Waiting: All elements from the first array should be added to the second array in their original order. frankenSplice([1, 2, 3, 4], [], 0) should return [1, 2, 3, 4].
-Waiting: The first array should remain the same after the function runs.
-Waiting: The second array should remain the same after the function runs
+Waiting: bouncer([7, "ate", "", false, 9]) should return [7, "ate", 9].
+Waiting: bouncer(["a", "b", "c"]) should return ["a", "b", "c"].
+Waiting: bouncer([false, null, 0, NaN, undefined, ""]) should return [].
+Waiting: bouncer([null, NaN, 1, 2, undefined]) should return [1, 2].
+Waiting: You should not mutate arr.
 
 ## Solutions:
