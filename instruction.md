@@ -1,17 +1,28 @@
-# Falsy Bouncer
+# Where do I Belong
 
-Remove all falsy values from an array. Return a new array; do not mutate the original array.
+Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
 
-Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
 
-Hint: Try converting each value to a Boolean
+Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
 
 ## Tests
 
-Waiting: bouncer([7, "ate", "", false, 9]) should return [7, "ate", 9].
-Waiting: bouncer(["a", "b", "c"]) should return ["a", "b", "c"].
-Waiting: bouncer([false, null, 0, NaN, undefined, ""]) should return [].
-Waiting: bouncer([null, NaN, 1, 2, undefined]) should return [1, 2].
-Waiting: You should not mutate arr.
+getIndexToIns([10, 20, 30, 40, 50], 35) should return 3.
+Waiting: getIndexToIns([10, 20, 30, 40, 50], 35) should return a number.
+Waiting: getIndexToIns([10, 20, 30, 40, 50], 30) should return 2.
+Waiting: getIndexToIns([10, 20, 30, 40, 50], 30) should return a number.
+Waiting: getIndexToIns([40, 60], 50) should return 1.
+Waiting: getIndexToIns([40, 60], 50) should return a number.
+Waiting: getIndexToIns([3, 10, 5], 3) should return 0.
+Waiting: getIndexToIns([3, 10, 5], 3) should return a number.
+Waiting: getIndexToIns([5, 3, 20, 3], 5) should return 2.
+Waiting: getIndexToIns([5, 3, 20, 3], 5) should return a number.
+Waiting: getIndexToIns([2, 20, 10], 19) should return 2.
+Waiting: getIndexToIns([2, 20, 10], 19) should return a number.
+Waiting: getIndexToIns([2, 5, 10], 15) should return 3.
+Waiting: getIndexToIns([2, 5, 10], 15) should return a number.
+Waiting: getIndexToIns([], 1) should return 0.
+Waiting: getIndexToIns([], 1) should return a number.
 
 ## Solutions:
