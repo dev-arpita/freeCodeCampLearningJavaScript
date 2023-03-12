@@ -1,16 +1,21 @@
-function getIndexToIns(arr, num) {
-  let arrIndex = ""
-  arr.push(num)
-  arr.map(index => {
-    if (index >= num) {
-      arr.sort((a, b) => a - b)
-      arrIndex = arr.indexOf(num)
-    }
-  })
-  return arrIndex
+function mutation(arr) {
+  let message= ""
+  const firstEl = arr[0].toLowerCase().split("")
+  const secondEl = arr[1].toLowerCase().split("")
+  for(let i = 0; i < secondEl.length; i++){
+    if(firstEl.includes(secondEl[i])){
+      message = true
+      }
+    else
+    message = false
+  }
+  if(!firstEl.includes(secondEl[0])){
+      message = false
+  }
+  return message
 }
 
-console.log("getIndexToIns =>", getIndexToIns([40, 60], 50))
-console.log("getIndexToIns =>", getIndexToIns([20, 3, 5], 19))
-console.log("getIndexToIns =>", getIndexToIns([], 1))
-console.log("getIndexToIns =>", getIndexToIns([10, 20, 30, 40, 50], 30))
+console.log("mutation()=>",mutation(["hello", "hey"]));
+console.log("mutation()=>",mutation(["Mary", "Aarmy"]));
+console.log("mutation()=>",mutation(["hello", "neo"]));
+
