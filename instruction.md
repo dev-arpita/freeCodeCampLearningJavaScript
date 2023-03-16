@@ -1,20 +1,23 @@
-# Use Dot Notation to Access the Properties of an Object
+# Create a Method on an Object
 
-The last challenge created an object with various properties. Now you'll see how to access the values of those properties. Here's an example:
+Objects can have a special type of property, called a method.
+
+Methods are properties that are functions. This adds different behavior to an object. Here is the duck example with a method:
 
 let duck = {
 name: "Aflac",
-numLegs: 2
+numLegs: 2,
+sayName: function() {return "The name of this duck is " + duck.name + ".";}
 };
-console.log(duck.name);
+duck.sayName();
 
-Dot notation is used on the object name, duck, followed by the name of the property, name, to access the value of Aflac.
+The example adds the sayName method, which is a function that returns a sentence giving the name of the duck. Notice that the method accessed the name property in the return statement using duck.name. The next challenge will cover another way to do this.
 
-Print both properties of the dog object to your console.
+Using the dog object, give it a method called sayLegs. The method should return the sentence This dog has 4 legs.
 
 ## Tests
 
-Waiting: Your code should use console.log to print the value for the name property of the dog object.
-Waiting: Your code should use console.log to print the value for the numLegs property of the dog object.
+Waiting: dog.sayLegs() should be a function.
+Waiting: dog.sayLegs() should return the given string - note that punctuation and spacing matter.
 
 <!-- ## Solutions: -->
