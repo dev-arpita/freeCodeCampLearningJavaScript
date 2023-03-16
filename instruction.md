@@ -1,23 +1,26 @@
-# Create a Method on an Object
+# Make Code More Reusable with the this Keyword
 
-Objects can have a special type of property, called a method.
+The last challenge introduced a method to the duck object. It used duck.name dot notation to access the value for the name property within the return statement:
 
-Methods are properties that are functions. This adds different behavior to an object. Here is the duck example with a method:
+sayName: function() {return "The name of this duck is " + duck.name + ".";}
+
+While this is a valid way to access the object's property, there is a pitfall here. If the variable name changes, any code referencing the original name would need to be updated as well. In a short object definition, it isn't a problem, but if an object has many references to its properties there is a greater chance for error.
+
+A way to avoid these issues is with the this keyword:
 
 let duck = {
 name: "Aflac",
 numLegs: 2,
-sayName: function() {return "The name of this duck is " + duck.name + ".";}
+sayName: function() {return "The name of this duck is " + this.name + ".";}
 };
-duck.sayName();
 
-The example adds the sayName method, which is a function that returns a sentence giving the name of the duck. Notice that the method accessed the name property in the return statement using duck.name. The next challenge will cover another way to do this.
+this is a deep topic, and the above example is only one way to use it. In the current context, this refers to the object that the method is associated with: duck. If the object's name is changed to mallard, it is not necessary to find all the references to duck in the code. It makes the code reusable and easier to read.
 
-Using the dog object, give it a method called sayLegs. The method should return the sentence This dog has 4 legs.
+Modify the dog.sayLegs method to remove any references to dog. Use the duck example for guidance.
 
 ## Tests
 
-Waiting: dog.sayLegs() should be a function.
-Waiting: dog.sayLegs() should return the given string - note that punctuation and spacing matter.
+Waiting: dog.sayLegs() should return the given string.
+Waiting: Your code should use the this keyword to access the numLegs property of dog.
 
 <!-- ## Solutions: -->
