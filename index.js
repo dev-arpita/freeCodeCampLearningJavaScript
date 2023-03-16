@@ -1,21 +1,11 @@
-function mutation(arr) {
-  let message= ""
-  const firstEl = arr[0].toLowerCase().split("")
-  const secondEl = arr[1].toLowerCase().split("")
-  for(let i = 0; i < secondEl.length; i++){
-    if(firstEl.includes(secondEl[i])){
-      message = true
-      }
-    else
-    message = false
-  }
-  if(!firstEl.includes(secondEl[0])){
-      message = false
-  }
-  return message
+function chunkArrayInGroups(arr, size) {
+  const newArr = []
+  for (let i = 0; i < arr.length; i += size)
+    newArr.push(arr.slice(i, i + size))
+  return newArr;
 }
 
-console.log("mutation()=>",mutation(["hello", "hey"]));
-console.log("mutation()=>",mutation(["Mary", "Aarmy"]));
-console.log("mutation()=>",mutation(["hello", "neo"]));
 
+console.log("chunkArrayInGroups()=> ", chunkArrayInGroups(["a", "b", "c", "d"], 2));
+// console.log("chunkArrayInGroups()=> ",chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4))
+console.log("chunkArrayInGroups()=> ", chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2))
