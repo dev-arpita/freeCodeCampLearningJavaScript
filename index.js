@@ -1,7 +1,9 @@
-function Dog(name, color) {
-  this.name = name;
-  this.color = color;
-  this.numLegs = 4;
+function House(numBedrooms) {
+  this.numBedrooms = numBedrooms;
 }
-const terrier = new Dog("terrier", "white")
-console.log(terrier)
+
+// Only change code below this line
+
+const myHouse = new House(3)
+console.log(myHouse)
+console.log(myHouse instanceof House)
