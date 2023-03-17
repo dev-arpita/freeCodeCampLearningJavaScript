@@ -1,9 +1,13 @@
-function House(numBedrooms) {
-  this.numBedrooms = numBedrooms;
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
 }
 
+let canary = new Bird("Tweety");
+let ownProps = [];
 // Only change code below this line
-
-const myHouse = new House(3)
-console.log(myHouse)
-console.log(myHouse instanceof House)
+console.log(canary)
+for (let prop in canary) {
+ if(canary.hasOwnProperty(prop))
+  ownProps.push(prop)
+}

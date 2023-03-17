@@ -1,36 +1,37 @@
-# Verify an Object's Constructor with instanceof
+# Object Oriented Programming
 
-Anytime a constructor function creates a new object, that object is said to be an instance of its constructor. JavaScript gives a convenient way to verify this with the instanceof operator. instanceof allows you to compare an object to a constructor, returning true or false based on whether or not that object was created with the constructor. Here's an example:
+Understand Own Properties
 
-let Bird = function(name, color) {
+In the following example, the Bird constructor defines two properties: name and numLegs:
+
+function Bird(name) {
 this.name = name;
-this.color = color;
 this.numLegs = 2;
 }
 
-let crow = new Bird("Alexis", "black");
+let duck = new Bird("Donald");
+let canary = new Bird("Tweety");
 
-crow instanceof Bird;
+name and numLegs are called own properties, because they are defined directly on the instance object. That means that duck and canary each has its own separate copy of these properties. In fact every instance of Bird will have its own copy of these properties. The following code adds all of the own properties of duck to the array ownProps:
 
-This instanceof method would return true.
+let ownProps = [];
 
-If an object is created without using a constructor, instanceof will verify that it is not an instance of that constructor:
+for (let property in duck) {
+if(duck.hasOwnProperty(property)) {
+ownProps.push(property);
+}
+}
 
-let canary = {
-name: "Mildred",
-color: "Yellow",
-numLegs: 2
-};
+console.log(ownProps);
 
-canary instanceof Bird;
+The console would display the value ["name", "numLegs"].
 
-This instanceof method would return false.
-
-Create a new instance of the House constructor, calling it myHouse and passing a number of bedrooms. Then, use instanceof to verify that it is an instance of House.
+Add the own properties of canary to the array ownProps
 
 ## Tests
 
-Waiting: myHouse should have a numBedrooms attribute set to a number.
-Waiting: You should verify that myHouse is an instance of House using the instanceof operator.
+Waiting: ownProps should include the values numLegs and name.
+Waiting: You should solve this challenge without using the built in method Object.keys().
+Waiting: You should solve this challenge without hardcoding the ownProps ar
 
 <!-- ## Solutions: -->
