@@ -1,22 +1,17 @@
-# Change the Prototype to a New Object
+# Remember to Set the Constructor Property when Changing the Prototype
 
-Up until now you have been adding properties to the prototype individually:
+There is one crucial side effect of manually setting the prototype to a new object. It erases the constructor property! This property can be used to check which constructor function created the instance, but since the property has been overwritten, it now gives false results:
 
-Bird.prototype.numLegs = 2;
+duck.constructor === Bird;
+duck.constructor === Object;
+duck instanceof Bird;
 
-This becomes tedious after more than a few properties.
+In order, these expressions would evaluate to false, true, and true.
 
-Bird.prototype.eat = function() {
-console.log("nom nom nom");
-}
-
-Bird.prototype.describe = function() {
-console.log("My name is " + this.name);
-}
-
-A more efficient way is to set the prototype to a new object that already contains the properties. This way, the properties are added all at once:
+To fix this, whenever a prototype is manually set to a new object, remember to define the constructor property:
 
 Bird.prototype = {
+constructor: Bird,
 numLegs: 2,
 eat: function() {
 console.log("nom nom nom");
@@ -26,11 +21,8 @@ console.log("My name is " + this.name);
 }
 };
 
-Add the property numLegs and the two methods eat() and describe() to the prototype of Dog by setting the prototype to a new object.
+Define the constructor property on the Dog prototype.
 
 ## Tests
 
-Passed: Dog.prototype should be set to a new object.
-Passed: Dog.prototype should have the property numLegs.
-Passed: Dog.prototype should have the method eat().
-Passed: Dog.prototype should have the method describe().
+Waiting: Dog.prototype should set the constructor property.

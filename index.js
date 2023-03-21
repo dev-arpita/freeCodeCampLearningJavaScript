@@ -2,14 +2,14 @@ function Dog(name) {
   this.name = name;
 }
 
+// Only change code below this line
 Dog.prototype = {
-  // Only change code below this line
+  constructor: Dog,
   numLegs: 4,
-  eat: function () {
-    return "Meat"
+  eat: function() {
+    console.log("nom nom nom");
   },
-  describe: function () {
-    return `My name is ${this.name}`
+  describe: function() {
+    console.log("My name is " + this.name);
   }
-
 };
