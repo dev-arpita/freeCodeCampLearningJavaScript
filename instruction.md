@@ -1,37 +1,32 @@
-# Iterate Over All Properties
+# Understand the Constructor Property
 
-You have now seen two kinds of properties: own properties and prototype properties. Own properties are defined directly on the object instance itself. And prototype properties are defined on the prototype.
+There is a special constructor property located on the object instances duck and beagle that were created in the previous challenges:
 
-function Bird(name) {
-this.name = name; //own property
-}
+let duck = new Bird();
+let beagle = new Dog();
 
-Bird.prototype.numLegs = 2; // prototype property
+console.log(duck.constructor === Bird);
+console.log(beagle.constructor === Dog);
 
-let duck = new Bird("Donald");
+Both of these console.log calls would display true in the console.
 
-Here is how you add duck's own properties to the array ownProps and prototype properties to the array prototypeProps:
+Note that the constructor property is a reference to the constructor function that created the instance. The advantage of the constructor property is that it's possible to check for this property to find out what kind of object it is. Here's an example of how this could be used:
 
-let ownProps = [];
-let prototypeProps = [];
+function joinBirdFraternity(candidate) {
+if (candidate.constructor === Bird) {
+return true;
 
-for (let property in duck) {
-if(duck.hasOwnProperty(property)) {
-ownProps.push(property);
 } else {
-prototypeProps.push(property);
+return false;
 }
 }
 
-console.log(ownProps);
-console.log(prototypeProps);
+Note: Since the constructor property can be overwritten (which will be covered in the next two challenges) it’s generally better to use the instanceof method to check the type of an object.
 
-console.log(ownProps) would display ["name"] in the console, and console.log(prototypeProps) would display ["numLegs"].
-
-Add all of the own properties of beagle to the array ownProps. Add all of the prototype properties of Dog to the array prototypeProps.
+Write a joinDogFraternity function that takes a candidate parameter and, using the constructor property, return true if the candidate is a Dog, otherwise return false.
 
 ## Tests
 
-Passed: The ownProps array should only contain name.
-Passed: The prototypeProps array should only contain numLegs.
-Passed: You should solve this challenge without using the built in method Object.keys().
+Waiting: joinDogFraternity should be defined as a function.
+Waiting: joinDogFraternity should return true if candidate is an instance of Dog.
+Waiting: joinDogFraternity should use the constructor property.
