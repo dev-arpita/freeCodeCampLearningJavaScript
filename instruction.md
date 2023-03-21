@@ -1,32 +1,36 @@
-# Understand the Constructor Property
+# Change the Prototype to a New Object
 
-There is a special constructor property located on the object instances duck and beagle that were created in the previous challenges:
+Up until now you have been adding properties to the prototype individually:
 
-let duck = new Bird();
-let beagle = new Dog();
+Bird.prototype.numLegs = 2;
 
-console.log(duck.constructor === Bird);
-console.log(beagle.constructor === Dog);
+This becomes tedious after more than a few properties.
 
-Both of these console.log calls would display true in the console.
-
-Note that the constructor property is a reference to the constructor function that created the instance. The advantage of the constructor property is that it's possible to check for this property to find out what kind of object it is. Here's an example of how this could be used:
-
-function joinBirdFraternity(candidate) {
-if (candidate.constructor === Bird) {
-return true;
-
-} else {
-return false;
-}
+Bird.prototype.eat = function() {
+console.log("nom nom nom");
 }
 
-Note: Since the constructor property can be overwritten (which will be covered in the next two challenges) it’s generally better to use the instanceof method to check the type of an object.
+Bird.prototype.describe = function() {
+console.log("My name is " + this.name);
+}
 
-Write a joinDogFraternity function that takes a candidate parameter and, using the constructor property, return true if the candidate is a Dog, otherwise return false.
+A more efficient way is to set the prototype to a new object that already contains the properties. This way, the properties are added all at once:
+
+Bird.prototype = {
+numLegs: 2,
+eat: function() {
+console.log("nom nom nom");
+},
+describe: function() {
+console.log("My name is " + this.name);
+}
+};
+
+Add the property numLegs and the two methods eat() and describe() to the prototype of Dog by setting the prototype to a new object.
 
 ## Tests
 
-Waiting: joinDogFraternity should be defined as a function.
-Waiting: joinDogFraternity should return true if candidate is an instance of Dog.
-Waiting: joinDogFraternity should use the constructor property.
+Passed: Dog.prototype should be set to a new object.
+Passed: Dog.prototype should have the property numLegs.
+Passed: Dog.prototype should have the method eat().
+Passed: Dog.prototype should have the method describe().
