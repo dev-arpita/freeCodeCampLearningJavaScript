@@ -1,10 +1,22 @@
-function Dog(name) {
+function Cat(name) {
   this.name = name;
 }
+Cat.prototype = {
+  constructor: Cat,
+};
 
-let beagle = new Dog("Snoopy");
+function Bear(name) {
+  this.name = name;
+}
+Bear.prototype = {
+  constructor: Bear,
+};
 
-Dog.prototype.isPrototypeOf(beagle);  // yields true
+function Animal() { }
 
-// Fix the code below so that it evaluates to true
-console.log(Object.prototype.isPrototypeOf(Dog.prototype));
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};

@@ -1,26 +1,48 @@
-# Understand the Prototype Chain
+# Use Inheritance So You Don't Repeat Yourself
 
-All objects in JavaScript (with a few exceptions) have a prototype. Also, an object’s prototype itself is an object.
+There's a principle in programming called Don't Repeat Yourself (DRY). The reason repeated code is a problem is because any change requires fixing code in multiple places. This usually means more work for programmers and more room for errors.
 
-function Bird(name) {
-this.name = name;
+Notice in the example below that the describe method is shared by Bird and Dog:
+
+Bird.prototype = {
+constructor: Bird,
+describe: function() {
+console.log("My name is " + this.name);
 }
+};
 
-typeof Bird.prototype;
+Dog.prototype = {
+constructor: Dog,
+describe: function() {
+console.log("My name is " + this.name);
+}
+};
 
-Because a prototype is an object, a prototype can have its own prototype! In this case, the prototype of Bird.prototype is Object.prototype:
+The describe method is repeated in two places. The code can be edited to follow the DRY principle by creating a supertype (or parent) called Animal:
 
-Object.prototype.isPrototypeOf(Bird.prototype);
+function Animal() { };
 
-How is this useful? You may recall the hasOwnProperty method from a previous challenge:
+Animal.prototype = {
+constructor: Animal,
+describe: function() {
+console.log("My name is " + this.name);
+}
+};
 
-let duck = new Bird("Donald");
-duck.hasOwnProperty("name");
+Since Animal includes the describe method, you can remove it from Bird and Dog:
 
-The hasOwnProperty method is defined in Object.prototype, which can be accessed by Bird.prototype, which can then be accessed by duck. This is an example of the prototype chain. In this prototype chain, Bird is the supertype for duck, while duck is the subtype. Object is a supertype for both Bird and duck. Object is a supertype for all objects in JavaScript. Therefore, any object can use the hasOwnProperty method.
+Bird.prototype = {
+constructor: Bird
+};
 
-Modify the code to show the correct prototype chain.
+Dog.prototype = {
+constructor: Dog
+};
+
+The eat method is repeated in both Cat and Bear. Edit the code in the spirit of DRY by moving the eat method to the Animal supertype.
 
 ## Tests
 
-Waiting: Your code should show that Object.prototype is the prototype of Dog.prototype
+Waiting: Animal.prototype should have the eat property.
+Waiting: Bear.prototype should not have the eat property.
+Waiting: Cat.prototype should not have the eat property.
