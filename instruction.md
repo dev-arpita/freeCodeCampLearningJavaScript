@@ -1,20 +1,24 @@
-# Set the Child's Prototype to an Instance of the Parent
+# Reset an Inherited Constructor Property
 
-In the previous challenge you saw the first step for inheriting behavior from the supertype (or parent) Animal: making a new instance of Animal.
+When an object inherits its prototype from another object, it also inherits the supertype's constructor property.
 
-This challenge covers the next step: set the prototype of the subtype (or child)—in this case, Bird—to be an instance of Animal.
+Here's an example:
 
--- Bird.prototype = Object.create(Animal.prototype);
+function Bird() { }
+Bird.prototype = Object.create(Animal.prototype);
+let duck = new Bird();
+duck.constructor
 
-Remember that the prototype is like the "recipe" for creating an object. In a way, the recipe for Bird now includes all the key "ingredients" from Animal.
+But duck and all instances of Bird should show that they were constructed by Bird and not Animal. To do so, you can manually set the constructor property of Bird to the Bird object:
 
--- let duck = new Bird("Donald");
--- duck.eat();
+Bird.prototype.constructor = Bird;
+duck.constructor
 
-duck inherits all of Animal's properties, including the eat method.
-
-Modify the code so that instances of Dog inherit from Animal.
+Fix the code so duck.constructor and beagle.constructor return their respective constructors.
 
 ## Tests
 
+Waiting: Bird.prototype should be an instance of Animal.
+Waiting: duck.constructor should return Bird.
 Waiting: Dog.prototype should be an instance of Animal.
+Waiting: beagle.constructor should return Dog.
