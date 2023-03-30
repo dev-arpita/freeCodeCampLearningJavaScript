@@ -1,39 +1,37 @@
-# Add Methods After Inheritance
+# Override Inherited Methods
 
-A constructor function that inherits its prototype object from a supertype constructor function can still have its own methods in addition to inherited methods.
+In previous lessons, you learned that an object can inherit its behavior (methods) from another object by referencing its prototype object:
 
-For example, Bird is a constructor that inherits its prototype from Animal:
+ChildObject.prototype = Object.create(ParentObject.prototype);
+
+Then the ChildObject received its own methods by chaining them onto its prototype:
+
+ChildObject.prototype.methodName = function() {...};
+
+It's possible to override an inherited method. It's done the same way - by adding a method to ChildObject.prototype using the same method name as the one to override. Here's an example of Bird overriding the eat() method inherited from Animal:
 
 function Animal() { }
 Animal.prototype.eat = function() {
-console.log("nom nom nom");
+return "nom nom nom";
 };
 function Bird() { }
+
 Bird.prototype = Object.create(Animal.prototype);
-Bird.prototype.constructor = Bird;
 
-In addition to what is inherited from Animal, you want to add behavior that is unique to Bird objects. Here, Bird will get a fly() function. Functions are added to Bird's prototype the same way as any constructor function:
-
-Bird.prototype.fly = function() {
-console.log("I'm flying!");
+Bird.prototype.eat = function() {
+return "peck peck peck";
 };
 
-Now instances of Bird will have both eat() and fly() methods:
+If you have an instance let duck = new Bird(); and you call duck.eat(), this is how JavaScript looks for the method on the prototype chain of duck:
 
-let duck = new Bird();
-duck.eat();
-duck.fly();
+    duck => Is eat() defined here? No.
+    Bird => Is eat() defined here? => Yes. Execute it and stop searching.
+    Animal => eat() is also defined, but JavaScript stopped searching before reaching this level.
+    Object => JavaScript stopped searching before reaching this level.
 
-duck.eat() would display the string nom nom nom in the console, and duck.fly() would display the string I'm flying!.
-
-Add all necessary code so the Dog object inherits from Animal and the Dog's prototype constructor is set to Dog. Then add a bark() method to the Dog object so that beagle can both eat() and bark(). The bark() method should print Woof! to the console.
+Override the fly() method for Penguin so that it returns the string Alas, this is a flightless bird.
 
 ## Tests
 
-Waiting: Animal should not respond to the bark() method.
-Waiting: Dog should inherit the eat() method from Animal.
-Waiting: The Dog prototype should have a bark() method.
-Waiting: beagle should be an instanceof Animal.
-Waiting: The constructor for beagle should be set to Dog.
-Waiting: beagle.eat() should log the string nom nom nom
-Waiting: beagle.bark() should log the string Woof!
+Waiting: penguin.fly() should return the string Alas, this is a flightless bird.
+Waiting: The bird.fly() method should return the string I am flying!
