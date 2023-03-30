@@ -1,37 +1,43 @@
-# Override Inherited Methods
+# Use a Mixin to Add Common Behavior Between Unrelated Objects
 
-In previous lessons, you learned that an object can inherit its behavior (methods) from another object by referencing its prototype object:
+As you have seen, behavior is shared through inheritance. However, there are cases when inheritance is not the best solution. Inheritance does not work well for unrelated objects like Bird and Airplane. They can both fly, but a Bird is not a type of Airplane and vice versa.
 
-ChildObject.prototype = Object.create(ParentObject.prototype);
+For unrelated objects, it's better to use mixins. A mixin allows other objects to use a collection of functions.
 
-Then the ChildObject received its own methods by chaining them onto its prototype:
-
-ChildObject.prototype.methodName = function() {...};
-
-It's possible to override an inherited method. It's done the same way - by adding a method to ChildObject.prototype using the same method name as the one to override. Here's an example of Bird overriding the eat() method inherited from Animal:
-
-function Animal() { }
-Animal.prototype.eat = function() {
-return "nom nom nom";
-};
-function Bird() { }
-
-Bird.prototype = Object.create(Animal.prototype);
-
-Bird.prototype.eat = function() {
-return "peck peck peck";
+let flyMixin = function(obj) {
+obj.fly = function() {
+console.log("Flying, wooosh!");
+}
 };
 
-If you have an instance let duck = new Bird(); and you call duck.eat(), this is how JavaScript looks for the method on the prototype chain of duck:
+The flyMixin takes any object and gives it the fly method.
 
-    duck => Is eat() defined here? No.
-    Bird => Is eat() defined here? => Yes. Execute it and stop searching.
-    Animal => eat() is also defined, but JavaScript stopped searching before reaching this level.
-    Object => JavaScript stopped searching before reaching this level.
+let bird = {
+name: "Donald",
+numLegs: 2
+};
 
-Override the fly() method for Penguin so that it returns the string Alas, this is a flightless bird.
+let plane = {
+model: "777",
+numPassengers: 524
+};
+
+flyMixin(bird);
+flyMixin(plane);
+
+Here bird and plane are passed into flyMixin, which then assigns the fly function to each object. Now bird and plane can both fly:
+
+bird.fly();
+plane.fly();
+
+The console would display the string Flying, wooosh! twice, once for each .fly() call.
+
+Note how the mixin allows for the same fly method to be reused by unrelated objects bird and plane.
+
+Create a mixin named glideMixin that defines a method named glide. Then use the glideMixin to give both bird and boat the ability to glide.
 
 ## Tests
 
-Waiting: penguin.fly() should return the string Alas, this is a flightless bird.
-Waiting: The bird.fly() method should return the string I am flying!
+Waiting: Your code should declare a glideMixin variable that is a function.
+Waiting: Your code should use the glideMixin on the bird object to give it the glide method.
+Waiting: Your code should use the glideMixin on the boat object to give it the glide method.
