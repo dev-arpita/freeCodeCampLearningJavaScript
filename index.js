@@ -1,17 +1,16 @@
 function Animal() { }
-function Bird() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
 function Dog() { }
-
-Bird.prototype = Object.create(Animal.prototype);
-Dog.prototype = Object.create(Animal.prototype);
-
 // Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.bark = function() {
+  console.log("Woof!")
+}
 
-Bird.prototype.constructor = Bird;
 
-Dog.prototype.constructor = Dog
+// Only change code above this line
 
-let duck = new Bird();
 let beagle = new Dog();
-console.log(duck.constructor)
-console.log(beagle.constructor)
+console.log(beagle.bark())
