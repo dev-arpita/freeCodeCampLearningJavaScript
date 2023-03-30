@@ -7,7 +7,10 @@ Animal.prototype = {
   }
 };
 
+function Dog() { }
+
 // Only change code below this line
 
-let duck = Object.create(Animal.prototype); // Change this line
-let beagle = Object.create(Animal.prototype); // Change this line
+Dog.prototype = Object.create(Animal.prototype)
+let beagle = new Dog();
+console.log(beagle.eat())
