@@ -1,43 +1,29 @@
-# Use a Mixin to Add Common Behavior Between Unrelated Objects
+# Use Closure to Protect Properties Within an Object from Being Modified Externally
 
-As you have seen, behavior is shared through inheritance. However, there are cases when inheritance is not the best solution. Inheritance does not work well for unrelated objects like Bird and Airplane. They can both fly, but a Bird is not a type of Airplane and vice versa.
+In the previous challenge, bird had a public property name. It is considered public because it can be accessed and changed outside of bird's definition.
 
-For unrelated objects, it's better to use mixins. A mixin allows other objects to use a collection of functions.
+bird.name = "Duffy";
 
-let flyMixin = function(obj) {
-obj.fly = function() {
-console.log("Flying, wooosh!");
+Therefore, any part of your code can easily change the name of bird to any value. Think about things like passwords and bank accounts being easily changeable by any part of your codebase. That could cause a lot of issues.
+
+The simplest way to make this public property private is by creating a variable within the constructor function. This changes the scope of that variable to be within the constructor function versus available globally. This way, the variable can only be accessed and changed by methods also within the constructor function.
+
+function Bird() {
+let hatchedEgg = 10;
+
+this.getHatchedEggCount = function() {
+return hatchedEgg;
+};
 }
-};
+let ducky = new Bird();
+ducky.getHatchedEggCount();
 
-The flyMixin takes any object and gives it the fly method.
+Here getHatchedEggCount is a privileged method, because it has access to the private variable hatchedEgg. This is possible because hatchedEgg is declared in the same context as getHatchedEggCount. In JavaScript, a function always has access to the context in which it was created. This is called closure.
 
-let bird = {
-name: "Donald",
-numLegs: 2
-};
-
-let plane = {
-model: "777",
-numPassengers: 524
-};
-
-flyMixin(bird);
-flyMixin(plane);
-
-Here bird and plane are passed into flyMixin, which then assigns the fly function to each object. Now bird and plane can both fly:
-
-bird.fly();
-plane.fly();
-
-The console would display the string Flying, wooosh! twice, once for each .fly() call.
-
-Note how the mixin allows for the same fly method to be reused by unrelated objects bird and plane.
-
-Create a mixin named glideMixin that defines a method named glide. Then use the glideMixin to give both bird and boat the ability to glide.
+Change how weight is declared in the Bird function so it is a private variable. Then, create a method getWeight that returns the value of weight 15.
 
 ## Tests
 
-Waiting: Your code should declare a glideMixin variable that is a function.
-Waiting: Your code should use the glideMixin on the bird object to give it the glide method.
-Waiting: Your code should use the glideMixin on the boat object to give it the glide method.
+Waiting: The weight property should be a private variable and should be assigned the value of 15.
+Waiting: Your code should create a method in Bird called getWeight that returns the value of the private variable weight.
+Waiting: Your getWeight function should return the private variable weight.
