@@ -1,44 +1,21 @@
-# Use an IIFE to Create a Module
+# Learn About Functional Programming
 
-An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module. For example, an earlier challenge defined two mixins:
+Functional programming is a style of programming where solutions are simple, isolated functions, without any side effects outside of the function scope:
+INPUT -> PROCESS -> OUTPUT
 
-function glideMixin(obj) {
-obj.glide = function() {
-console.log("Gliding on the water");
-};
-}
-function flyMixin(obj) {
-obj.fly = function() {
-console.log("Flying, wooosh!");
-};
-}
+Functional programming is about:
 
-We can group these mixins into a module as follows:
+    Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
 
-let motionModule = (function () {
-return {
-glideMixin: function(obj) {
-obj.glide = function() {
-console.log("Gliding on the water");
-};
-},
-flyMixin: function(obj) {
-obj.fly = function() {
-console.log("Flying, wooosh!");
-};
-}
-}
-})();
+    Pure functions - the same input always gives the same output
 
-Note that you have an immediately invoked function expression (IIFE) that returns an object motionModule. This returned object contains all of the mixin behaviors as properties of the object. The advantage of the module pattern is that all of the motion behaviors can be packaged into a single object that can then be used by other parts of your code. Here is an example using it:
+    Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
 
-motionModule.glideMixin(duck);
-duck.glide();
+The members of freeCodeCamp happen to love tea.
 
-Create a module named funModule to wrap the two mixins isCuteMixin and singMixin. funModule should return an object.
+In the code editor, the prepareTea and getTea functions are already defined for you. Call the getTea function to get 40 cups of tea for the team, and store them in the tea4TeamFCC variable.
 
 ## Tests
 
-Waiting: funModule should be defined and return an object.
-Waiting: funModule.isCuteMixin should access a function.
-Waiting: funModule.singMixin should access a function.
+Waiting: The tea4TeamFCC variable should hold 40 cups of tea for the team.
+Waiting: The tea4TeamFCC variable should hold cups of green tea.
