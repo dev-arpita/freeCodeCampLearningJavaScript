@@ -1,16 +1,29 @@
-# Implement map on a Prototype
+# Use the filter Method to Extract Data from an Array
 
-As you have seen from applying Array.prototype.map(), or simply map() earlier, the map method returns an array of the same length as the one it was called on. It also doesn't alter the original array, as long as its callback function doesn't.
+Another useful array function is Array.prototype.filter(), or simply filter().
 
-In other words, map is a pure function, and its output depends solely on its inputs. Plus, it takes another function as its argument.
+filter calls a function on each element of an array and returns a new array containing only the elements for which that function returns a truthy value - that is, a value which returns true if passed to the Boolean() constructor. In other words, it filters the array, based on the function passed to it. Like map, it does this without needing to modify the original array.
 
-You might learn a lot about the map method if you implement your own version of it. It is recommended you use a for loop or Array.prototype.forEach().
+The callback function accepts three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the filter method was called.
 
-Write your own Array.prototype.myMap(), which should behave exactly like Array.prototype.map(). You should not use the built-in map method. The Array instance can be accessed in the myMap method using this.
+See below for an example using the filter method on the users array to return a new array containing only the users under the age of 30. For simplicity, the example only uses the first argument of the callback.
+
+const users = [
+{ name: 'John', age: 34 },
+{ name: 'Amy', age: 20 },
+{ name: 'camperCat', age: 10 }
+];
+
+const usersUnder30 = users.filter(user => user.age < 30);
+console.log(usersUnder30);
+
+The console would display the value [ { name: 'Amy', age: 20 }, { name: 'camperCat', age: 10 } ].
+
+The variable watchList holds an array of objects with information on several movies. Use a combination of filter and map on watchList to assign a new array of objects with only title and rating keys. The new array should only include objects where imdbRating is greater than or equal to 8.0. Note that the rating values are saved as strings in the object and you may need to convert them into numbers to perform mathematical operations on them.
 
 ## Tests
 
-Waiting: [23, 65, 98, 5, 13].myMap(item => item \* 2) should equal [46, 130, 196, 10, 26].
-Waiting: ["naomi", "quincy", "camperbot"].myMap(element => element.toUpperCase()) should return ["NAOMI", "QUINCY", "CAMPERBOT"].
-Waiting: [1, 1, 2, 5, 2].myMap((element, index, array) => array[index + 1] || array[0]) should return [1, 2, 5, 2, 1].
-Waiting: Your code should not use the map method.
+Waiting: The watchList variable should not change.
+Waiting: Your code should use the filter method.
+Waiting: Your code should not use a for loop.
+Waiting: filteredList should equal [{"title": "Inception", "rating": "8.8"}, {"title": "Interstellar", "rating": "8.6"}, {"title": "The Dark Knight", "rating": "9.0"}, {"title": "Batman Begins", "rating": "8.3"}].
