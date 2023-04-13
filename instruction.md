@@ -1,12 +1,20 @@
-# Implement the filter Method on a Prototype
+# Return Part of an Array Using the slice Method
 
-You might learn a lot about the filter method if you implement your own version of it. It is recommended you use a for loop or Array.prototype.forEach().
+The slice method returns a copy of certain elements of an array. It can take two arguments, the first gives the index of where to begin the slice, the second is the index for where to end the slice (and it's non-inclusive). If the arguments are not provided, the default is to start at the beginning of the array through the end, which is an easy way to make a copy of the entire array. The slice method does not mutate the original array, but returns a new one.
 
-Write your own Array.prototype.myFilter(), which should behave exactly like Array.prototype.filter(). You should not use the built-in filter method. The Array instance can be accessed in the myFilter method using this
+Here's an example:
+
+const arr = ["Cat", "Dog", "Tiger", "Zebra"];
+const newArray = arr.slice(1, 3);
+
+newArray would have the value ["Dog", "Tiger"].
+
+Use the slice method in the sliceArray function to return part of the anim array given the provided beginSlice and endSlice indices. The function should return an array.
 
 ## Tests
 
-Waiting: [23, 65, 98, 5, 13].myFilter(item => item % 2) should equal [23, 65, 5, 13].
-Waiting: ["naomi", "quincy", "camperbot"].myFilter(element => element === "naomi") should return ["naomi"].
-Waiting: [1, 1, 2, 5, 2].myFilter((element, index, array) => array.indexOf(element) === index) should return [1, 2, 5].
-Waiting: Your code should not use the filter method.
+Waiting: Your code should use the slice method.
+Waiting: The inputAnim variable should not change.
+Waiting: sliceArray(["Cat", "Dog", "Tiger", "Zebra", "Ant"], 1, 3) should return ["Dog", "Tiger"].
+Waiting: sliceArray(["Cat", "Dog", "Tiger", "Zebra", "Ant"], 0, 1) should return ["Cat"].
+Waiting: sliceArray(["Cat", "Dog", "Tiger", "Zebra", "Ant"], 1, 4) should return ["Dog", "Tiger", "Zebra"].
