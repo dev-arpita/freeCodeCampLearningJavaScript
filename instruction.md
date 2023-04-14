@@ -1,16 +1,22 @@
-# Combine Two Arrays Using the concat Method
+# Add Elements to the End of an Array Using concat Instead of push
 
-Concatenation means to join items end to end. JavaScript offers the concat method for both strings and arrays that work in the same way. For arrays, the method is called on one, then another array is provided as the argument to concat, which is added to the end of the first array. It returns a new array and does not mutate either of the original arrays. Here's an example:
+Functional programming is all about creating and using non-mutating functions.
 
-[1, 2, 3].concat([4, 5, 6]);
+The last challenge introduced the concat method as a way to merge arrays into a new array without mutating the original arrays. Compare concat to the push method. push adds items to the end of the same array it is called on, which mutates that array. Here's an example:
 
-The returned array would be [1, 2, 3, 4, 5, 6].
+const arr = [1, 2, 3];
+arr.push(4, 5, 6);
 
-Use the concat method in the nonMutatingConcat function to concatenate attach to the end of original. The function should return the concatenated array.
+arr would have a modified value of [1, 2, 3, 4, 5, 6], which is not the functional programming way.
+
+concat offers a way to merge new items to the end of an array without any mutating side effects.
+
+Change the nonMutatingPush function so it uses concat to merge newItem to the end of original without mutating original or newItem arrays. The function should return an array.
 
 ## Tests
 
 Waiting: Your code should use the concat method.
+Waiting: Your code should not use the push method.
 Waiting: The first array should not change.
 Waiting: The second array should not change.
-Waiting: nonMutatingConcat([1, 2, 3], [4, 5]) should return [1, 2, 3, 4, 5].
+Waiting: nonMutatingPush([1, 2, 3], [4, 5]) should return [1, 2, 3, 4, 5].
