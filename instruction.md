@@ -1,48 +1,16 @@
-# Use the reduce Method to Analyze Data
+# Use Higher-Order Functions map, filter, or reduce to Solve a Complex Problem
 
-Array.prototype.reduce(), or simply reduce(), is the most general of all array operations in JavaScript. You can solve almost any array processing problem using the reduce method.
+Now that you have worked through a few challenges using higher-order functions like map(), filter(), and reduce(), you now get to apply them to solve a more complex challenge.
 
-The reduce method allows for more general forms of array processing, and it's possible to show that both filter and map can be derived as special applications of reduce. The reduce method iterates over each item in an array and returns a single value (i.e. string, number, object, array). This is achieved via a callback function that is called on each iteration.
+Complete the code for the squareList function using any combination of map(), filter(), and reduce(). The function should return a new array containing the squares of only the positive integers (decimal numbers are not integers) when an array of real numbers is passed to it. An example of an array of real numbers is [-3, 4.8, 5, 3, -3.2].
 
-The callback function accepts four arguments. The first argument is known as the accumulator, which gets assigned the return value of the callback function from the previous iteration, the second is the current element being processed, the third is the index of that element and the fourth is the array upon which reduce is called.
-
-In addition to the callback function, reduce has an additional parameter which takes an initial value for the accumulator. If this second parameter is not used, then the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator.
-
-See below for an example using reduce on the users array to return the sum of all the users' ages. For simplicity, the example only uses the first and second arguments.
-
-const users = [
-{ name: 'John', age: 34 },
-{ name: 'Amy', age: 20 },
-{ name: 'camperCat', age: 10 }
-];
-
-const sumOfAges = users.reduce((sum, user) => sum + user.age, 0);
-console.log(sumOfAges);
-
-The console would display the value 64.
-
-In another example, see how an object can be returned containing the names of the users as properties with their ages as values.
-
-const users = [
-{ name: 'John', age: 34 },
-{ name: 'Amy', age: 20 },
-{ name: 'camperCat', age: 10 }
-];
-
-const usersObj = users.reduce((obj, user) => {
-obj[user.name] = user.age;
-return obj;
-}, {});
-console.log(usersObj);
-
-The console would display the value { John: 34, Amy: 20, camperCat: 10 }.
-
-The variable watchList holds an array of objects with information on several movies. Use reduce to find the average IMDB rating of the movies directed by Christopher Nolan. Recall from prior challenges how to filter data and map over it to pull what you need. You may need to create other variables, and return the average rating from getRating function. Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
+Note: Your function should not use any kind of for or while loops or the forEach() function.
 
 ## Tests
 
-Waiting: The watchList variable should not change.
-Waiting: Your code should use the reduce method.
-Waiting: The getRating(watchList) should equal 8.675.
-Waiting: Your code should not use a for loop.
-Waiting: Your code should return the correct output after modifying the watchList object.
+Waiting: squareList should be a function.
+Waiting: for, while, and forEach should not be used.
+Waiting: map, filter, or reduce should be used.
+Waiting: The function should return an array.
+Waiting: squareList([4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2]) should return [16, 1764, 36].
+Waiting: squareList([-3.7, -5, 3, 10, 12.5, 7, -4.5, -17, 0.3]) should return [9, 100, 49].
