@@ -1,10 +1,11 @@
-function alphabeticalOrder(arr) {
+const globalArray = [5, 6, 3, 2, 9];
+
+function nonMutatingSort(arr) {
   // Only change code below this line
+const newArray = arr.slice()
+return newArray.sort((a, b) => a - b)
 
-  arr.sort((a, b) => a === b ? 0 : a < b ? -1 : 1)
-
-  return arr
   // Only change code above this line
 }
 
-console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
+console.log(nonMutatingSort(globalArray));
