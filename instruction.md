@@ -1,15 +1,24 @@
-# Return a Sorted Array Without Changing the Original Array
+# Split a String into an Array Using the split Method
 
-A side effect of the sort method is that it changes the order of the elements in the original array. In other words, it mutates the array in place. One way to avoid this is to first concatenate an empty array to the one being sorted (remember that slice and concat return a new array), then run the sort method.
+The split method splits a string into an array of strings. It takes an argument for the delimiter, which can be a character to use to break up the string or a regular expression. For example, if the delimiter is a space, you get an array of words, and if the delimiter is an empty string, you get an array of each character in the string.
 
-Use the sort method in the nonMutatingSort function to sort the elements of an array in ascending order. The function should return a new array, and not mutate the globalArray variable.
+Here are two examples that split one string by spaces, then another by digits using a regular expression:
+
+const str = "Hello World";
+const bySpace = str.split(" ");
+
+const otherString = "How9are7you2today";
+const byDigits = otherString.split(/\d/);
+
+bySpace would have the value ["Hello", "World"] and byDigits would have the value ["How", "are", "you", "today"].
+
+Since strings are immutable, the split method makes it easier to work with them.
+
+Use the split method inside the splitify function to split str into an array of words. The function should return the array. Note that the words are not always separated by spaces, and the array should not contain punctuation.
 
 ## Tests
 
-Waiting: Your code should use the sort method.
-Waiting: The globalArray variable should not change.
-Waiting: nonMutatingSort(globalArray) should return [2, 3, 5, 6, 9].
-Waiting: nonMutatingSort(globalArray) should not be hard coded.
-Waiting: The function should return a new array, not the array passed to it.
-Waiting: nonMutatingSort([1, 30, 4, 21, 100000]) should return [1, 4, 21, 30, 100000].
-Waiting: nonMutatingSort([140000, 104, 99]) should return [99, 104, 140000].
+Your code should use the split method.
+Waiting: splitify("Hello World,I-am code") should return ["Hello", "World", "I", "am", "code"].
+Waiting: splitify("Earth-is-our home") should return ["Earth", "is", "our", "home"].
+Waiting: splitify("This.is.a-sentence") should return ["This", "is", "a", "sentence"].

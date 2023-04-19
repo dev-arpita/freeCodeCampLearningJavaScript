@@ -1,11 +1,8 @@
-const globalArray = [5, 6, 3, 2, 9];
-
-function nonMutatingSort(arr) {
+function splitify(str) {
   // Only change code below this line
-const newArray = arr.slice()
-return newArray.sort((a, b) => a - b)
-
+  const splitStr = str.split(/\W/)
+  return splitStr
   // Only change code above this line
 }
 
-console.log(nonMutatingSort(globalArray));
+console.log(splitify("Hello World,I-am code"));
