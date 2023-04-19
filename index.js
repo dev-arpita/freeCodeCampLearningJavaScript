@@ -1,8 +1,8 @@
-function splitify(str) {
+function sentensify(str) {
   // Only change code below this line
-  const splitStr = str.split(/\W/)
-  return splitStr
+  const strArr = str.split(/\W/)
+  return strArr.join(" ")
   // Only change code above this line
 }
 
-console.log(splitify("Hello World,I-am code"));
+console.log(sentensify("May-the-force-be-with-you"));

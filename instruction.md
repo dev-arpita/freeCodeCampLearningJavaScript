@@ -1,24 +1,21 @@
-# Split a String into an Array Using the split Method
+# Combine an Array into a String Using the join Method
 
-The split method splits a string into an array of strings. It takes an argument for the delimiter, which can be a character to use to break up the string or a regular expression. For example, if the delimiter is a space, you get an array of words, and if the delimiter is an empty string, you get an array of each character in the string.
+The join method is used to join the elements of an array together to create a string. It takes an argument for the delimiter that is used to separate the array elements in the string.
 
-Here are two examples that split one string by spaces, then another by digits using a regular expression:
+Here's an example:
 
-const str = "Hello World";
-const bySpace = str.split(" ");
+const arr = ["Hello", "World"];
+const str = arr.join(" ");
 
-const otherString = "How9are7you2today";
-const byDigits = otherString.split(/\d/);
+str would have a value of the string Hello World.
 
-bySpace would have the value ["Hello", "World"] and byDigits would have the value ["How", "are", "you", "today"].
-
-Since strings are immutable, the split method makes it easier to work with them.
-
-Use the split method inside the splitify function to split str into an array of words. The function should return the array. Note that the words are not always separated by spaces, and the array should not contain punctuation.
+Use the join method (among others) inside the sentensify function to make a sentence from the words in the string str. The function should return a string. For example, I-like-Star-Wars would be converted to I like Star Wars. For this challenge, do not use the replace method.
 
 ## Tests
 
-Your code should use the split method.
-Waiting: splitify("Hello World,I-am code") should return ["Hello", "World", "I", "am", "code"].
-Waiting: splitify("Earth-is-our home") should return ["Earth", "is", "our", "home"].
-Waiting: splitify("This.is.a-sentence") should return ["This", "is", "a", "sentence"].
+Waiting: Your code should use the join method.
+Waiting: Your code should not use the replace method.
+Waiting: sentensify("May-the-force-be-with-you") should return a string.
+Waiting: sentensify("May-the-force-be-with-you") should return the string May the force be with you.
+Waiting: sentensify("The.force.is.strong.with.this.one") should return the string The force is strong with this one.
+Waiting: sentensify("There,has,been,an,awakening") should return the string There has been an awakening.
