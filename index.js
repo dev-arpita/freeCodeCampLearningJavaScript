@@ -1,8 +1,8 @@
-function checkPositive(arr) {
+function add(x) {
   // Only change code below this line
-  return arr.every(bool => bool > 0)
-
+  return y => z => x + y + z
   // Only change code above this line
 }
 
-console.log(checkPositive([1, 2, 3, -4, 5]));
+console.log(add(10)(20)(30));
+console.log(add(1)(2)(3))
