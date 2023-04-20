@@ -1,8 +1,6 @@
-function sentensify(str) {
-  // Only change code below this line
-  const strArr = str.split(/\W/)
-  return strArr.join(" ")
-  // Only change code above this line
+// Only change code below this line
+function urlSlug(title) {
+return title.trim().split(/\s+/ig).join("-").toLowerCase()
 }
-
-console.log(sentensify("May-the-force-be-with-you"));
+// Only change code above this line
+console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"));
