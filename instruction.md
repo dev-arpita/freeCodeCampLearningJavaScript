@@ -1,25 +1,22 @@
-# Apply Functional Programming to Convert Strings to URL Slugs
+# Use the every Method to Check that Every Element in an Array Meets a Criteria
 
-The last several challenges covered a number of useful array and string methods that follow functional programming principles. We've also learned about reduce, which is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array operation can be achieved by applying it. Recall that map and filter are special cases of reduce.
+The every method works with arrays to check if every element passes a particular test. It returns a Boolean value - true if all values meet the criteria, false if not.
 
-Let's combine what we've learned to solve a practical problem.
+For example, the following code would check if every element in the numbers array is less than 10:
 
-Many content management sites (CMS) have the titles of a post added to part of the URL for simple bookmarking purposes. For example, if you write a Medium post titled Stop Using Reduce, it's likely the URL would have some form of the title string in it (.../stop-using-reduce). You may have already noticed this on the freeCodeCamp site.
+const numbers = [1, 5, 8, 0, 10, 11];
 
-Fill in the urlSlug function so it converts a string title and returns the hyphenated version for the URL. You can use any of the methods covered in this section, and don't use replace. Here are the requirements:
+numbers.every(function(currentValue) {
+return currentValue < 10;
+});
 
-The input is a string with spaces and title-cased words
+The every method would return false here.
 
-The output is a string with the spaces between words replaced by a hyphen (-)
-
-The output should be all lower-cased letters
-
-The output should not have any spaces
+Use the every method inside the checkPositive function to check if every element in arr is positive. The function should return a Boolean value.
 
 ## Tests
 
-Waiting: Your code should not use the replace method for this challenge.
-Waiting: urlSlug("Winter Is Coming") should return the string winter-is-coming.
-Waiting: urlSlug(" Winter Is Coming") should return the string winter-is-coming.
-Waiting: urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone") should return the string a-mind-needs-books-like-a-sword-needs-a-whetstone.
-Waiting: urlSlug("Hold The Door") should return the string hold-the-door.
+Waiting: Your code should use the every method.
+Waiting: checkPositive([1, 2, 3, -4, 5]) should return false.
+Waiting: checkPositive([1, 2, 3, 4, 5]) should return true.
+Waiting: checkPositive([1, -2, 3, -4, 5]) should return false.

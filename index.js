@@ -1,6 +1,8 @@
-// Only change code below this line
-function urlSlug(title) {
-return title.trim().split(/\s+/ig).join("-").toLowerCase()
+function checkPositive(arr) {
+  // Only change code below this line
+  return arr.every(bool => bool > 0)
+
+  // Only change code above this line
 }
-// Only change code above this line
-console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"));
+
+console.log(checkPositive([1, 2, 3, -4, 5]));
