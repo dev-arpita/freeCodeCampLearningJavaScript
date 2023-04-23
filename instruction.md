@@ -1,46 +1,13 @@
-# Introduction to Currying and Partial Application
+# Sum All Numbers in a Range
 
-The arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N functions of arity 1.
+We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers between them. The lowest number will not always come first.
 
-In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and so on.
-
-Here's an example:
-
-function unCurried(x, y) {
-return x + y;
-}
-
-function curried(x) {
-return function(y) {
-return x + y;
-}
-}
-
-const curried = x => y => x + y
-
-curried(1)(2)
-
-curried(1)(2) would return 3.
-
-This is useful in your program if you can't supply all the arguments to a function at one time. You can save each function call into a variable, which will hold the returned function reference that takes the next argument when it's available. Here's an example using the curried function in the example above:
-
-const funcForY = curried(1);
-console.log(funcForY(2)); // 3
-
-Similarly, partial application can be described as applying a few arguments to a function at a time and returning another function that is applied to more arguments. Here's an example:
-
-function impartial(x, y, z) {
-return x + y + z;
-}
-
-const partialFn = impartial.bind(this, 1, 2);
-partialFn(10); // 13
-
-Fill in the body of the add function so it uses currying to add parameters x, y, and z.
+For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
 
 ## Tests
 
-Waiting: add(10)(20)(30) should return 60.
-Waiting: add(1)(2)(3) should return 6.
-Waiting: add(11)(22)(33) should return 66.
-Waiting: Your code should include a final statement that returns x + y + z.
+Waiting: sumAll([1, 4]) should return a number.
+Waiting: sumAll([1, 4]) should return 10.
+Waiting: sumAll([4, 1]) should return 10.
+Waiting: sumAll([5, 10]) should return 45.
+Waiting: sumAll([10, 5]) should return 45.
