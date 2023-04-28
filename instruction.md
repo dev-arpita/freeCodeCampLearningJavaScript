@@ -1,25 +1,25 @@
-# Sum All Numbers in a Range
+# Diff Two Arrays
 
-We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers between them. The lowest number will not always come first.
+Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
 
-For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
+Note: You can return the array with its elements in any order.
 
 ## Tests
 
-Waiting: sumAll([1, 4]) should return a number.
-Waiting: sumAll([1, 4]) should return 10.
-Waiting: sumAll([4, 1]) should return 10.
-Waiting: sumAll([5, 10]) should return 45.
-Waiting: sumAll([10, 5]) should return 45.
+Waiting: diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]) should return an array.
+Waiting: ["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return ["pink wool"].
+Waiting: ["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return an array with one item.
+Waiting: ["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return ["diorite", "pink wool"].
+Waiting: ["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return an array with two items.
+Waiting: ["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"] should return [].
+Waiting: ["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"] should return an empty array.
+Waiting: [1, 2, 3, 5], [1, 2, 3, 4, 5] should return [4].
+Waiting: [1, 2, 3, 5], [1, 2, 3, 4, 5] should return an array with one item.
+Waiting: [1, "calf", 3, "piglet"], [1, "calf", 3, 4] should return ["piglet", 4].
+Waiting: [1, "calf", 3, "piglet"], [1, "calf", 3, 4] should return an array with two items.
+Waiting: [], ["snuffleupagus", "cookie monster", "elmo"] should return ["snuffleupagus", "cookie monster", "elmo"].
+Waiting: [], ["snuffleupagus", "cookie monster", "elmo"] should return an array with three items.
+Waiting: [1, "calf", 3, "piglet"], [7, "filly"] should return [1, "calf", 3, "piglet", 7, "filly"].
+Waiting: [1, "calf", 3, "piglet"], [7, "filly"] should return an array with six items.
 
 ## Solutions:
-
-1 Refactor....
-function sumAll(arr) {
-let sumInRange = 0
-for(let num = Math.min(...arr); num <= Math.max(...arr); num++ )
-sumInRange += num
-return sumInRange;
-}
-
-2.....
