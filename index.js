@@ -1,12 +1,8 @@
 
 function sumAll(arr) {
-  const startNum = Math.min(arr[0],arr[1])
-  const endNum = Math.max(arr[0], arr[1])
   let sumInRange = 0
-  for(let num = startNum; num <= endNum; num++ )
-
+  for(let num =  Math.min(...arr); num <= Math.max(...arr); num++ )
   sumInRange += num
-
   return sumInRange;
 }
 
