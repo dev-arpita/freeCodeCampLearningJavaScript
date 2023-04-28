@@ -1,8 +1,7 @@
-function diffArray(arr1, arr2) {
-
-  return arr1
-  .concat(arr2)
-  .filter(item => !arr1.includes(item) || !arr2.includes(item));
+function destroyer(arr, ...argument) {
+  return arr
+  .concat(argument)
+  .filter(item => !argument.includes(item));
 }
 
-console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));

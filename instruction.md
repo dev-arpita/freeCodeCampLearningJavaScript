@@ -1,25 +1,16 @@
-# Diff Two Arrays
+# Seek and Destroy
 
-Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
+You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
 
-Note: You can return the array with its elements in any order.
+Note: You have to use the arguments object.
 
 ## Tests
 
-Waiting: diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]) should return an array.
-Waiting: ["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return ["pink wool"].
-Waiting: ["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return an array with one item.
-Waiting: ["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return ["diorite", "pink wool"].
-Waiting: ["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return an array with two items.
-Waiting: ["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"] should return [].
-Waiting: ["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"] should return an empty array.
-Waiting: [1, 2, 3, 5], [1, 2, 3, 4, 5] should return [4].
-Waiting: [1, 2, 3, 5], [1, 2, 3, 4, 5] should return an array with one item.
-Waiting: [1, "calf", 3, "piglet"], [1, "calf", 3, 4] should return ["piglet", 4].
-Waiting: [1, "calf", 3, "piglet"], [1, "calf", 3, 4] should return an array with two items.
-Waiting: [], ["snuffleupagus", "cookie monster", "elmo"] should return ["snuffleupagus", "cookie monster", "elmo"].
-Waiting: [], ["snuffleupagus", "cookie monster", "elmo"] should return an array with three items.
-Waiting: [1, "calf", 3, "piglet"], [7, "filly"] should return [1, "calf", 3, "piglet", 7, "filly"].
-Waiting: [1, "calf", 3, "piglet"], [7, "filly"] should return an array with six items.
+Waiting: destroyer([1, 2, 3, 1, 2, 3], 2, 3) should return [1, 1].
+Waiting: destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3) should return [1, 5, 1].
+Waiting: destroyer([3, 5, 1, 2, 2], 2, 3, 5) should return [1].
+Waiting: destroyer([2, 3, 2, 3], 2, 3) should return [].
+Waiting: destroyer(["tree", "hamburger", 53], "tree", 53) should return ["hamburger"].
+Waiting: destroyer(["possum", "trollo", 12, "safari", "hotdog", 92, 65, "grandma", "bugati", "trojan", "yacht"], "yacht", "possum", "trollo", "safari", "hotdog", "grandma", "bugati", "trojan") should return [12,92,65].
 
 ## Solutions:
