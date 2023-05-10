@@ -37,6 +37,7 @@ We filter through the array using .filter().
 Using a for loop we loop through each item in the object.
 We use a if statement to check if the object in the collection doesn’t have the key and the property value doesn’t match the value in source.
 We return false if the above if statement is correct. Otherwise, we return true;
+<<<<<<< HEAD
 
 ## solution-2
 
@@ -61,3 +62,5 @@ whatIsInAName(
 ],
 { last: "Capulet" }
 );
+=======
+>>>>>>> 70aa6e525660702e5fca839d9411de67976521e6
