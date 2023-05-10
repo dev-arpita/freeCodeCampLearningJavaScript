@@ -1,16 +1,39 @@
-# Seek and Destroy
+# Wherefore art thou
 
-You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array.
 
-Note: You have to use the arguments object.
+For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument.
 
 ## Tests
 
-Waiting: destroyer([1, 2, 3, 1, 2, 3], 2, 3) should return [1, 1].
-Waiting: destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3) should return [1, 5, 1].
-Waiting: destroyer([3, 5, 1, 2, 2], 2, 3, 5) should return [1].
-Waiting: destroyer([2, 3, 2, 3], 2, 3) should return [].
-Waiting: destroyer(["tree", "hamburger", 53], "tree", 53) should return ["hamburger"].
-Waiting: destroyer(["possum", "trollo", 12, "safari", "hotdog", 92, 65, "grandma", "bugati", "trojan", "yacht"], "yacht", "possum", "trollo", "safari", "hotdog", "grandma", "bugati", "trojan") should return [12,92,65].
+Waiting: whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }) should return [{ first: "Tybalt", last: "Capulet" }].
+Waiting: whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 }) should return [{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }].
+Waiting: whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }) should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }].
+Waiting: whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 }) should return [{ "apple": 1, "bat": 2, "cookie": 2 }].
+Waiting: whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 }) should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }].
+Waiting: whatIsInAName([{"a": 1, "b": 2, "c": 3}], {"a": 1, "b": 9999, "c": 3}) should return []
+Waiting: whatIsInAName([{"a": 1, "b": 2, "c": 3, "d": 9999}], {"a": 1, "b": 9999, "c": 3}) should return []
 
 ## Solutions:
+
+### Code Explanation
+
+    function whatIsInAName(collection, source) {
+
+const souceKeys = Object.keys(source);
+
+// filter the collection
+return collection.filter(obj => {
+for (let i = 0; i < souceKeys.length; i++) {
+if (!obj.hasOwnProperty(souceKeys[i]) ||
+obj[souceKeys[i]] !== source[souceKeys[i]]) {
+return false;
+}
+}
+return true;
+});
+}
+We filter through the array using .filter().
+Using a for loop we loop through each item in the object.
+We use a if statement to check if the object in the collection doesn’t have the key and the property value doesn’t match the value in source.
+We return false if the above if statement is correct. Otherwise, we return true;
