@@ -1,66 +1,13 @@
-# Wherefore art thou
+# Spinal Tap Case
 
-Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array.
-
-For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument.
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
 
 ## Tests
 
-Waiting: whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }) should return [{ first: "Tybalt", last: "Capulet" }].
-Waiting: whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 }) should return [{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }].
-Waiting: whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }) should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }].
-Waiting: whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 }) should return [{ "apple": 1, "bat": 2, "cookie": 2 }].
-Waiting: whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 }) should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }].
-Waiting: whatIsInAName([{"a": 1, "b": 2, "c": 3}], {"a": 1, "b": 9999, "c": 3}) should return []
-Waiting: whatIsInAName([{"a": 1, "b": 2, "c": 3, "d": 9999}], {"a": 1, "b": 9999, "c": 3}) should return []
+Waiting: spinalCase("This Is Spinal Tap") should return the string this-is-spinal-tap.
+Waiting: spinalCase("thisIsSpinalTap") should return the string this-is-spinal-tap.
+Waiting: spinalCase("The_Andy_Griffith_Show") should return the string the-andy-griffith-show.
+Waiting: spinalCase("Teletubbies say Eh-oh") should return the string teletubbies-say-eh-oh.
+Waiting: spinalCase("AllThe-small Things") should return the string all-the-small-things.
 
 ## Solutions:
-
-### Code Explanation
-
-    function whatIsInAName(collection, source) {
-
-const souceKeys = Object.keys(source);
-
-// filter the collection
-return collection.filter(obj => {
-for (let i = 0; i < souceKeys.length; i++) {
-if (!obj.hasOwnProperty(souceKeys[i]) ||
-obj[souceKeys[i]] !== source[souceKeys[i]]) {
-return false;
-}
-}
-return true;
-});
-}
-We filter through the array using .filter().
-Using a for loop we loop through each item in the object.
-We use a if statement to check if the object in the collection doesn’t have the key and the property value doesn’t match the value in source.
-We return false if the above if statement is correct. Otherwise, we return true;
-<<<<<<< HEAD
-
-## solution-2
-
-function whatIsInAName(collection, source) {
-// "What's in a name? that which we call a rose
-// By any other name would smell as sweet.”
-// -- by William Shakespeare, Romeo and Juliet
-const souceKeys = Object.keys(source);
-
-// filter the collection
-return collection.filter(obj => souceKeys
-.map(key => obj.hasOwnProperty(key) && obj[key] === source[key])
-.reduce((a, b) => a && b));
-}
-
-// test here
-whatIsInAName(
-[
-{ first: "Romeo", last: "Montague" },
-{ first: "Mercutio", last: null },
-{ first: "Tybalt", last: "Capulet" }
-],
-{ last: "Capulet" }
-);
-=======
->>>>>>> 70aa6e525660702e5fca839d9411de67976521e6

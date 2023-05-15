@@ -1,28 +1,22 @@
-function whatIsInAName(collection, source) {
-/* problem:
-    If source prop and collection prop are same then only return
-    that object from collection array
-  solution:
-    - take out source object prop
-    - filter collection array to match the array object prop with
-      the source obj prop
-    - and return that matched object only.
-  */
-  const sourceProp = Object.keys(source)
+function spinalCase(str) {
 
-  return collection.filter(object => sourceProp.every( key =>
-    object.hasOwnProperty(key) && object[key] === source[key]
-    )
-  )
+  const newStr = str.split(/\s|_|(?=[A-Z])/).join("-")
+    /*
+    Explaination:
+    whiteSpace or underscore or is followed by an uppercase letter
+    join hyphen after
+    */
+  return newStr.toLowerCase();
 }
 
+console.log(spinalCase("thisIsSpinalTap"));
+console.log(spinalCase("this Is Spinal Tap"));
+console.log(spinalCase("The_Andy_Griffith_Show"));
+console.log(spinalCase("AllThe-small Things"));
+console.log(spinalCase("Teletubbies say Eh-oh"));
 
-
-console.log(whatIsInAName([{ first: "Romeo", last: "Montague" },
-{ first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }],
-{ last: "Capulet" }));
-
-console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 },
- { "apple": 1, "bat": 2, "cookie": 2 }],
- { "apple": 1, "bat": 2 }))
- console.log(whatIsInAName([{"a": 1, "b": 2, "c": 3}], {"a": 1, "b": 9999, "c": 3}))
+/*
+solution plan of this problem:
+  string need to be lower case
+  and joined by dashes
+*/
