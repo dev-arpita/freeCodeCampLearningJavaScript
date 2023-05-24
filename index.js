@@ -1,22 +1,25 @@
-function spinalCase(str) {
+function translatePigLatin(str) {
+  const strRegex = /[aeiou]/;
+  const strArr = str.split("")
 
-  const newStr = str.split(/\s|_|(?=[A-Z])/).join("-")
-    /*
-    Explaination:
-    whiteSpace or underscore or is followed by an uppercase letter
-    join hyphen after
-    */
-  return newStr.toLowerCase();
+  const index = str.indexOf(str.match(strRegex))
+  const consonent = strArr.slice(0, index)
+  const newStr = strArr.slice(index)
+
+
+  let result;
+  if (!str.match(strRegex)) {
+    result = consonent.concat(newStr).concat("ay").join("")
+  }
+  else if (!strRegex.test(str[0])) {
+    result = newStr.concat(consonent).concat("ay").join("")
+  }
+  else {
+    result = newStr.concat(consonent).concat("way").join("")
+  }
+  return result;
 }
 
-console.log(spinalCase("thisIsSpinalTap"));
-console.log(spinalCase("this Is Spinal Tap"));
-console.log(spinalCase("The_Andy_Griffith_Show"));
-console.log(spinalCase("AllThe-small Things"));
-console.log(spinalCase("Teletubbies say Eh-oh"));
 
-/*
-solution plan of this problem:
-  string need to be lower case
-  and joined by dashes
-*/
+console.log(translatePigLatin("schwartz"));
+console.log(translatePigLatin("rhythm"))
