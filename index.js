@@ -1,25 +1,24 @@
-function translatePigLatin(str) {
-  const strRegex = /[aeiou]/;
-  const strArr = str.split("")
+function myReplace(str, before, after) {
 
-  const index = str.indexOf(str.match(strRegex))
-  const consonent = strArr.slice(0, index)
-  const newStr = strArr.slice(index)
+  const firstLetterOfBefore = before.charAt(0);
+  const firstLetterOfAfter = after.charAt(0);
 
+  let newAfter;
 
-  let result;
-  if (!str.match(strRegex)) {
-    result = consonent.concat(newStr).concat("ay").join("")
-  }
-  else if (!strRegex.test(str[0])) {
-    result = newStr.concat(consonent).concat("ay").join("")
-  }
-  else {
-    result = newStr.concat(consonent).concat("way").join("")
-  }
-  return result;
+  if(firstLetterOfBefore.toUpperCase() === firstLetterOfBefore)
+    newAfter = after.replace(firstLetterOfAfter, firstLetterOfAfter.toUpperCase())
+
+  else
+    newAfter = after.replace(firstLetterOfAfter, firstLetterOfAfter.toLowerCase())
+
+  return str.replace(before, newAfter);
 }
 
+console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
+console.log(myReplace("His name is Tom", "Tom", "john"))
 
-console.log(translatePigLatin("schwartz"));
-console.log(translatePigLatin("rhythm"))
+/*
+  - replace before with after
+  - if before is capitalized then after need to
+      convert it to capitalized
+*/
